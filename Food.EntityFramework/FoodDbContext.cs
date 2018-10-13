@@ -7,11 +7,6 @@ namespace Food.EntityFramework.Context
 {
     class FoodDbContext : DbContext
     {
-        public DbSet<Entity.User> Users { get; set; }
-        public FoodDbContext(DbContextOptions<FoodDbContext> options)
-            : base(options)
-        {
-            Database.EnsureCreated();
-        }
+        public DbSet<Entities.User> Users { get; set; }
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Food.EntityFramework.Entity
+namespace Food.EntityFramework.Entities
 {
-    interface IEntity
+    internal interface IEntity
     {
         int Id { get; }
     }
