@@ -3,11 +3,15 @@ li .glyphicon {
 }
 
 /* Highlighting rules for nav menu items */
-li.link-active a,
-li.link-active a:hover,
-li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+.main-nav li.link.link-active a,
+.main-nav li.link.link-active a:hover,
+.main-nav li.link.link-active a:focus {
+    background-color: #e0e9f0;
+    color: #23547d;
+}
+
+.main-nav li.link a {
+    color: #e0e9f0;
 }
 
 /* Keep the nav menu independent of scrolling and on top of other items */
@@ -19,11 +23,20 @@ li.link-active a:focus {
     z-index: 1;
 }
 
+.navbar-inverse {
+    background-color: #23547d;
+    border-color: #23547d;
+}
+
+.navbar-inverse .navbar-brand{
+    color: #e0e9f0;
+}
+
 @media (min-width: 768px) {
     /* On small screens, convert the nav menu to a vertical sidebar */
     .main-nav {
         height: 100%;
-        width: calc(25% - 20px);
+        width: calc(17% - 20px);
     }
     .navbar {
         border-radius: 0px;

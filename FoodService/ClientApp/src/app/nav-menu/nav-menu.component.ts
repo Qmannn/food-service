@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationItem } from './models/NavigationItem';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,13 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-  isExpanded = false;
+  public navItems: NavigationItem[] = [];
 
-  collapse() {
+  public constructor() {
+    this.initNavigation();
+  }
+
+  public isExpanded: boolean = false;
+
+  public collapse(): void {
     this.isExpanded = false;
   }
 
-  toggle() {
+  public toggle(): void {
     this.isExpanded = !this.isExpanded;
+  }
+
+  private initNavigation(): void {
+    this.navItems.push(new NavigationItem('Home', '/', 'glyphicon-home' ));
+    this.navItems.push(new NavigationItem('Counter', '/counter', 'glyphicon-plus' ));
   }
 }

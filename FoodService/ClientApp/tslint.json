@@ -32,7 +32,12 @@
       true,
       140
     ],
-    "member-access": false,
+    "member-access": [
+      true,
+      "check-accessor",
+      "check-constructor",
+      "check-parameter-property"
+    ],
     "member-ordering": [
       true,
       {
@@ -45,7 +50,11 @@
       }
     ],
     "no-arg": true,
+    "no-any": true,
     "no-bitwise": true,
+    "no-magic-numbers":true,
+    "only-arrow-functions":true,
+    "typedef": [true, "call-signature", "parameter", "member-variable-declaration"],
     "no-console": [
       true,
       "debug",
@@ -60,10 +69,6 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,
