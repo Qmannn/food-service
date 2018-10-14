@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService", "FoodService\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Food.EntityFramework", "Food.EntityFramework\Food.EntityFramework.csproj", "{933ACC27-7CD1-4BC8-9ED0-5E994C03FBDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodService.Core.Tests", "FoodService.Core.Tests\FoodService.Core.Tests.csproj", "{643BE3F7-00AC-46F4-A6D9-A382525CE257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService.Core.Tests", "FoodService.Core.Tests\FoodService.Core.Tests.csproj", "{643BE3F7-00AC-46F4-A6D9-A382525CE257}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{77633710-32F1-43C2-8725-A6ACB36D12F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{643BE3F7-00AC-46F4-A6D9-A382525CE257} = {77633710-32F1-43C2-8725-A6ACB36D12F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0ACD62CE-0A85-4C02-AFDB-2C86A43FC8BE}
