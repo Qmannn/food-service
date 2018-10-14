@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Food.EntityFramework.Context
 {
-    class FoodDbContext : DbContext
+    class internal FoodDbContext : DbContext
     {
         public DbSet<Entities.User> Users { get; set; }
     }
