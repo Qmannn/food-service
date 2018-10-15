@@ -25,13 +25,13 @@ namespace Food.EntityFramework
         public override void Delete(User item)
         {
             var user = _userDbContext.Users.Find(item);
-            _userDbContext.Users?.Remove(user);
+            if(user != null)_userDbContext.Users?.Remove(user);
         }
 
         public override void Delete(int id)
         {
             var user = _userDbContext.Users.Find(id);
-            _userDbContext.Users?.Remove(user);
+            if(user!=null)_userDbContext.Users?.Remove(user);
         }
 
         public override void Dispose()
