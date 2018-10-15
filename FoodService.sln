@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService", "FoodService\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Food.EntityFramework", "Food.EntityFramework\Food.EntityFramework.csproj", "{933ACC27-7CD1-4BC8-9ED0-5E994C03FBDD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService.Core.Tests", "FoodService.Core.Tests\FoodService.Core.Tests.csproj", "{643BE3F7-00AC-46F4-A6D9-A382525CE257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Food.Core.Tests", "FoodService.Core.Tests\Food.Core.Tests.csproj", "{643BE3F7-00AC-46F4-A6D9-A382525CE257}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{77633710-32F1-43C2-8725-A6ACB36D12F1}"
 EndProject

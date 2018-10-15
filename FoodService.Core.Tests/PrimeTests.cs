@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Prime.UnitTests.Services
+namespace Food.Core.Tests
 {
     public class PrimeTests
     {
