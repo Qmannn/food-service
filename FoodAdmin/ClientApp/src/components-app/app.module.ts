@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { FoodListComponent } from './food-list/food-list.component';
+import { NavMenuComponent } from '../components-nav-menu/nav-menu.component';
+import { FoodListComponent } from '../components-food-list/food-list.component';
 
 @NgModule({
   declarations: [
