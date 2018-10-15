@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Food.EntityFramework.Entities;
 
 namespace Food.EntityFramework
 {
-    interface IRepository<T>:IDisposable where T:class
+    internal interface IRepository<TEntity> where TEntity : IEntity
     {
-        IEnumerable<T> GetList();
-        T GetItem(int id);
-        void Create(T item);
-        void Update(T item);
-        void Delete(T item);
+        TEntity GetItem(int id);
+        void Add(TEntity item);
+        void Delete(TEntity item);
         void Delete(int id);
         void Save();
     }

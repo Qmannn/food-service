@@ -3,7 +3,7 @@ using Food.EntityFramework.Entities;
 
 namespace Food.EntityFramework.Context
 {
-    internal class UserDbContext : DbContext
+    internal sealed class FoodDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
     }
