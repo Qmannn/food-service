@@ -19,16 +19,6 @@ namespace Food.EntityFramework
 
         public TEntity GetItem(int id) => Table.Find(id);
 
-        public void Create(TEntity item)
-        {
-            Table.Add(item);
-        }
-
-        public void Update(TEntity item)
-        {
-            _foodDbContext.Entry(item).State = EntityState.Modified;
-        }
-
         public TEntity Save(TEntity item)
         {
             TEntity savedEntity = item.Id == 0 
@@ -45,7 +35,7 @@ namespace Food.EntityFramework
             var entity = Table.Find(item);
             if (entity != null)
             {
-                Table?.Remove(entity);
+                Table.Remove(entity);
                 _foodDbContext.SaveChanges();
             }
         }
@@ -55,14 +45,9 @@ namespace Food.EntityFramework
             var entity = Table.Find(id);
             if (entity != null)
             {
-                Table?.Remove(entity);
+                Table.Remove(entity);
                 _foodDbContext.SaveChanges();
             }
-        }
-        
-        public void Save()
-        {
-            _foodDbContext.SaveChanges();
         }
     }
 }
