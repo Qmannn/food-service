@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Food.EntityFramework.Entities;
 
 namespace Food.EntityFramework.Context
 {
-    internal class FoodDbContext : DbContext
+    internal sealed class FoodDbContext : DbContext
     {
-        public DbSet<Entities.User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
