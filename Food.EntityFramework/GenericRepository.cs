@@ -7,7 +7,7 @@ namespace Food.EntityFramework
 {
     class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        public IQueryable All { get; }
+        public IQueryable<TEntity> All { get; }
 
         private DbSet<TEntity> Table => _foodDbContext.Set<TEntity>();
         private readonly FoodDbContext _foodDbContext;
