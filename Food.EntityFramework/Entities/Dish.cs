@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Food.EntityFramework.Entities
+﻿namespace Food.EntityFramework.Entities
 {
     internal sealed class Dish : IEntity
     {
@@ -11,6 +7,6 @@ namespace Food.EntityFramework.Entities
         public string Description { get; set; }
         public int Price { get; set; }
         public string Category { get; set; }
-        public int IdContainer { get; set; }
+        public int ContainerId { get; set; }
     }
 }

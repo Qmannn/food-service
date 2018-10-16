@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Food.EntityFramework.Entities
+﻿namespace Food.EntityFramework.Entities
 {
     internal sealed class Container : IEntity
     {

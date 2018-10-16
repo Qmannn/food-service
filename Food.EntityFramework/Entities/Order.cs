@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Food.EntityFramework.Entities
 {
@@ -9,9 +7,9 @@ namespace Food.EntityFramework.Entities
         public int Id { get; set; }
         public int TotalSum { get; set; }
         public DateTime OrderDate { get; set; }
-        public int IdMenu { get; set; }
+        public int MenuId { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
         //таблица блюдо
     }
 }
