@@ -1,11 +1,13 @@
-﻿using Food.EntityFramework.Entities;
+﻿using System.Linq;
+using Food.EntityFramework.Entities;
 
 namespace Food.EntityFramework
 {
     internal interface IRepository<TEntity> where TEntity : IEntity
     {
+        IQueryable All { get; }
         TEntity GetItem(int id);
-        void Add(TEntity item);
+        TEntity Save(TEntity item);
         void Delete(TEntity item);
         void Delete(int id);
         void Save();

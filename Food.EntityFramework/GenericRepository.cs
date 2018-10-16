@@ -10,34 +10,59 @@ namespace Food.EntityFramework
         public IQueryable All { get; }
 
         private DbSet<TEntity> Table => _foodDbContext.Set<TEntity>();
-        private FoodDbContext _foodDbContext;
+        private readonly FoodDbContext _foodDbContext;
 
-        public GenericRepository(FoodDbContext foodDbContext) {_foodDbContext = foodDbContext;}
+        public GenericRepository(FoodDbContext foodDbContext)
+        {
+            _foodDbContext = foodDbContext;
+        }
 
         public TEntity GetItem(int id) => Table.Find(id);
 
-        public void Create(TEntity item) { Table.Add(item); }
-
-        public void Update(TEntity item) { _foodDbContext.Entry(item).State = EntityState.Modified; }
-
-        public void Save() { _foodDbContext.SaveChanges(); }
-
-        public void Add(TEntity item)
+        public void Create(TEntity item)
         {
             Table.Add(item);
+        }
+
+        public void Update(TEntity item)
+        {
             _foodDbContext.Entry(item).State = EntityState.Modified;
+        }
+
+        public TEntity Save(TEntity item)
+        {
+            TEntity savedEntity = item.Id == 0 
+                ? Table.Add( item ).Entity 
+                : Table.Update( item ).Entity;
+
+            _foodDbContext.SaveChanges();
+
+            return savedEntity;
         }
 
         public void Delete(TEntity item)
         {
             var entity = Table.Find(item);
-            if (entity != null) Table?.Remove(entity);
+            if (entity != null)
+            {
+                Table?.Remove(entity);
+                _foodDbContext.SaveChanges();
+            }
         }
 
         public void Delete(int id)
         {
             var entity = Table.Find(id);
-            if (entity != null) Table?.Remove(entity);
+            if (entity != null)
+            {
+                Table?.Remove(entity);
+                _foodDbContext.SaveChanges();
+            }
+        }
+        
+        public void Save()
+        {
+            _foodDbContext.SaveChanges();
         }
     }
 }
