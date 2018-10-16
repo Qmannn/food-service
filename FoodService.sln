@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService", "FoodService\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Food.EntityFramework", "Food.EntityFramework\Food.EntityFramework.csproj", "{933ACC27-7CD1-4BC8-9ED0-5E994C03FBDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Food", "Food\Food.csproj", "{F17BEBAD-A338-4385-AB42-B913EBF33E4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Food.Core", "Food.Core\Food.Core.csproj", "{265638FF-21CC-4777-B9C2-BE12E427372E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{933ACC27-7CD1-4BC8-9ED0-5E994C03FBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{933ACC27-7CD1-4BC8-9ED0-5E994C03FBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{933ACC27-7CD1-4BC8-9ED0-5E994C03FBDD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F17BEBAD-A338-4385-AB42-B913EBF33E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F17BEBAD-A338-4385-AB42-B913EBF33E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F17BEBAD-A338-4385-AB42-B913EBF33E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F17BEBAD-A338-4385-AB42-B913EBF33E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265638FF-21CC-4777-B9C2-BE12E427372E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265638FF-21CC-4777-B9C2-BE12E427372E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265638FF-21CC-4777-B9C2-BE12E427372E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265638FF-21CC-4777-B9C2-BE12E427372E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
