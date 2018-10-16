@@ -10,6 +10,5 @@ namespace Food.EntityFramework
         TEntity Save(TEntity item);
         void Delete(TEntity item);
         void Delete(int id);
-        void Save();
     }
 }
