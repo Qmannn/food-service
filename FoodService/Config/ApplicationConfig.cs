@@ -8,11 +8,10 @@ namespace Food.FoodService.Config
     {
         public static IConfiguration GetServiceConfiguration()
         {
-            string env = Environment.GetEnvironmentVariable("ASPNETCORE_RUNTIME_ENVIRONMENT");
             IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", false); 
 
-            string additioonalCofigFile = $"appsettings.{env}.json";
+            string additioonalCofigFile = $"appsettings.json";
             if (File.Exists(additioonalCofigFile))
             {
                 configurationBuilder.AddJsonFile(additioonalCofigFile, false);
