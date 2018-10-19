@@ -3,7 +3,6 @@ using Food.EntityFramework.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-
 namespace Food.EntityFramework
 {
     class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
