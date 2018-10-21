@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
-import { FoodListComponent } from '../food-list/food-list.component';
+import { FoodListComponent } from '../pages/food-list/food-list.component';
 
 @NgModule({
   declarations: [
