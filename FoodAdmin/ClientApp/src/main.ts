@@ -5,7 +5,7 @@ import { AppModule } from './components/app/app.module';
 import { environment } from './environments/environment';
 
 export function getBaseUrl() {
-  return document.getElementsByTagName('base')[0].href;
+  return environment.baseUrl;
 }
 
 const providers = [

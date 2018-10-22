@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 import { FoodListComponent } from '../pages/food-list/food-list.component';
+import { HttpService } from '../../HttpServices/BaseHttpService';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { FoodListComponent } from '../pages/food-list/food-list.component';
       { path: '', component: FoodListComponent, pathMatch: 'full' },
     ])
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

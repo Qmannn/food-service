@@ -35,16 +35,22 @@ namespace FoodAdmin
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors( builder => builder.WithOrigins( "http://localhost:4200/" )
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod() );
             }
             else
             {
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
+                // TODO add Cors support if need it
             }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
 
             app.UseMvc(routes =>
             {
