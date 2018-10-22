@@ -1,18 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Food.EntityFramework.Entities.Configurations;
-using Food.EntityFramework.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Reflection;
+using System.Linq;
+
 
 namespace Food.EntityFramework.Context
 {
     internal sealed class FoodDbContext : DbContext
     {
-    
-        public DbSet<Container> Containers { get; set; }
-        public DbSet<Dish> Dishs { get; set; }
-        public DbSet<Menu> Menus { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<User> Users { get; set; }
         public FoodDbContext()
         {
             Database.EnsureCreated();
@@ -25,11 +20,19 @@ namespace Food.EntityFramework.Context
 
         protected override void OnModelCreating( ModelBuilder modelBuilder )
         {
-            modelBuilder.ApplyConfiguration(new ContainerConfiguration());
-            modelBuilder.ApplyConfiguration(new DishConfiguration());
-            modelBuilder.ApplyConfiguration(new MenuConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderConfiguration());
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            base.OnModelCreating(modelBuilder);
+
+            var typesToRegister = Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(t => t.GetInterfaces().Any(gi => gi.IsGenericType && gi.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>)))
+                .ToList();
+
+
+            foreach (var type in typesToRegister)
+            {
+                dynamic configurationInstance = Activator.CreateInstance(type);
+                modelBuilder.ApplyConfiguration(configurationInstance);
+            }
         }
     }
 }

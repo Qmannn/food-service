@@ -1,8 +1,18 @@
-﻿namespace Food.EntityFramework.Entities
+﻿using Food.EntityFramework.Entities.Enums;
+using System.Collections.Generic;
+
+namespace Food.EntityFramework.Entities
 {
-    internal sealed class User : IEntity
+    internal class User : IEntity
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string Name { get; set; }
+        public UserRole Role { get; set; }
+
+        public User()
+        {
+            Orders = new List<Order>();
+        }
+        public virtual List<Order> Orders { get; set; }
     }
 }

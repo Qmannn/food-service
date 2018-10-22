@@ -7,9 +7,12 @@ namespace Food.EntityFramework.Entities.Configurations
     {
         public void Configure( EntityTypeBuilder<Container> builder )
         {
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Name);
-            builder.Property(c => c.Price);
+            builder.ToTable("Container").HasKey(container => container.Id);
+            builder.Property(container => container.Name).IsRequired().HasMaxLength(500);
+
+            builder.HasMany(dish => dish.Dishes)
+                .WithOne(container => container.Container)
+                .IsRequired();
         }
     }
 }

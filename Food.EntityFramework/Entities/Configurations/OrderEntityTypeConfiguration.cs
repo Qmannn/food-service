@@ -5,14 +5,23 @@ namespace Food.EntityFramework.Entities.Configurations
 {
     class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
-        public void Configure( EntityTypeBuilder<Order> builder )
+        public void Configure( EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.TotalSum);
-            builder.Property(c => c.OrderDate.Date);
-            builder.Property(c => c.MenuId);
-            builder.Property(c => c.DeliveryDate);
-            builder.Property(c => c.UserId);
+            builder.ToTable("Order").HasKey(order => order.Id);
+            builder.Property(order => order.OrderDate);
+            builder.Property(order => order.DeliveryDate);
+
+            builder.HasMany(order => order.OrderDishes)
+                .WithOne(orderDish => orderDish.Order)
+                .HasForeignKey(orderDish => orderDish.OrderId);
+
+            builder.HasOne(user => user.User)
+               .WithMany(order => order.Orders)
+               .IsRequired();
+
+            builder.HasOne(menu => menu.Menu)
+               .WithMany(order => order.Orders)
+               .IsRequired();
         }
     }
 }
