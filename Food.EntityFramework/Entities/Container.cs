@@ -8,10 +8,6 @@ namespace Food.EntityFramework.Entities
         public string Name { get; set; }
         public decimal Price { get; set; }
 
-        public Container()
-        {
-            Dishes = new List<Dish>();
-        }
-        public virtual List<Dish> Dishes { get; set; }
+        public virtual ICollection<Dish> Dishes { get; set; }
     }
 }

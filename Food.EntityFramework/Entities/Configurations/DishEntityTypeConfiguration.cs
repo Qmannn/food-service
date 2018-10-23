@@ -13,14 +13,15 @@ namespace Food.EntityFramework.Entities.Configurations
 
             builder.HasMany(dish => dish.MenuDishes)
                 .WithOne(menuDish => menuDish.Dish)
-                .HasForeignKey(menuDish => menuDish.MenuDishId);
+                .HasForeignKey(menuDish => menuDish.DishId);
 
             builder.HasMany(dish => dish.OrderDishes)
                 .WithOne(orderDish => orderDish.Dish)
-                .HasForeignKey(orderDish => orderDish.OrderDishId);
+                .HasForeignKey(orderDish => orderDish.DishId);
 
-            builder.HasOne(container => container.Container)
-                .WithMany(dish => dish.Dishes)
+            builder.HasOne(dish => dish.Container)
+                .WithMany(container => container.Dishes)
+                .HasForeignKey(dish => dish.ContainerId)
                 .IsRequired();
         }
     }

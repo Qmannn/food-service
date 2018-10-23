@@ -9,10 +9,6 @@ namespace Food.EntityFramework.Entities
         public string Name { get; set; }
         public UserRole Role { get; set; }
 
-        public User()
-        {
-            Orders = new List<Order>();
-        }
-        public virtual List<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

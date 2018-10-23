@@ -9,10 +9,6 @@ namespace Food.EntityFramework.Entities.Configurations
         {
             builder.ToTable("Container").HasKey(container => container.Id);
             builder.Property(container => container.Name).IsRequired().HasMaxLength(500);
-
-            builder.HasMany(dish => dish.Dishes)
-                .WithOne(container => container.Container)
-                .IsRequired();
         }
     }
 }

@@ -10,12 +10,7 @@ namespace Food.EntityFramework.Entities
         public DateTime StartDate { set; get; }
         public DateTime EndDate { get; set; }
 
-        public Menu()
-        {
-            MenuDishes = new List<MenuDish>();
-            Orders = new List<Order>();
-        }
-        public virtual List<MenuDish> MenuDishes { get; set; }
-        public virtual List<Order> Orders { get; set; }
+        public virtual ICollection<MenuDish> MenuDishes { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

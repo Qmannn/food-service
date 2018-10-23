@@ -7,7 +7,7 @@ namespace Food.EntityFramework.Entities.Configurations
     {
         public void Configure( EntityTypeBuilder<OrderDish> builder )
         {
-            builder.HasKey(orderDish => new { orderDish.OrderId, orderDish.OrderDishId });
+            builder.HasKey(orderDish => new { orderDish.OrderId, orderDish.DishId });
         }
     }
 }
