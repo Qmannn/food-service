@@ -9,7 +9,7 @@ namespace Food.EntityFramework.Entities.Configurations
         {
             builder.ToTable("Order").HasKey(order => order.Id);
 
-            builder.HasOne(order => order.OrderDishes)
+            builder.HasMany(order => order.OrderDishes)
                 .WithOne(orderDish => orderDish.Order)
                 .HasForeignKey(orderDish => orderDish.OrderId);
 

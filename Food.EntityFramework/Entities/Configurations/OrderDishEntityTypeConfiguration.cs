@@ -7,7 +7,8 @@ namespace Food.EntityFramework.Entities.Configurations
     {
         public void Configure( EntityTypeBuilder<OrderDish> builder )
         {
-            builder.HasKey(orderDish => new { orderDish.OrderId, orderDish.DishId });
+            builder.ToTable("OrderDish").HasKey(orderDish => orderDish.Id);
+            builder.Property(orderDish => orderDish.DishName).IsRequired().HasMaxLength(500);
         }
     }
 }
