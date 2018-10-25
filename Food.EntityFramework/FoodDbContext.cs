@@ -2,15 +2,19 @@
 using System;
 using System.Reflection;
 using System.Linq;
-
+using JetBrains.Annotations;
 
 namespace Food.EntityFramework.Context
 {
-    internal sealed class FoodDbContext : DbContext
+    public class FoodDbContext : DbContext
     {
         public FoodDbContext()
         {
             Database.EnsureCreated();
+        }
+
+        public FoodDbContext(DbContextOptions<FoodDbContext> options) : base(options)
+        {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
