@@ -1,6 +1,6 @@
 ﻿namespace Food.EntityFramework.Entities
 {
-    internal interface IEntity
+    public interface IEntity
     {
         int Id { get; }
     }
