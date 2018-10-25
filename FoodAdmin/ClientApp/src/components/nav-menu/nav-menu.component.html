@@ -17,6 +17,11 @@
                         <span class='glyphicon glyphicon-cutlery'></span> Список блюд
                     </a>
                 </li>
+                <li [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/sample"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-paperclip'></span> Пример страницы
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
