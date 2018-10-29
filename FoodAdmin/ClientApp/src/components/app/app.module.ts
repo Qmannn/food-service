@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 import { FoodListComponent } from '../pages/food-list/food-list.component';
 import { HttpService } from '../../HttpServices/BaseHttpService';
+import { MenuComponent } from '../pages/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     FoodListComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -21,6 +23,7 @@ import { HttpService } from '../../HttpServices/BaseHttpService';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: FoodListComponent, pathMatch: 'full' },
+      { path: 'menu', component: MenuComponent, pathMatch: 'full' },
     ])
   ],
   providers: [HttpService],

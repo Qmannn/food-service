@@ -10,7 +10,7 @@ namespace FoodAdmin.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
-        [HttpGet("samples")]
+        [HttpGet("Samples")]
         public List<SampleDto> GetSamples()
         {
             return new List<SampleDto>
