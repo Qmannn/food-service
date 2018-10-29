@@ -9,12 +9,14 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { FoodListComponent } from './components/pages/food-list/food-list.component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
+import { MenuComponent } from './components/pages/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     FoodListComponent,
+    MenuComponent,
     SampleComponent
   ],
   imports: [
@@ -24,6 +26,7 @@ import { SampleComponent } from './components/pages/Sample/Sample.Component';
     RouterModule.forRoot([
       { path: '', component: FoodListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
+      { path: 'menu', component: MenuComponent, pathMatch: 'full' },
     ])
   ],
   providers: [HttpService],

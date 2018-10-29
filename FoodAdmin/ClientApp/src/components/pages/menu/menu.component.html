@@ -1,0 +1,29 @@
+  <div>
+    <div class="page-header">
+      <h1>Список меню:</h1>
+    </div>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Дата</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let menu of menus">
+            <th scope="row">{{menu.menuId}}</th>
+            <td>{{menu.menuDate}}</td>
+            <td>{{menu.menuStatus}}</td>
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" (click)="editSample(sample.sampleId)">Изменить</button>
+                <button type="button" class="btn btn-danger" (click)="deleteSample(sample.sampleId)">Удалить</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
