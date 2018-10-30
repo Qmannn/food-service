@@ -20,7 +20,7 @@ namespace FoodAdmin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_1 );
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -35,16 +35,22 @@ namespace FoodAdmin
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors( builder => builder.WithOrigins( "http://localhost:4200/" )
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod() );
             }
             else
             {
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
+                // TODO add Cors support if need it
             }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
 
             app.UseMvc(routes =>
             {
