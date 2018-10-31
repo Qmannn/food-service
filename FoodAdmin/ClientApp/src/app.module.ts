@@ -11,6 +11,7 @@ import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { MenuComponent } from './components/pages/menu/menu.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

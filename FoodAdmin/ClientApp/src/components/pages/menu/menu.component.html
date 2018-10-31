@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <div>
     <div class="page-header">
       <h1>Список меню:</h1>
@@ -27,3 +28,15 @@
       </table>
     </div>
   </div>
+=======
+<h1>Список меню:</h1>
+  <table cellspacing="30" cellpadding="3" border="1">
+  <tr *ngFor="let menu of menus">
+    <td>{{menu.menuId}}</td>
+    <td>{{menu.menuDate}}</td>
+    <td>{{menu.menuStatus}}</td>
+    <button>Изменить</button>
+    <button>Удалить</button>
+  </tr>
+</table>
+>>>>>>> 27ad86c2d4fbbb20a2a6b5278939a741b2aa413f
