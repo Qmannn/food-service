@@ -1,23 +1,21 @@
 import { Component } from '@angular/core';
-import { MenuDataHttpService } from '../../../HttpServices/MenuDataHttpService';
+import { MenuHttpService } from '../../../HttpServices/MenuHttpService';
 import { MenuDto } from '../../../dto/Menu/MenuDto';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'app-menu-list',
   templateUrl: './menu.component.html',
-  providers: [MenuDataHttpService]
+  providers: [MenuHttpService]
 })
 export class MenuComponent {
-  private readonly _menuDataService: MenuDataHttpService;
-  public countAll = 0;
-  public samples: MenuDto[];
+  private readonly _menuDataService: MenuHttpService;
+  public menus: MenuDto[];
 
-  public constructor(menuDataService: MenuDataHttpService) {
+  public constructor(menuDataService: MenuHttpService) {
     this._menuDataService = menuDataService;
 
-    this._menuDataService.getSamples().subscribe(values => {
-      this.countAll = values.length;
-      this.samples = values;
+    this._menuDataService.getMenus().subscribe(values => {
+      this.menus = values;
     });
   }
 }

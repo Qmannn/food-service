@@ -1,9 +1,9 @@
 <h1>Список меню:</h1>
   <table cellspacing="30" cellpadding="3" border="1">
-  <tr *ngFor="let sample of samples">
-    <td>{{sample.menuId}}</td>
-    <td>{{sample.menuDate}}</td>
-    <td>{{sample.menuStatus}}</td>
+  <tr *ngFor="let menu of menus">
+    <td>{{menu.menuId}}</td>
+    <td>{{menu.menuDate}}</td>
+    <td>{{menu.menuStatus}}</td>
     <button>Изменить</button>
     <button>Удалить</button>
   </tr>
