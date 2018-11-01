@@ -11,7 +11,7 @@ namespace FoodAdmin.Controllers
     public class MenusApiController : Controller
     {
         [HttpGet("menus")]
-        public List<MenuDto> GetSamples()
+        public List<MenuDto> GetMenus()
         {
             return new List<MenuDto>
             {
@@ -19,13 +19,13 @@ namespace FoodAdmin.Controllers
                 {
                     MenuId = 0,
                     MenuDate = new DateTime(1998,3,7),
-                    MenuStatus = false                   
+                    MenuStatus = MenuStatus.Closed.ToString()                   
                 },
                 new MenuDto
                 {
                     MenuId = 1,    
                     MenuDate = new DateTime(2018,10,24),
-                    MenuStatus = true
+                    MenuStatus = MenuStatus.Active.ToString()
                 },
             };
         }
