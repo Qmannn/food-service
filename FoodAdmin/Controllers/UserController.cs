@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace FoodAdmin.Controllers
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    public class UsersController : Controller
     {
-        [HttpGet("users")]
+        [HttpGet("")]
         public List<UserDto> GetUsers()
         {
             return new List<UserDto>
