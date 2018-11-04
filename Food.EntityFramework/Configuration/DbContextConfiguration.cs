@@ -1,4 +1,4 @@
-﻿namespace Food.FoodService.Config
+﻿namespace Food.EntityFramework.Configuration
 {
     public sealed class DbContextConfiguration
     {

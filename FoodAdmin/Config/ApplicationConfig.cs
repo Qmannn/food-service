@@ -2,7 +2,7 @@
 using Food.EntityFramework.Configuration;
 using Microsoft.Extensions.Configuration;
 
-namespace FoodService.Config
+namespace FoodAdmin.Config
 {
     internal class ApplicationConfig
     {

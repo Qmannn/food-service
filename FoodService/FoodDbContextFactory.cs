@@ -1,10 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Food.EntityFramework.Context;
+using Food.EntityFramework;
+using FoodService.Config;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace FoodService
 {
@@ -12,10 +15,23 @@ namespace FoodService
     {
         public FoodDbContext CreateDbContext(string[] args)
         {
-            var builder = new DbContextOptionsBuilder<FoodDbContext>();
-            builder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=mobileappdb2;Trusted_Connection=True;");
+            ApplicationConfig config = new ApplicationConfig( GetServiceConfiguration() );
+            return new FoodDbContext(config.DbContextConfiguration);
+        }
 
-            return new FoodDbContext(builder.Options);
+        private IConfiguration GetServiceConfiguration()
+        {
+            IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", false); 
+
+
+            string additioonalCofigFile = $"appsettings.json";
+            if (File.Exists(additioonalCofigFile))
+            {
+                configurationBuilder.AddJsonFile(additioonalCofigFile, false);
+            }
+
+            return configurationBuilder.Build();
         }
     }
 }

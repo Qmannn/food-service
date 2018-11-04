@@ -25,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="FoodService.csproj.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Food.EntityFramework\Food.EntityFramework.csproj" />
   </ItemGroup>
 

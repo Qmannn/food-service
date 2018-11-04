@@ -1,24 +1,28 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Reflection;
+﻿using System;
 using System.Linq;
+using System.Reflection;
+using Food.EntityFramework.Configuration;
+using Microsoft.EntityFrameworkCore;
 
-namespace Food.EntityFramework.Context
+namespace Food.EntityFramework
 {
     public class FoodDbContext : DbContext
     {
-        public FoodDbContext()
+        private readonly DbContextConfiguration _configuration;
+
+        public FoodDbContext( DbContextConfiguration configuration )
         {
-            Database.EnsureCreated();
+            _configuration = configuration;
         }
 
-        public FoodDbContext(DbContextOptions<FoodDbContext> options) : base(options)
+        public FoodDbContext(DbContextOptions<FoodDbContext> options, DbContextConfiguration configuration ) : base(options)
         {
+            _configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=mobileappdb2;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer( _configuration.ConnectionString );
         }
 
         protected override void OnModelCreating( ModelBuilder modelBuilder )
