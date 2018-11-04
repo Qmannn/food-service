@@ -1,6 +1,8 @@
 using Food.EntityFramework;
 using Food.EntityFramework.Configuration;
+using Food.EntityFramework.Entities;
 using FoodAdmin.Config;
+using FoodAdmin.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +31,8 @@ namespace FoodAdmin
             
             services.AddDbContext<FoodDbContext>( ( provider, builder ) => { builder.UseSqlServer( provider.GetService<DbContextConfiguration>().ConnectionString ); } );
             services.AddEntityFrameworkSqlServer();
+            services.AddScoped<IRepository<Sample>, GenericRepository<Sample>>();
+            services.AddScoped<ISampleService, SampleService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

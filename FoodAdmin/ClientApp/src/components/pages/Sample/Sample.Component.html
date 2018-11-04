@@ -2,6 +2,11 @@
     <div class="page-header">
         <h1>Название страницы <small>дополнительный текст</small></h1>
     </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <button type="button" class="btn btn-primary" (click)="addSample()">Добавить</button>
+        </div>
+    </div>
     <div>
         <table class="table">
             <thead>
@@ -29,6 +34,11 @@
             <div class="card" *ngIf="sampleToEdit">
                 <div class="card-body">
                     <h4 class="card-title">Edit sample: {{sampleToEdit.name}}#{{sampleToEdit.sampleId}}</h4>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" placeholder="Название" [(ngModel)]="sampleToEdit.name" />
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-4">
                             <input type="text" class="form-control" placeholder="Описание" [(ngModel)]="sampleToEdit.description" />
