@@ -9,13 +9,15 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { FoodListComponent } from './components/pages/food-list/food-list.component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
+import { UserListComponent } from './components/pages/UserList/UserList.Component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     FoodListComponent,
-    SampleComponent
+    SampleComponent,
+	  UserListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,6 +26,7 @@ import { SampleComponent } from './components/pages/Sample/Sample.Component';
     RouterModule.forRoot([
       { path: '', component: FoodListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
+	    { path: 'user-list', component: UserListComponent }
     ])
   ],
   providers: [HttpService],

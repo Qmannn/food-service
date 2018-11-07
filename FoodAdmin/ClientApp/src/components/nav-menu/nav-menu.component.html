@@ -22,6 +22,11 @@
                         <span class='glyphicon glyphicon-paperclip'></span> Пример страницы
                     </a>
                 </li>
+				<li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                    <a [routerLink]='["/user-list"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-user'></span> Список пользователей
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
