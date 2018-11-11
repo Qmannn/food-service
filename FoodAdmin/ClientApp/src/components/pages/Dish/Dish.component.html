@@ -1,0 +1,89 @@
+<h1>Добавить блюдо</h1>
+
+<hr>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Название" value="{{ name }}"/>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Описание" value="{{ description }}"/>
+    </div>
+  </div>
+
+<br>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Цена" value="{{ price }}"/>
+    </div>
+  </div>
+
+<br>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">{{ dishType }}</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Тип блюда</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="">Салат</a></li>
+    <li><a href="">Суп</a></li>
+    <li><a href="">Второе</a></li>
+    <li><a href="">Гарнир</a></li>
+  </ul>
+</div>
+
+<br><br>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">{{ containerId }}</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Тип блюда</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+  </ul>
+</div>
+
+<br><br>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <button type="button" class="btn btn-primary">Сохранить</button>
+    </div>
+  </div>
+
+<br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Container Name</th>
+        <th>Container Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contsiner of containers">
+        <th scope="row">{{container.id}}</th>
+        <td>{{container.name}}</td>
+        <td>{{container.price}}</td>
+        <td>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" (click)="editSample(sample.sampleId)">Изменить</button>
+            <button type="button" class="btn btn-danger" (click)="deleteSample(sample.sampleId)">Удалить</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>

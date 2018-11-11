@@ -42,6 +42,11 @@
             <span class='glyphicon glyphicon-cog'></span> Управление командами
           </a>
         </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/dish"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-paperclip'></span> Добавить блюдо
+          </a>
+        </li>
       </ul>
     </div>
   </div>

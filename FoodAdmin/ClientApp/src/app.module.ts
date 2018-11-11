@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { DishListComponent } from './components/pages/DishList/DishList.Component';
+import { DishComponent } from './components/pages/Dish/Dish.component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { MenuComponent } from './components/pages/menu/menu.component';
@@ -35,6 +36,7 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
     RouterModule.forRoot([
       { path: '', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
+      { path: 'dish', component: DishComponent },
       { path: 'sample', component: SampleComponent },
       { path: 'menu', component: MenuComponent, pathMatch: 'full' },
       { path: 'sample/:sampleId/edit', component: EditSampleComponent },
