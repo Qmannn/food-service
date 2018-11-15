@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using FoodAdmin.Dto.Dish;
-using FoodAdmin.Dto.Container;
 using FoodAdmin.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,43 +15,54 @@ namespace FoodAdmin.Controllers
             _dishService = dishService;
         }
 
-        [HttpGet("dish")]
-        public List<ContainerDto> GetContainers()
+        [HttpGet("dishes")]
+        public List<DishDto> GetDishes()
         {
-            var storedContainers = _dishService.GetContainers();
+            var storedDishes = _dishService.GetDishes();
 
-            if (storedContainers.Count > 0)
+            if (storedDishes.Count > 0)
             {
-                return storedContainers;
+                return storedDishes;
             }
 
-            return new List<ContainerDto>
+            return new List<DishDto>
             {
-                new ContainerDto
+                 new DishDto
                 {
-                    Id = 1,
-                    Name = "first",
-                    Price = 12
+                    DishId = 10,
+                    Name = "Test1",
+                    Description = "First description",
+                    Price = 17
                 },
-                new ContainerDto
+                new DishDto
                 {
-                    Id = 2,
-                    Name = "second",
-                    Price = 13
-                },
-                new ContainerDto
-                {
-                    Id = 3,
-                    Name = "third",
-                    Price = 14
+                    DishId = 15,
+                    Name = "Test2",
+                    Description = "Description",
+                    Price = 10
                 },
             };
         }
 
         [HttpGet("dish")]
-        public DishDto GetDish(int dishId)
+        public DishDto GetDish( int dishId )
         {
-            return _dishService.GetDish( dishId );
+            return _dishService.GetDish(dishId);
+        }
+
+        [HttpPost("dish")]
+        public SavedDishInfo SaveDish( [FromBody] DishDto dish )
+        {
+            DishDto savedDishDto = _dishService.SaveDish(dish);
+
+            return new SavedDishInfo
+            {
+                SavedDishId = savedDishDto.DishId,
+                SavedName = savedDishDto.Name,
+                SavedDescription = savedDishDto.Description,
+                SavedPrice = savedDishDto.Price,
+            };
         }
     }
+  
 }

@@ -2,27 +2,32 @@ import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DishDto } from '../dto/Dish/DishDto';
-import { ContainerDto } from '../dto/Container/ContainerDto';
 import { HttpParams } from '@angular/common/http';
+import { SavedDishInfo } from '../dto/Dish/SavedDishInfo';
 
 @Injectable()
 export class DishDataService {
-    private readonly _httpService: HttpService;
+  private readonly _httpService: HttpService;
 
-    public getContainers(): Observable<ContainerDto[]> {
-      return this._httpService.get<ContainerDto[]>('api/Dish/Dishes');
-    }
+  public constructor(httpService: HttpService) {
+    this._httpService = httpService;
+  }
 
-    public constructor(httpService: HttpService) {
-        this._httpService = httpService;
-    }
-
+  public getDishes(): Observable<DishDto[]> {
+    return this._httpService.get<DishDto[]>('api/Dish/Dishes');
+  }
 
   public getDish(dishId: number): Observable<DishDto> {
+    // Устанавливаем необходимые параметры для запроса (контроллеру необхоим параметр sampleId)
+    const params: HttpParams = new HttpParams()
+      .set('dishId', dishId.toString());
+    // get<SampleDto> - в треугольных скобках указан тип возвращаемого результата
+    return this._httpService.get<DishDto>('api/Dish/Dish', params);
+  }
 
-        const params: HttpParams = new HttpParams()
-            .set('dishId', dishId.toString());
-
-        return this._httpService.get<DishDto>('api/Dish/Dish', params);
-    }
+  public saveDish(dish: DishDto): Observable<SavedDishInfo> {
+    // post<SampleDto, SavedSampleInfo> - в треугольных скобках первый параметр - тип тела запроса (передаваемый объект)
+    // , второй параметр - тип возвращаемого результата
+    return this._httpService.post<DishDto, SavedDishInfo>('api/Dish/Dish', dish);
+  }
 }
