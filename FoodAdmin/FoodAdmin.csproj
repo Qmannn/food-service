@@ -20,8 +20,15 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\dto\Новая папка\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\dto\Новая папка\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\src\dto\Новая папка\**" />
+    <None Remove="ClientApp\src\dto\Новая папка\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,10 +40,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\components\pages\Food-List\FoodList.Component.ts" />
     <TypeScriptCompile Include="ClientApp\src\HttpServices\FoodListService\FoodListService.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\dto\Новая папка\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,0 +1,32 @@
+<h1>Список блюд:</h1>
+<button type="button" class="btn btn-primary">Добавить</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Стоимость</th>
+      <th scope="col">Тип</th>
+      <th scope="col">Вес</th>
+      <th scope="col">Изменить</th>
+      <th scope="col">Удалить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dish of dishes">
+      <th>{{dish.dishName}}</th>
+      <td>{{dish.dishPrice}}</td>
+      <td>{{getDishType(dish.type)}}</td>
+      <td>{{dish.dishWeight}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-primary">Изменить</button>
+        </div>
+      </td>
+      <td>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger">Удалить</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
