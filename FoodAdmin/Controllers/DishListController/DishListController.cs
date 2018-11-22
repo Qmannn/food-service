@@ -8,8 +8,8 @@ namespace FoodAdmin.Controllers
     [Route("api/[controller]")]
     public class DishesApiController : Controller
     {
-        [HttpGet("dishlist")]
-        public List<DishDto> GetSamples()
+        [HttpGet("dishes")]
+        public List<DishDto> GetDishes()
         {
             return new List<DishDto>
             {

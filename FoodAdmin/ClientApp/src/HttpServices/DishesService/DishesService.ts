@@ -13,10 +13,6 @@ export class DishesService {
   }
 
   public getDishes(): Observable<DishDto[]> {
-    return this._httpService.get<DishDto[]>('api/DishesApi/dishlist');
-  }
-
-  public sendDishes(): void {
-    
+    return this._httpService.get<DishDto[]>('api/DishesApi/dishes');
   }
 }
