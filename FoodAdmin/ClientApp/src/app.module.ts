@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { FoodListComponent } from './components/pages/Food-List/FoodList.Component';
+import { DishListComponent } from './components/pages/DishList/DishList.Component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
 
@@ -14,7 +14,7 @@ import { SampleComponent } from './components/pages/Sample/Sample.Component';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    FoodListComponent,
+    DishListComponent,
     SampleComponent
   ],
   imports: [
@@ -22,7 +22,7 @@ import { SampleComponent } from './components/pages/Sample/Sample.Component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: FoodListComponent, pathMatch: 'full' },
+      { path: '', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
     ])
   ],
