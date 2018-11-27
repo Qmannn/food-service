@@ -1,33 +1,56 @@
-<h1>Добавить блюдо</h1>
+<div class="card">
 
-<hr>
-
-  <div class="row">
-    <div class="col-lg-4">
-      <input type="text" class="form-control" placeholder="Название" [(ngModel)]="dishToEdit.name"/>
-    </div>
+  <div class="card-header">
+    <h1 class="title">Добавить блюдо</h1>
   </div>
-
   <br>
 
-  <div class="row">
-    <div class="col-lg-4">
-      <input type="text" class="form-control" placeholder="Описание" [(ngModel)]="dishToEdit.description"/>
+  <div class="card-bloc">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <input type="text" class="form-control" placeholder="Название" [(ngModel)]="dishToEdit.name" />
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <textarea class="form-control" rows="5" placeholder="Описание" [(ngModel)]="dishToEdit.description" style="resize:vertical"></textarea>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <input type="number" min="0" class="form-control" placeholder="Цена" [(ngModel)]="dishToEdit.price" />
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <select class="form-control" required [(ngModel)]="dishToEdit.category">
+         <option *ngFor="let dishCategory of dishCategories" [ngValue]="dishCategory.value">{{ dishCategory.name }}</option>
+        </select>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <select class="form-control" [(ngModel)]="dishToEdit.containerId">
+          <option value="1">Контейнер 1</option>
+        </select>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <button type="button" class="btn btn-primary" (click)="saveDish()">Сохранить</button>
+      </div>
     </div>
   </div>
+</div>
 
-<br>
-
-  <div class="row">
-    <div class="col-lg-4">
-      <input type="text" class="form-control" placeholder="Цена" [(ngModel)]="dishToEdit.price"/>
-    </div>
-  </div>
-
-<br>
-
-  <div class="row">
-    <div class="col-lg-4">
-      <button type="button" class="btn btn-primary" (click)="saveDish()">Сохранить</button>
-    </div>
-  </div>

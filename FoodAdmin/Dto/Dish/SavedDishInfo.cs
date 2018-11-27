@@ -1,4 +1,6 @@
-﻿namespace FoodAdmin.Dto.Dish
+﻿using Food.EntityFramework.Entities.Enums;
+
+namespace FoodAdmin.Dto.Dish
 {
     public class SavedDishInfo
     {
@@ -6,5 +8,7 @@
         public string SavedName { get; set; }
         public string SavedDescription { get; set; }
         public decimal SavedPrice { get; set; }
+        public DishCategory SavedCategory { get; set; }
+        public int SavedContainerId { get; set; }
     }
 }

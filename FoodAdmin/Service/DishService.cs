@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Food.EntityFramework;
 using Food.EntityFramework.Entities;
+using Food.EntityFramework.Entities.Enums;
 using FoodAdmin.Dto.Dish;
 
 namespace FoodAdmin.Service
@@ -20,7 +21,7 @@ namespace FoodAdmin.Service
         {
             List<Dish> dishes = _dishRepository.All.ToList();
 
-            return dishes.ConvertAll( Convert );
+            return dishes.ConvertAll( ConvertToDto );
         }
 
         public DishDto GetDish( int dishId )
@@ -29,7 +30,7 @@ namespace FoodAdmin.Service
             DishDto dishDto = null;
             if ( dish != null )
             {
-                dishDto = Convert( dish );
+                dishDto = ConvertToDto( dish );
             }
 
             return dishDto;
@@ -38,24 +39,32 @@ namespace FoodAdmin.Service
         public DishDto SaveDish( DishDto dishDto )
         {
             Dish dish = _dishRepository.GetItem(dishDto.DishId);
+            if ( dish == null)
+            {
+                dish = new Dish();
+            }
                 
             dish.Name = dishDto.Name;
             dish.Description = dishDto.Description;
             dish.Price = dishDto.Price;
+            dish.Category = dishDto.Category;
+            dish.ContainerId = dishDto.ContainerId;
 
             dish = _dishRepository.Save( dish );
 
-            return Convert( dish );
+            return ConvertToDto( dish );
         }
 
-        private DishDto Convert( Dish dish )
+        private DishDto ConvertToDto( Dish dish )
         {
             return new DishDto
             {
                 DishId = dish.Id,
                 Name = dish.Name,
                 Description = dish.Description,
-                Price = dish.Price
+                Price = dish.Price,
+                Category = dish.Category,
+                ContainerId = dish.ContainerId
             };
         }
     }

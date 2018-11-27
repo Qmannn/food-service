@@ -18,16 +18,12 @@ export class DishDataService {
   }
 
   public getDish(dishId: number): Observable<DishDto> {
-    // Устанавливаем необходимые параметры для запроса (контроллеру необхоим параметр sampleId)
     const params: HttpParams = new HttpParams()
       .set('dishId', dishId.toString());
-    // get<SampleDto> - в треугольных скобках указан тип возвращаемого результата
     return this._httpService.get<DishDto>('api/Dish/Dish', params);
   }
 
   public saveDish(dish: DishDto): Observable<SavedDishInfo> {
-    // post<SampleDto, SavedSampleInfo> - в треугольных скобках первый параметр - тип тела запроса (передаваемый объект)
-    // , второй параметр - тип возвращаемого результата
     return this._httpService.post<DishDto, SavedDishInfo>('api/Dish/Dish', dish);
   }
 }

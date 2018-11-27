@@ -31,6 +31,7 @@ namespace FoodAdmin
             
             services.AddDbContext<FoodDbContext>( ( provider, builder ) => { builder.UseSqlServer( provider.GetService<DbContextConfiguration>().ConnectionString ); } );
             services.AddEntityFrameworkSqlServer();
+
             services.AddScoped<IRepository<Sample>, GenericRepository<Sample>>();
             services.AddScoped<ISampleService, SampleService>();
             services.AddScoped<IRepository<User>, GenericRepository<User>>();

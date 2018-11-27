@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using FoodAdmin.Dto.Dish;
 using FoodAdmin.Service;
 using Microsoft.AspNetCore.Mvc;
+using Food.EntityFramework.Entities.Enums;
 
 namespace FoodAdmin.Controllers
 {
@@ -29,17 +30,21 @@ namespace FoodAdmin.Controllers
             {
                  new DishDto
                 {
-                    DishId = 10,
-                    Name = "Test1",
+                    DishId = 1,
+                    Name = "Борщ",
                     Description = "First description",
-                    Price = 17
+                    Price = 170,
+                    Category = DishCategory.FirstDish,
+                    ContainerId = 1,
                 },
                 new DishDto
                 {
-                    DishId = 15,
-                    Name = "Test2",
-                    Description = "Description",
-                    Price = 10
+                    DishId = 2,
+                    Name = "Салат",
+                    Description = "Second description",
+                    Price = 100,
+                    Category = DishCategory.Salad,
+                    ContainerId = 2,
                 },
             };
         }
@@ -61,6 +66,8 @@ namespace FoodAdmin.Controllers
                 SavedName = savedDishDto.Name,
                 SavedDescription = savedDishDto.Description,
                 SavedPrice = savedDishDto.Price,
+                SavedCategory = savedDishDto.Category,
+                SavedContainerId = savedDishDto.ContainerId,
             };
         }
     }
