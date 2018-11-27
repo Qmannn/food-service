@@ -1,8 +1,13 @@
+using Food.EntityFramework;
+using Food.EntityFramework.Configuration;
+using Food.EntityFramework.Entities;
+using FoodAdmin.Config;
+using FoodAdmin.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,7 +25,14 @@ namespace FoodAdmin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ApplicationConfig config = new ApplicationConfig( Configuration );
             services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_1 );
+            services.AddScoped( provider => config.DbContextConfiguration );
+            
+            services.AddDbContext<FoodDbContext>( ( provider, builder ) => { builder.UseSqlServer( provider.GetService<DbContextConfiguration>().ConnectionString ); } );
+            services.AddEntityFrameworkSqlServer();
+            services.AddScoped<IRepository<Sample>, GenericRepository<Sample>>();
+            services.AddScoped<ISampleService, SampleService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

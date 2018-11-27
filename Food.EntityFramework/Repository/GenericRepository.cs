@@ -1,11 +1,10 @@
-﻿using Food.EntityFramework.Context;
-using Food.EntityFramework.Entities;
+﻿using Food.EntityFramework.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace Food.EntityFramework
 {
-    class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
+    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
         public IQueryable<TEntity> All { get; }
 
@@ -15,6 +14,7 @@ namespace Food.EntityFramework
         public GenericRepository(FoodDbContext foodDbContext)
         {
             _foodDbContext = foodDbContext;
+            All = Table;
         }
 
         public TEntity GetItem(int id) => Table.Find(id);

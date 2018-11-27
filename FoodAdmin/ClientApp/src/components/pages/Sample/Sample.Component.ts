@@ -15,10 +15,13 @@ export class SampleComponent {
 
     public constructor(sampleDataService: SampleDataService) {
         this._sampleDataService = sampleDataService;
+        this.reloadSamples();
+    }
 
-        this._sampleDataService.getSamples().subscribe(values => {
-            this.samples = values;
-        });
+    public addSample(): void {
+        this.sampleToEdit = new SampleDto();
+        this.sampleToEdit.name = '';
+        this.sampleToEdit.description = '';
     }
 
     public editSample(sampleId: number): void {
@@ -30,11 +33,20 @@ export class SampleComponent {
 
     public saveSample(): void {
         this._sampleDataService.saveSample(this.sampleToEdit).subscribe(value => {
-            alert('Сохранен ' + value.savedSampleId + 'c описаним "' + value.savedDescription + '"');
+            alert('Сохранен ' + value.savedSampleId + 'c описанием "' + value.savedDescription + '"');
+            this.reloadSamples();
+            this.sampleToEdit = undefined;
         });
     }
 
     public deleteSample(sampleId: number): void {
         alert(`Delete ${sampleId}`);
+        this.reloadSamples();
+    }
+
+    private reloadSamples(): void {
+        this._sampleDataService.getSamples().subscribe(values => {
+            this.samples = values;
+        });
     }
 }
