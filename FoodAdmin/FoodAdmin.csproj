@@ -20,11 +20,19 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\dto\Новая папка\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\dto\Новая папка\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\src\dto\Новая папка\**" />
+    <None Remove="ClientApp\src\dto\Новая папка\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\dto\DishDto\Enum\DishType.ts" />
     <None Remove="FoodAdmin.csproj.DotSettings" />
   </ItemGroup>
 

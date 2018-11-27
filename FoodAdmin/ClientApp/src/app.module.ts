@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { FoodListComponent } from './components/pages/food-list/food-list.component';
+import { DishListComponent } from './components/pages/DishList/DishList.Component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
@@ -15,7 +15,7 @@ import { UserListComponent } from './components/pages/UserList/UserList.Componen
   declarations: [
     AppComponent,
     NavMenuComponent,
-    FoodListComponent,
+    DishListComponent,
     SampleComponent,
 	  UserListComponent
   ],
@@ -24,7 +24,7 @@ import { UserListComponent } from './components/pages/UserList/UserList.Componen
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: FoodListComponent, pathMatch: 'full' },
+      { path: '', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
 	    { path: 'user-list', component: UserListComponent }
     ])
