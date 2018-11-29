@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+FoodAdmin/ClientApp/src/HttpServices/EditUserDataService.js.map.rej
+FoodAdmin/ClientApp/src/HttpServices/EditUserDataService.js.rej
+*.js
+*.js.map
+*.js.map.rej
+*.js.rej

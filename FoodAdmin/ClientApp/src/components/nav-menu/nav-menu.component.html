@@ -27,6 +27,11 @@
                         <span class='glyphicon glyphicon-user'></span> Список пользователей
                     </a>
                 </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/add-user"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-user'></span> Добавление пользователя
+              </a>
+            </li>
             </ul>
         </div>
     </div>

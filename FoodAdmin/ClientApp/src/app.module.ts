@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -10,14 +10,17 @@ import { DishListComponent } from './components/pages/DishList/DishList.Componen
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
+import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     DishListComponent,
+    FoodListComponent,
     SampleComponent,
-	  UserListComponent
+	UserListComponent,
+    EditUserComponent 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -26,7 +29,8 @@ import { UserListComponent } from './components/pages/UserList/UserList.Componen
     RouterModule.forRoot([
       { path: '', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
-	    { path: 'user-list', component: UserListComponent }
+      { path: 'add-user', component: EditUserComponent },
+	  { path: 'user-list', component: UserListComponent }
     ])
   ],
   providers: [HttpService],
