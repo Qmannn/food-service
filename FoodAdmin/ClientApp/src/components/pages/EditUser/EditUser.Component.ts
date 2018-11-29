@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EditUserDataService } from '../../../HttpServices/EditUserDataService';
-import { UserDto } from '../../../dto/User/UserDto';
+import { EditUserDto } from '../../../dto/EditUser/EditUserDto';
 
 @Component({
   // selector: 'app-add-user',
@@ -9,7 +9,7 @@ import { UserDto } from '../../../dto/User/UserDto';
 })
 export class EditUserComponent {
   private readonly _userDataService: EditUserDataService;
-  public newUser: UserDto;
+  public newUser: EditUserDto;
 
   public constructor(userDataService: EditUserDataService) {
     this._userDataService = userDataService;

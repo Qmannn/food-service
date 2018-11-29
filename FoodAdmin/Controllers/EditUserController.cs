@@ -9,9 +9,9 @@ namespace FoodAdmin.Controllers
     public class EditUserController : Controller
     {
         [HttpGet("user")]
-        public UserDto GetUser(int userId)
+        public EditUserDto GetUser(int userId)
         {
-            return new UserDto
+            return new EditUserDto
             {
                 UserId = userId,
                 Name = "",
@@ -20,9 +20,9 @@ namespace FoodAdmin.Controllers
         }
 
         [HttpPost("user")]
-        public UserDto SaveUser([FromBody] UserDto newUser)
+        public EditUserDto SaveUser([FromBody] EditUserDto newUser)
         {
-            return new UserDto
+            return new EditUserDto
             {
                 UserId = newUser.UserId,
                 Name = newUser.Name,

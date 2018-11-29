@@ -1,6 +1,6 @@
 ﻿namespace FoodAdmin.Dto.User
 {
-    public class UserDto
+    public class EditUserDto
     {
         public int UserId { get; set; }
         public string Name { get; set; }
