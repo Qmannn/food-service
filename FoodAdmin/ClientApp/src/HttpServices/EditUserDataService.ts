@@ -1,7 +1,6 @@
 import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { UserDto } from '../dto/User/UserDto';
 import { EditUserDto } from '../dto/EditUser/EditUserDto';
 import { HttpParams } from '@angular/common/http';
 
@@ -13,7 +12,7 @@ export class EditUserDataService {
   }
 
   public addUser(user: EditUserDto): Observable<EditUserDto> {
-    return this._httpService.post<UserDto, EditUserDto>('api/EditUser/User', user);
+    return this._httpService.post<EditUserDto, EditUserDto>('api/EditUser/User', user);
   }
 
   public getUser(userId: number): Observable<EditUserDto> {
