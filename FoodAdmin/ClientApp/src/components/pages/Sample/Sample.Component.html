@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="col-lg-4">
-            <button type="button" class="btn btn-primary" (click)="addSample()">Добавить</button>
+            <button type="button" class="btn btn-primary" [routerLink]="['create']">Добавить</button>
         </div>
     </div>
     <div>
@@ -23,34 +23,12 @@
                     <td>{{sample.description}}</td>
                     <td>
                         <div class="btn-group" role="group" >
-                            <button type="button" class="btn btn-primary" (click)="editSample(sample.sampleId)">Изменить</button>
-                            <button type="button" class="btn btn-danger" (click)="deleteSample(sample.sampleId)">Удалить</button>
+                            <button type="button" class="btn btn-primary" routerLink="{{sample.sampleId}}/edit">Изменить</button>
+                            <button type="button" class="btn btn-danger"(click)="deleteSample(sample.sampleId)">Удалить</button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div class="card-columns">
-            <div class="card" *ngIf="sampleToEdit">
-                <div class="card-body">
-                    <h4 class="card-title">Edit sample: {{sampleToEdit.name}}#{{sampleToEdit.sampleId}}</h4>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" placeholder="Название" [(ngModel)]="sampleToEdit.name" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" placeholder="Описание" [(ngModel)]="sampleToEdit.description" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <button type="button" class="btn btn-primary" (click)="saveSample()">Сохранить</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

@@ -10,6 +10,7 @@ import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
 import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
+import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSample.Component';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { EditUserComponent } from './components/pages/EditUser/EditUser.Componen
     NavMenuComponent,
     DishListComponent,
     SampleComponent,
-	  UserListComponent,
-    EditUserComponent 
+    UserListComponent,
+    EditUserComponent,
+    EditSampleComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,11 +29,14 @@ import { EditUserComponent } from './components/pages/EditUser/EditUser.Componen
     RouterModule.forRoot([
       { path: '', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
+      { path: 'sample', component: SampleComponent },
+      { path: 'sample/:sampleId/edit', component: EditSampleComponent },
+      { path: 'sample/create', component: EditSampleComponent },
       { path: 'add-user', component: EditUserComponent },
-	  { path: 'user-list', component: UserListComponent }
+      { path: 'user-list', component: UserListComponent }
     ])
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

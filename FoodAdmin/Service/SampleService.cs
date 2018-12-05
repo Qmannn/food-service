@@ -25,14 +25,18 @@ namespace FoodAdmin.Service
 
         public SampleDto GetSample( int sampleId )
         {
-            Sample sample = _sampleRepository.All.FirstOrDefault( item => item.Id == sampleId );
-            SampleDto sampleDto = null;
-            if ( sample != null )
+            if ( sampleId == 0 )
             {
-                sampleDto = Convert( sample );
+                return CreateSample();
             }
 
-            return sampleDto;
+            Sample sample = _sampleRepository.All.FirstOrDefault( item => item.Id == sampleId );
+            if ( sample != null )
+            {
+                return Convert( sample );
+            }
+
+            return null;
         }
 
         public SampleDto SaveSample( SampleDto sampleDto )
@@ -49,6 +53,16 @@ namespace FoodAdmin.Service
             sample = _sampleRepository.Save( sample );
 
             return Convert( sample );
+        }
+
+        public SampleDto CreateSample()
+        {
+            return new SampleDto
+            {
+                SampleId = 0,
+                Name = "Sample",
+                Description = "Описание созданного экземпляра"
+            };
         }
 
         private SampleDto Convert( Sample sample )
