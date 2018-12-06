@@ -8,16 +8,14 @@
               <tr>
                   <th>#</th>
                   <th>Имя пользователя</th>
-                  <th>Команда</th>
-                  <th>Группа</th>
+                  <th>Роль</th>
               </tr>
           </thead>
           <tbody>
               <tr *ngFor="let user of users">
-                  <th scope="row">{{user.userId}}</th>
+                  <th scope="row">{{user.id}}</th>
                   <td>{{user.name}}</td>
-                  <td>{{user.team}}</td>
-                  <td>{{user.group}}</td>
+                  <td>{{getRole(user.role)}}</td>
                   <td>
                       <div class="btn-group" role="group" >
                           <button type="button" class="btn btn-primary">Изменить</button>

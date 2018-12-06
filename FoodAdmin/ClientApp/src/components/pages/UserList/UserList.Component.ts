@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersDataService } from '../../../HttpServices/UsersDataService';
 import { UserDto } from '../../../dto/User/UserDto';
+import { UserRole } from '../../../dto/User/Enum/UserRole';
 
 @Component({
   selector: 'app-user-list',
@@ -17,5 +18,22 @@ export class UserListComponent {
     this._usersDataService.getUsers().subscribe(values => {
       this.users = values;
     });
+  }
+
+  public getRole(role: UserRole) {
+    switch(role)
+    {
+      case UserRole.Administrator:
+      {
+        return "Администратор"
+      }
+      case UserRole.Client:
+      {
+        return "Клиент"
+      }
+      default: {
+        return ""
+      }
+    }
   }
 };
