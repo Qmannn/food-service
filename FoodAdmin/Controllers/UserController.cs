@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FoodAdmin.Dto.User;
+using FoodAdmin.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodAdmin.Controllers
@@ -8,45 +9,42 @@ namespace FoodAdmin.Controllers
     [Route("api/[controller]")]
     public class UsersController : Controller
     {
+        private readonly IUsersService _usersService;
+
+        public UsersController(IUsersService userService)
+        {
+            _usersService = userService;
+        }
+
         [HttpGet("")]
         public List<UserDto> GetUsers()
         {
+            var storedUsers = _usersService.GetUsers();
+
+            if (storedUsers.Count > 0)
+            {
+                return storedUsers;
+            }
+
             return new List<UserDto>
             {
                 new UserDto
                 {
-                    UserId = 1,
+                    Id = 1,
                     Name = "First name",
-                    Team = "First team",
-                    Group = "First group"
+                    Role = Food.EntityFramework.Entities.Enums.UserRole.Client
                 },
                 new UserDto
                 {
-                    UserId = 2,
+                    Id = 2,
                     Name = "Second name",
-                    Team = "Second team",
-                    Group = "Second group"
+                    Role = Food.EntityFramework.Entities.Enums.UserRole.Client
                 },
                 new UserDto
                 {
-                    UserId = 3,
+                    Id = 3,
                     Name = "Test1",
-                    Team = "First description",
-                    Group = "3"
-                },
-                new UserDto
-                {
-                    UserId = 4,
-                    Name = "Test1",
-                    Team = "First description",
-                    Group = "4"
-                },
-                new UserDto
-                {
-                    UserId = 5,
-                    Name = "Test1",
-                    Team = "First description",
-                    Group = "5"
+                    Role = Food.EntityFramework.Entities.Enums.UserRole.Administrator
                 },
             };
         }
