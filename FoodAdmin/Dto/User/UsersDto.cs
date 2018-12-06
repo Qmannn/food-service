@@ -1,10 +1,11 @@
-﻿namespace FoodAdmin.Dto.User
+﻿using Food.EntityFramework.Entities.Enums;
+
+namespace FoodAdmin.Dto.User
 {
     public class UserDto
     {
-        public int UserId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string Team { get; set; }
-        public string Group { get; set; }
+        public UserRole Role { get; set; }
     }
 }
