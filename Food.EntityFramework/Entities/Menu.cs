@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Food.EntityFramework.Entities
 {
-    internal class Menu : IEntity
+    public class Menu : IEntity
     {
         public int Id { get; set; }
         public DateTime CurrentDate { get; set; }

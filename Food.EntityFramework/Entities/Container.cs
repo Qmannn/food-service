@@ -2,7 +2,7 @@
 
 namespace Food.EntityFramework.Entities
 {
-    internal class Container : IEntity
+    public class Container : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

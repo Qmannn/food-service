@@ -3,7 +3,7 @@ using Food.EntityFramework.Entities.Enums;
 
 namespace Food.EntityFramework.Entities
 {
-    internal class Dish : IEntity
+    public class Dish : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
