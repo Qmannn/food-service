@@ -14,8 +14,19 @@ export class CommandsComponent {
   public constructor(commandsDataService: CommandsDataService) {
     this._commandsDataService = commandsDataService;
 
+    this.reloadCommands();
+  }
+
+  public deleteCommands(commandsId: number): void {
+    alert(`Delete ${commandsId}`);
+    this.reloadCommands();  
+  }
+
+  private reloadCommands(): void {
     this._commandsDataService.getCommands().subscribe(values => {
       this.commands = values;
     });
   }
 };
+
+  
