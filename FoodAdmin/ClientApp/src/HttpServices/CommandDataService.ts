@@ -12,7 +12,7 @@ export class CommandDataService {
         this._httpService = httpService;
     }
     
-    public getCommand(): Observable<CommandDto[]> {
+    public getCommands(): Observable<CommandDto[]> {
         return this._httpService.get<CommandDto[]>('api/Command');
     }
 }

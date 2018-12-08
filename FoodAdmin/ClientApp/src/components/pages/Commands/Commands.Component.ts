@@ -9,22 +9,22 @@ import { CommandDto } from '../../../dto/Command/CommandDto';
 })
 export class CommandsComponent {
   private readonly _commandDataService: CommandDataService;
-  public command: CommandDto[];
+  public commands: CommandDto[];
 
   public constructor(commandDataService: CommandDataService) {
     this._commandDataService = commandDataService;
 
-    this.reloadCommand();
+    this.reloadCommands();
   }
 
   public deleteCommand(commandId: number): void {
     alert(`Delete ${commandId}`);
-    this.reloadCommand();  
+    this.reloadCommands();  
   }
 
-  private reloadCommand(): void {
-    this._commandDataService.getCommand().subscribe(values => {
-      this.command = values;
+  private reloadCommands(): void {
+    this._commandDataService.getCommands().subscribe(commandsValues => {
+      this.commands = commandsValues;
     });
   }
 };

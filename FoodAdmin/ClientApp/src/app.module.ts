@@ -11,7 +11,7 @@ import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
 import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
 import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSample.Component';
-import { CommandsComponent } from './components/pages/Command/Commands.Component';
+import { CommandsComponent } from './components/pages/Commands/Commands.Component';
 
 @NgModule({
   declarations: [

@@ -17,10 +17,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let command of command">
-                    <th scope="row">{{command.commandId}}</th>
-                    <td>{{command.name}}</td>
-                    <td>{{command.description}}</td>
+                <tr *ngFor="let commands of commands">
+                    <th scope="row">{{commands.commandId}}</th>
+                    <td>{{commands.name}}</td>
+                    <td>{{commands.description}}</td>
                     <td>
                         <div class="btn-group" role="group" >
                             <button type="button" class="btn btn-primary">Изменить</button>

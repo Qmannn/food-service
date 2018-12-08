@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using FoodAdmin.Dto.Command;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +8,7 @@ namespace FoodAdmin.Controllers
     public class CommandController : Controller
     {
         [HttpGet("")]
-        public List<CommandDto> GetCommand()
+        public List<CommandDto> GetCommands()
         {
             return new List<CommandDto>
             {
@@ -33,6 +32,5 @@ namespace FoodAdmin.Controllers
                 }
             };
         }
-
     }
 }
