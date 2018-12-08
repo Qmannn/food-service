@@ -4,10 +4,10 @@ import { CommandDto } from '../../../dto/Command/CommandDto';
 
 @Component({
   selector: 'app-commands',
-  templateUrl: './Command.Component.html',
+  templateUrl: './Commands.Component.html',
   providers: [CommandDataService]
 })
-export class CommandComponent {
+export class CommandsComponent {
   private readonly _commandDataService: CommandDataService;
   public command: CommandDto[];
 

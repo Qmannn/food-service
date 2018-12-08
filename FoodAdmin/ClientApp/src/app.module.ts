@@ -11,7 +11,7 @@ import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
 import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
 import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSample.Component';
-import { CommandComponent } from './components/pages/Command/Command.Component';
+import { CommandsComponent } from './components/pages/Command/Commands.Component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { CommandComponent } from './components/pages/Command/Command.Component';
     UserListComponent,
     EditUserComponent,
     EditSampleComponent,
-    CommandComponent
+    CommandsComponent
 
   ],
   imports: [
@@ -37,7 +37,7 @@ import { CommandComponent } from './components/pages/Command/Command.Component';
       { path: 'sample/create', component: EditSampleComponent },
       { path: 'add-user', component: EditUserComponent },
       { path: 'user-list', component: UserListComponent },
-      { path: 'commands', component: CommandComponent }
+      { path: 'commands', component: CommandsComponent }
     ])
   ],
   providers: [HttpService],
