@@ -1,37 +1,38 @@
 using System;
 using System.Collections.Generic;
-using FoodAdmin.Dto.Commands;
+using FoodAdmin.Dto.Command;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodAdmin.Controllers
 {
     [Route("api/[controller]")]
-    public class CommandsController : Controller
+    public class CommandController : Controller
     {
         [HttpGet("")]
-        public List<CommandsDto> GetUsers()
+        public List<CommandDto> GetCommand()
         {
-            return new List<CommandsDto>
+            return new List<CommandDto>
             {
-                new CommandsDto
+                new CommandDto
                 {
-                    CommandsId = 1,
+                    CommandId = 1,
                     Name = "Первая команда",
                     Description = "Выполнение первой команды"
                 },
-                new CommandsDto
+                new CommandDto
                 {
-                    CommandsId = 2,
+                    CommandId = 2,
                     Name = "Вторая команда",
                     Description = "Выполнение второй команды"
                 },
-                new CommandsDto
+                new CommandDto
                 {
-                    CommandsId = 3,
+                    CommandId = 3,
                     Name = "Третья команда",
                     Description = "Выполнение третьей команды"
-                }              
+                }
             };
         }
+
     }
 }

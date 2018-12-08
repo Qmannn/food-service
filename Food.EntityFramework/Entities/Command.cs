@@ -2,7 +2,7 @@
 
 namespace Food.EntityFramework.Entities
 {
-    public class Commands: IEntity
+    public class Command: IEntity
     {
         public int Id { get; set; }
 

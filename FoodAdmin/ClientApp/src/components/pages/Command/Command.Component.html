@@ -17,14 +17,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let commands of commands">
-                    <th scope="row">{{commands.commandsId}}</th>
-                    <td>{{commands.name}}</td>
-                    <td>{{commands.description}}</td>
+                <tr *ngFor="let command of command">
+                    <th scope="row">{{command.commandId}}</th>
+                    <td>{{command.name}}</td>
+                    <td>{{command.description}}</td>
                     <td>
                         <div class="btn-group" role="group" >
                             <button type="button" class="btn btn-primary">Изменить</button>
-                            <button type="button" class="btn btn-danger" (click)="deleteCommands(commands.commandsId)">Удалить</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteCommand(command.commandId)">Удалить</button>
                         </div>
                     </td>
                 </tr>

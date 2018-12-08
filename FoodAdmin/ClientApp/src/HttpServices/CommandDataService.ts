@@ -1,18 +1,18 @@
 import { HttpService } from './HttpService';
 import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { CommandsDto } from '../dto/Commands/CommandsDto';
+import { CommandDto } from '../dto/Command/CommandDto';
 
 
 @Injectable()
-export class CommandsDataService {
+export class CommandDataService {
     private readonly _httpService: HttpService;
 
     public constructor(httpService: HttpService) {
         this._httpService = httpService;
     }
     
-    public getCommands(): Observable<CommandsDto[]> {
-        return this._httpService.get<CommandsDto[]>('api/Commands');
+    public getCommand(): Observable<CommandDto[]> {
+        return this._httpService.get<CommandDto[]>('api/Command');
     }
 }
