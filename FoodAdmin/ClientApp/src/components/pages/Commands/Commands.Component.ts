@@ -10,6 +10,7 @@ import { CommandDto } from '../../../dto/Command/CommandDto';
 export class CommandsComponent {
   private readonly _commandDataService: CommandDataService;
   public commands: CommandDto[];
+  public commandToEdit: CommandDto;
 
   public constructor(commandDataService: CommandDataService) {
     this._commandDataService = commandDataService;
@@ -18,7 +19,8 @@ export class CommandsComponent {
   }
 
   public deleteCommand(commandId: number): void {
-    alert(`Delete ${commandId}`);
+    alert('Delete' + commandId);
+    this._commandDataService.deleteCommand(this.commandToEdit);
     this.reloadCommands();  
   }
 

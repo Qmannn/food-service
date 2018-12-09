@@ -15,21 +15,30 @@ namespace FoodAdmin.Controllers
                 new CommandDto
                 {
                     CommandId = 1,
-                    Name = "Первая команда",
-                    Description = "Выполнение первой команды"
+                    Name = "РџРµСЂРІР°СЏ РєРѕРјР°РЅРґР°",
+                    Description = "Р’С‹РїРѕР»РЅРµРЅРёРµ РїРµСЂРІРѕР№ РєРѕРјР°РЅРґС‹"
                 },
                 new CommandDto
                 {
                     CommandId = 2,
-                    Name = "Вторая команда",
-                    Description = "Выполнение второй команды"
+                    Name = "Р’С‚РѕСЂР°СЏ РєРѕРјР°РЅРґР°",
+                    Description = "Р’С‹РїРѕР»РЅРµРЅРёРµ РІС‚РѕСЂРѕР№ РєРѕРјР°РЅРґС‹"
                 },
                 new CommandDto
                 {
                     CommandId = 3,
-                    Name = "Третья команда",
-                    Description = "Выполнение третьей команды"
+                    Name = "РўСЂРµС‚СЊСЏ РєРѕРјР°РЅРґР°",
+                    Description = "Р’С‹РїРѕР»РЅРµРЅРёРµ С‚СЂРµС‚СЊРµР№ РєРѕРјР°РЅРґС‹"
                 }
+            };
+        }
+        [HttpPost("delete-command")]
+        public DeletedCommandInfo DeleteCommand([FromBody] CommandDto command)
+        {            
+            return new DeletedCommandInfo
+            {
+                DeletedCommandId = command.CommandId,
+                DeletedDescription = command.Description
             };
         }
     }
