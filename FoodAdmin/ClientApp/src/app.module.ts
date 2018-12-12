@@ -39,7 +39,8 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
       { path: 'menu', component: MenuComponent, pathMatch: 'full' },
       { path: 'sample/:sampleId/edit', component: EditSampleComponent },
       { path: 'sample/create', component: EditSampleComponent },
-      { path: 'add-user', component: EditUserComponent },
+      { path: 'edit-user', component: EditUserComponent },
+      { path: 'edit-user/:userId', component: EditUserComponent },
       { path: 'user-list', component: UserListComponent },
       { path: 'commands', component: CommandsComponent }
     ])

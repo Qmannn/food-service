@@ -3,18 +3,20 @@
   <div class="row">
     <div class="col-lg-4">
       <label for="name">ФИО</label>
-      <input id="name" type="text" class="form-control" placeholder="ФИО" [(ngModel)]="newUser.Name"/>
+      <input id="name" type="text" class="form-control" placeholder="ФИО" [(ngModel)]="newUser.name"/>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <label for="username">Имя пользователя</label>
-      <input id="username" type="text" class="form-control" placeholder="Имя пользователя" [(ngModel)]="newUser.UserName"/>
+      <select class="form-control" [(ngModel)]="newUser.role">
+        <option value="0">Администратор</option>
+        <option value="1">Клиент</option>
+      </select>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <button type="button" class="btn btn-primary" (click)="addUser()">Сохранить</button>
+      <button type="button" class="btn btn-primary" (click)="saveUser()">Сохранить</button>
     </div>
   </div>
 </div>
