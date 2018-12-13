@@ -15,7 +15,12 @@
           <tr *ngFor="let menu of menus">
             <th scope="row">{{menu.menuId}}</th>
             <td>{{menu.menuDate}}</td>
-            <td>{{menu.menuStatus}}</td>
+            <td>
+            <span [ngSwitch]="menu.menuStatus">
+            <span *ngSwitchCase="0">Active</span>
+            <span *ngSwitchCase="1">Closed</span>
+              </span>
+            </td>
             <td>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary" (click)="editSample(sample.sampleId)">Изменить</button>

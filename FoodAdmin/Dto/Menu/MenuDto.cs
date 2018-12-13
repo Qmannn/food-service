@@ -4,6 +4,6 @@
     {
         public int MenuId { get; set; }
         public System.DateTime MenuDate { get; set; }
-        public string MenuStatus { get; set; }
+        public MenuStatus MenuStatus { get; set; }
     }
 }

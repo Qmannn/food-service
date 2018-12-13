@@ -25,7 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\dto\Menu\EMenuStatus.ts" />
     <None Remove="FoodAdmin.csproj.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\dto\Menu\EMenuStatus.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

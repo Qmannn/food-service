@@ -1,8 +1,8 @@
 ﻿namespace FoodAdmin.Dto.PageName
 {
-   public enum MenuStatus
+    public enum MenuStatus
     {
         Active,
-        Closed
+        Closed 
     }
 }
