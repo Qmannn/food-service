@@ -20,33 +20,7 @@ namespace FoodAdmin.Controllers
         public List<UserDto> GetUsers()
         {
             var storedUsers = _usersService.GetUsers();
-
-            if (storedUsers.Count > 0)
-            {
-                return storedUsers;
-            }
-
-            return new List<UserDto>
-            {
-                new UserDto
-                {
-                    Id = 1,
-                    Name = "First name",
-                    Role = Food.EntityFramework.Entities.Enums.UserRole.Client
-                },
-                new UserDto
-                {
-                    Id = 2,
-                    Name = "Second name",
-                    Role = Food.EntityFramework.Entities.Enums.UserRole.Client
-                },
-                new UserDto
-                {
-                    Id = 3,
-                    Name = "Test1",
-                    Role = Food.EntityFramework.Entities.Enums.UserRole.Administrator
-                },
-            };
+            return storedUsers;
         }
     }
 }
