@@ -11,6 +11,7 @@ import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
 import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
 import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSample.Component';
+import { CommandsComponent } from './components/pages/Commands/Commands.Component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSa
     SampleComponent,
     UserListComponent,
     EditUserComponent,
-    EditSampleComponent
+    EditSampleComponent,
+    CommandsComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,7 +36,8 @@ import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSa
       { path: 'sample/:sampleId/edit', component: EditSampleComponent },
       { path: 'sample/create', component: EditSampleComponent },
       { path: 'add-user', component: EditUserComponent },
-      { path: 'user-list', component: UserListComponent }
+      { path: 'user-list', component: UserListComponent },
+      { path: 'commands', component: CommandsComponent }
     ])
   ],
   providers: [HttpService],

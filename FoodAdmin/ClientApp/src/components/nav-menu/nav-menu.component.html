@@ -32,6 +32,11 @@
                 <span class='glyphicon glyphicon-user'></span> Добавление пользователя
               </a>
             </li>
+            <li [routerLinkActive]='["link-active"]'>
+                <a [routerLink]='["/commands"]' (click)='collapse()'>
+                  <span class='glyphicon glyphicon-cog'></span> Управление командами
+                </a>
+              </li>
             </ul>
         </div>
     </div>
