@@ -25,15 +25,17 @@ namespace FoodAdmin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ApplicationConfig config = new ApplicationConfig( Configuration );
-            services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_1 );
-            services.AddScoped( provider => config.DbContextConfiguration );
-            
-            services.AddDbContext<FoodDbContext>( ( provider, builder ) => { builder.UseSqlServer( provider.GetService<DbContextConfiguration>().ConnectionString ); } );
+            ApplicationConfig config = new ApplicationConfig(Configuration);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddScoped(provider => config.DbContextConfiguration);
+
+            services.AddDbContext<FoodDbContext>((provider, builder) => { builder.UseSqlServer(provider.GetService<DbContextConfiguration>().ConnectionString); });
             services.AddEntityFrameworkSqlServer();
 
             services.AddScoped<IRepository<Sample>, GenericRepository<Sample>>();
             services.AddScoped<ISampleService, SampleService>();
+            services.AddScoped<IRepository<Dish>, GenericRepository<Dish>>();
+            services.AddScoped<IDishesService, DishesService>();
             services.AddScoped<IRepository<User>, GenericRepository<User>>();
             services.AddScoped<IUsersService, UserService>();
             services.AddScoped<IUserEditService, UserEditService>();
@@ -54,10 +56,10 @@ namespace FoodAdmin
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseCors( builder => builder.WithOrigins( "http://localhost:4200/" )
-                    .AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod() );
+                app.UseCors(builder => builder.WithOrigins("http://localhost:4200/")
+                   .AllowAnyOrigin()
+                   .AllowAnyHeader()
+                   .AllowAnyMethod());
             }
             else
             {

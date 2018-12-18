@@ -28,6 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\src\dto\����� �����\**" />
+    <None Remove="ClientApp\src\dto\����� �����\**" />
     <None Remove="ClientApp\src\dto\Menu\EMenuStatus.ts" />
     <EmbeddedResource Remove="ClientApp\src\dto\����� �����\**" />
     <None Remove="ClientApp\src\dto\����� �����\**" />

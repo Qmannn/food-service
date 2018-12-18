@@ -1,12 +1,14 @@
-﻿using FoodAdmin.Dto.DishList.Enum;
+﻿using Food.EntityFramework.Entities.Enums;
 
 namespace FoodAdmin.Dto.DishDto
 {
     public class DishDto
     {
-        public string DishName { get; set; }
-        public decimal DishPrice { get; set; }
-        public int DishWeight { get; set; }
-        public DishType DishType { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public DishCategory Category { get; set; }
+        public int ContainerId { get; set; }
     }
 }
