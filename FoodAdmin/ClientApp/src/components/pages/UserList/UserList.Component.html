@@ -1,0 +1,31 @@
+<div>
+  <div class="page-header">
+      <h1>Список пользователей</h1>
+  </div>
+  <div>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Имя пользователя</th>
+                  <th>Команда</th>
+                  <th>Группа</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let user of users">
+                  <th scope="row">{{user.userId}}</th>
+                  <td>{{user.name}}</td>
+                  <td>{{user.team}}</td>
+                  <td>{{user.group}}</td>
+                  <td>
+                      <div class="btn-group" role="group" >
+                          <button type="button" class="btn btn-primary">Изменить</button>
+                          <button type="button" class="btn btn-danger">Удалить</button>
+                      </div>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

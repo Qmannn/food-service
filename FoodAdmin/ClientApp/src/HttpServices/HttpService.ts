@@ -20,4 +20,9 @@ export class HttpService {
     public post<TRq, TRs>(url: string, body: TRq): Observable<TRs> {
         return this._httpClient.post<TRs>(this._baseUrl + url, body);
     }
+
+    public delete<T, comamndId>(url: string, params?: HttpParams): Observable<T> {
+        const httpHeaders = new HttpHeaders().set('Accept', 'application/json');
+        return this._httpClient.delete<T>(this._baseUrl + url, {headers: httpHeaders, params: params});
+    }
 }

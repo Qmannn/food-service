@@ -1,32 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
-using System.IO;
+﻿using System.IO;
+using Food.EntityFramework.Configuration;
+using Microsoft.Extensions.Configuration;
 
-namespace Food.FoodService.Config
+namespace FoodService.Config
 {
     internal class ApplicationConfig
     {
-        public DbContextConfiguration dbContextConfiguration => _serviceConfiguration.GetSection("DbContextConfiguration").Get<DbContextConfiguration>();
+        public DbContextConfiguration DbContextConfiguration => _serviceConfiguration.GetSection("DbContextConfiguration").Get<DbContextConfiguration>();
 
         private readonly IConfiguration _serviceConfiguration;
 
-        public ApplicationConfig()
+        public ApplicationConfig( IConfiguration serviceConfiguration )
         {
-            _serviceConfiguration = GetServiceConfiguration();
-        }
-
-        private IConfiguration GetServiceConfiguration()
-        {
-            IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", false); 
-
-
-            string additioonalCofigFile = $"appsettings.json";
-            if (File.Exists(additioonalCofigFile))
-            {
-                configurationBuilder.AddJsonFile(additioonalCofigFile, false);
-            }
-
-            return configurationBuilder.Build();
+            _serviceConfiguration = serviceConfiguration;
         }
     }
 }

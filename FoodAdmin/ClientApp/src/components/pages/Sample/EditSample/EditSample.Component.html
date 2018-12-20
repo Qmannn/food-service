@@ -1,0 +1,30 @@
+<div>
+    <div class="page-header">
+        <h1>
+            <span *ngIf="editingSampleId !== 0">Редактирование </span>
+            <span *ngIf="editingSampleId === 0">Создание </span>
+            Sample <small *ngIf="sampleToEdit">{{sampleToEdit.name}} </small><small  *ngIf="!sampleToEdit">#{{editingSampleId}}</small> </h1>
+    </div>
+    <div class="card-columns">
+        <div class="card" *ngIf="sampleToEdit">
+            <div class="card-body">
+                <h4 class="card-title">Edit sample: {{sampleToEdit.name}}#{{sampleToEdit.sampleId}}</h4>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" placeholder="Название" [(ngModel)]="sampleToEdit.name" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input type="text" class="form-control" placeholder="Описание" [(ngModel)]="sampleToEdit.description" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <button type="button" class="btn btn-primary" (click)="saveSample()">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

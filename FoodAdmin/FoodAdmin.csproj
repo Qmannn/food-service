@@ -16,21 +16,31 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\dto\����� �����\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\dto\����� �����\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="ClientApp\src\dto\Menu\EMenuStatus.ts" />
+    <EmbeddedResource Remove="ClientApp\src\dto\����� �����\**" />
+    <None Remove="ClientApp\src\dto\����� �����\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\dto\DishDto\Enum\DishType.ts" />
     <None Remove="FoodAdmin.csproj.DotSettings" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\dto\Menu\EMenuStatus.ts" />
+    <ProjectReference Include="..\Food.EntityFramework\Food.EntityFramework.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

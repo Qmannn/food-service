@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using FoodAdmin.Dto.Sample;
+using FoodAdmin.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodAdmin.Controllers
@@ -8,9 +8,16 @@ namespace FoodAdmin.Controllers
     [Route("api/[controller]")]
     public class SampleController : Controller
     {
-        [HttpGet("Samples")]
+        [HttpGet("samples")]
         public List<SampleDto> GetSamples()
         {
+            var storedSamples = _sampleService.GetSamples();
+
+            if ( storedSamples.Count > 0 )
+            {
+                return storedSamples;
+            }
+
             return new List<SampleDto>
             {
                 new SampleDto
@@ -31,21 +38,18 @@ namespace FoodAdmin.Controllers
         [HttpGet("sample")]
         public SampleDto GetSample(int sampleId)
         {
-            return new SampleDto
-            {
-                SampleId = sampleId,
-                Name = "Пример для редактирования",
-                Description = $"Получено с BE {DateTime.Now}"
-            };
+            return _sampleService.GetSample( sampleId );
         }
         
         [HttpPost("sample")]
         public SavedSampleInfo SaveSample([FromBody] SampleDto sample)
         {
+            SampleDto savedSampleDto = _sampleService.SaveSample( sample );
+
             return new SavedSampleInfo
             {
-                SavedSampleId = sample.SampleId,
-                SavedDescription = sample.Description
+                SavedSampleId = savedSampleDto.SampleId,
+                SavedDescription = savedSampleDto.Description
             };
         }
     }

@@ -1,0 +1,20 @@
+<div *ngIf="newUser">
+  <h1>Доабление пользователя</h1>
+  <div class="row">
+    <div class="col-lg-4">
+      <label for="name">ФИО</label>
+      <input id="name" type="text" class="form-control" placeholder="ФИО" [(ngModel)]="newUser.Name"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <label for="username">Имя пользователя</label>
+      <input id="username" type="text" class="form-control" placeholder="Имя пользователя" [(ngModel)]="newUser.UserName"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <button type="button" class="btn btn-primary" (click)="addUser()">Сохранить</button>
+    </div>
+  </div>
+</div>
