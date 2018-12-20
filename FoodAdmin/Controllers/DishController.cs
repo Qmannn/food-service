@@ -56,18 +56,18 @@ namespace FoodAdmin.Controllers
         }
 
         [HttpPost("dish")]
-        public SavedDishInfo SaveDish( [FromBody] DishDto dish )
+        public DishDto SaveDish( [FromBody] DishDto dish )
         {
-            DishDto savedDishDto = _dishService.SaveDish(dish);
+            DishDto dishDto = _dishService.SaveDish(dish);
 
-            return new SavedDishInfo
+            return new DishDto
             {
-                SavedDishId = savedDishDto.DishId,
-                SavedName = savedDishDto.Name,
-                SavedDescription = savedDishDto.Description,
-                SavedPrice = savedDishDto.Price,
-                SavedCategory = savedDishDto.Category,
-                SavedContainerId = savedDishDto.ContainerId,
+                DishId = dishDto.DishId,
+                Name = dishDto.Name,
+                Description = dishDto.Description,
+                Price = dishDto.Price,
+                Category = dishDto.Category,
+                ContainerId = dishDto.ContainerId,
             };
         }
     }

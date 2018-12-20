@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using FoodAdmin.Dto.Dish;
-using Food.EntityFramework.Entities.Enums;
 
 namespace FoodAdmin.Service
 {

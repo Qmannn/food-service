@@ -1,3 +1,5 @@
+import { DishCategory } from '../../enums/enum';
+
 export class DishDto {
   public dishId: number;
   public name: string;
@@ -7,9 +9,3 @@ export class DishDto {
   public containerId: number;
 }
 
-export enum DishCategory {
-  Salad,
-  Soup,
-  SecondDish,
-  Garnish
-}

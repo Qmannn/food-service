@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { DishDto } from '../dto/Dish/DishDto';
 import { HttpParams } from '@angular/common/http';
-import { SavedDishInfo } from '../dto/Dish/SavedDishInfo';
 
 @Injectable()
 export class DishDataService {
@@ -23,7 +22,7 @@ export class DishDataService {
     return this._httpService.get<DishDto>('api/Dish/Dish', params);
   }
 
-  public saveDish(dish: DishDto): Observable<SavedDishInfo> {
-    return this._httpService.post<DishDto, SavedDishInfo>('api/Dish/Dish', dish);
+  public saveDish(dish: DishDto): Observable<DishDto> {
+    return this._httpService.post<DishDto, DishDto>('api/Dish/Dish', dish);
   }
 }

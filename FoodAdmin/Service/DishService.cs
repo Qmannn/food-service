@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Food.EntityFramework;
 using Food.EntityFramework.Entities;
@@ -26,11 +25,16 @@ namespace FoodAdmin.Service
 
         public DishDto GetDish( int dishId )
         {
-            Dish dish = _dishRepository.All.FirstOrDefault( item => item.Id == dishId );
+            if (dishId == 0)
+            {
+                return CreateDish();
+            }
+
+            Dish dish = _dishRepository.All.FirstOrDefault(item => item.Id == dishId);
             DishDto dishDto = null;
             if ( dish != null )
             {
-                dishDto = ConvertToDto( dish );
+                return ConvertToDto(dish);
             }
 
             return dishDto;
@@ -38,12 +42,7 @@ namespace FoodAdmin.Service
 
         public DishDto SaveDish( DishDto dishDto )
         {
-            Dish dish = _dishRepository.GetItem(dishDto.DishId);
-            if ( dish == null)
-            {
-                dish = new Dish();
-            }
-                
+            Dish dish = _dishRepository.GetItem(dishDto.DishId) ?? new Dish();
             dish.Name = dishDto.Name;
             dish.Description = dishDto.Description;
             dish.Price = dishDto.Price;
@@ -65,6 +64,19 @@ namespace FoodAdmin.Service
                 Price = dish.Price,
                 Category = dish.Category,
                 ContainerId = dish.ContainerId
+            };
+        }
+
+        public DishDto CreateDish()
+        {
+            return new DishDto
+            {
+                DishId = 0,
+                Name = "Dish",
+                Description = "Description",
+                Category = DishCategory.FirstDish,
+                ContainerId = 1,
+                Price = 0
             };
         }
     }

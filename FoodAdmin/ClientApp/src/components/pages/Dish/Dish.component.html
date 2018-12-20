@@ -31,7 +31,7 @@
     <div class="row">
       <div class="col-sm-6">
         <select class="form-control" required [(ngModel)]="dishToEdit.category">
-         <option *ngFor="let dishCategory of dishCategories" [ngValue]="dishCategory.value">{{ dishCategory.name }}</option>
+         <option *ngFor="let dishCategory of dishCategories" [ngValue]="dishCategory.value"></option>
         </select>
       </div>
     </div>
