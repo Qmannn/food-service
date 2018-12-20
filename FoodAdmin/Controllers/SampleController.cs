@@ -8,13 +8,6 @@ namespace FoodAdmin.Controllers
     [Route("api/[controller]")]
     public class SampleController : Controller
     {
-        private readonly ISampleService _sampleService;
-
-        public SampleController( ISampleService sampleService )
-        {
-            _sampleService = sampleService;
-        }
-
         [HttpGet("samples")]
         public List<SampleDto> GetSamples()
         {

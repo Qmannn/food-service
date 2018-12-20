@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\dto\Menu\EMenuStatus.ts" />
     <EmbeddedResource Remove="ClientApp\src\dto\����� �����\**" />
     <None Remove="ClientApp\src\dto\����� �����\**" />
   </ItemGroup>
@@ -38,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\dto\Menu\EMenuStatus.ts" />
     <ProjectReference Include="..\Food.EntityFramework\Food.EntityFramework.csproj" />
   </ItemGroup>
 

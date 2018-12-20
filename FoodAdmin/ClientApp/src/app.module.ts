@@ -8,6 +8,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { DishListComponent } from './components/pages/DishList/DishList.Component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
+import { MenuComponent } from './components/pages/menu/menu.component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
 import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
 import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSample.Component';
@@ -17,13 +18,15 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
   declarations: [
     AppComponent,
     NavMenuComponent,
+    FoodListComponent,
+    MenuComponent,
+    SampleComponent
     DishListComponent,
     SampleComponent,
     UserListComponent,
     EditUserComponent,
     EditSampleComponent,
     CommandsComponent
-
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +36,7 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
       { path: '', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
       { path: 'sample', component: SampleComponent },
+      { path: 'menu', component: MenuComponent, pathMatch: 'full' },
       { path: 'sample/:sampleId/edit', component: EditSampleComponent },
       { path: 'sample/create', component: EditSampleComponent },
       { path: 'add-user', component: EditUserComponent },
