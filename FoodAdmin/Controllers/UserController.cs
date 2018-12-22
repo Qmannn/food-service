@@ -19,8 +19,7 @@ namespace FoodAdmin.Controllers
         [HttpGet("")]
         public List<UserDto> GetUsers()
         {
-            var storedUsers = _usersService.GetUsers();
-            return storedUsers;
+            return _usersService.GetUsers();
         }
     }
 }
