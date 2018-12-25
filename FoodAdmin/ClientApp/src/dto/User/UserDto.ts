@@ -1,6 +1,7 @@
+import { UserRole } from './Enum/UserRole';
+
 export class UserDto {
-    public userId: number;
+    public id: number;
     public name: string;
-    public team: string;
-    public group: string;
+    public role: UserRole;
 }

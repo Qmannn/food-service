@@ -2,7 +2,7 @@
 
 namespace Food.EntityFramework.Entities
 {
-    internal class OrderDish : IEntity
+    public class OrderDish : IEntity
     {
         public int Id { get; set; }
         public int OrderId { get; set; }

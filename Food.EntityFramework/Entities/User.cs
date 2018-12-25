@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Food.EntityFramework.Entities
 {
-    internal class User : IEntity
+    public class User : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

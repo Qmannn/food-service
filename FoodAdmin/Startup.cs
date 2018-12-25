@@ -33,6 +33,8 @@ namespace FoodAdmin
             services.AddEntityFrameworkSqlServer();
             services.AddScoped<IRepository<Sample>, GenericRepository<Sample>>();
             services.AddScoped<ISampleService, SampleService>();
+            services.AddScoped<IRepository<User>, GenericRepository<User>>();
+            services.AddScoped<IUsersService, UserService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

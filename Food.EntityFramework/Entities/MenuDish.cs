@@ -1,6 +1,6 @@
 ﻿namespace Food.EntityFramework.Entities
 {
-    internal class MenuDish
+    public class MenuDish
     {
         public int DishId { get; set; }
         public int MenuId { get; set; }
