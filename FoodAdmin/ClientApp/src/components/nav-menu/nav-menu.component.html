@@ -1,53 +1,48 @@
 <div class='main-nav'>
-    <div class='navbar navbar-inverse'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>FoodAdmin</a>
-        </div>
-        <div class='clearfix'></div>
-        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
-          <ul class='nav navbar-nav'>
-            <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-              <a [routerLink]='["menu"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-cutlery'></span> Список меню
-                    </a>
-                </li>
-            <li [routerLinkActive]='["link-active"]'>
-              <a [routerLink]='["/edit-user"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-user'></span> Добавление пользователя
-              </a>
-            </li>
-              <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                  <a [routerLink]='["/"]' (click)='collapse()'>
-                      <span class='glyphicon glyphicon-cutlery'></span> Список блюд
-                  </a>
-              </li>
-              <li [routerLinkActive]='["link-active"]'>
-                  <a [routerLink]='["/sample"]' (click)='collapse()'>
-                      <span class='glyphicon glyphicon-paperclip'></span> Пример страницы
-                  </a>
-              </li>
-              <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                  <a [routerLink]='["/user-list"]' (click)='collapse()'>
-                      <span class='glyphicon glyphicon-user'></span> Список пользователей
-                  </a>
-              </li>
-          <li [routerLinkActive]='["link-active"]'>
-            <a [routerLink]='["/add-user"]' (click)='collapse()'>
-              <span class='glyphicon glyphicon-user'></span> Добавление пользователя
-            </a>
-          </li>
-          <li [routerLinkActive]='["link-active"]'>
-              <a [routerLink]='["/commands"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-cog'></span> Управление командами
-              </a>
-            </li>
-          </ul>
-      </div>
+  <div class='navbar navbar-inverse'>
+    <div class='navbar-header'>
+      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <a class='navbar-brand' [routerLink]='["/"]'>FoodAdmin</a>
+    </div>
+    <div class='clearfix'></div>
+    <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
+      <ul class='nav navbar-nav'>
+        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["menu"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-cutlery'></span> Список меню
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/edit-user"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-user'></span> Добавление пользователя
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-cutlery'></span> Список блюд
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/sample"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-paperclip'></span> Пример страницы
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/user-list"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-user'></span> Список пользователей
+          </a>
+        </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/commands"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-cog'></span> Управление командами
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
