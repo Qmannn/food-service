@@ -17,11 +17,6 @@
             <span class='glyphicon glyphicon-cutlery'></span> Список меню
           </a>
         </li>
-        <li [routerLinkActive]='["link-active"]'>
-          <a [routerLink]='["/edit-user"]' (click)='collapse()'>
-            <span class='glyphicon glyphicon-user'></span> Добавление пользователя
-          </a>
-        </li>
         <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
           <a [routerLink]='["/"]' (click)='collapse()'>
             <span class='glyphicon glyphicon-cutlery'></span> Список блюд
