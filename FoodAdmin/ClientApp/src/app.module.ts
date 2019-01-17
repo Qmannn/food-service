@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { DishListComponent } from './components/pages/DishList/DishList.Component';
+import { EditDishComponent } from './components/pages/Dish/EditDish/EditDish.Component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';
 import { MenuComponent } from './components/pages/menu/menu.component';
@@ -18,7 +19,7 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
   declarations: [
     AppComponent,
     NavMenuComponent,
-
+    DishComponent,
     MenuComponent,
     SampleComponent,
     DishListComponent,
@@ -26,7 +27,8 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
     UserListComponent,
     EditUserComponent,
     EditSampleComponent,
-    CommandsComponent
+    CommandsComponent,
+    EditDishComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -42,7 +44,9 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
       { path: 'edit-user', component: EditUserComponent },
       { path: 'edit-user/:userId', component: EditUserComponent },
       { path: 'user-list', component: UserListComponent },
-      { path: 'commands', component: CommandsComponent }
+      { path: 'commands', component: CommandsComponent },
+      { path: 'dish/:dishId/edit', component: EditDishComponent },
+      { path: 'dish/create', component: EditDishComponent }
     ])
   ],
   providers: [HttpService],

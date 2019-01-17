@@ -1,0 +1,59 @@
+<div class="card">
+
+  <div class="page-header">
+    <h1>
+      <span *ngIf="editingDishId !== 0">Редактирование </span>
+      <span *ngIf="editingDishId === 0">Создание </span>
+      блюда
+    </h1>
+  </div>
+
+  <div class="card-bloc" *ngIf="dishToEdit">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <input type="text" class="form-control" placeholder="Название" [(ngModel)]="dishToEdit.name" />
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <textarea class="form-control" rows="5" placeholder="Описание" [(ngModel)]="dishToEdit.description" style="resize:vertical">{{dishToEdit.description}}</textarea>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <input type="number" min="0" class="form-control" placeholder="Цена" [(ngModel)]="dishToEdit.price" />
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <select class="form-control" required [(ngModel)]="dishToEdit.category">
+          <option *ngFor="let dishCategory of categories" [ngValue]="dishCategory.value">{{dishCategory.name}}</option>
+        </select>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <select class="form-control" [(ngModel)]="dishToEdit.containerId">
+          <option value="1">Контейнер 1</option>
+        </select>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <button type="button" class="btn btn-primary" (click)="saveDish()">Сохранить</button>
+      </div>
+    </div>
+  </div>
+</div>
+

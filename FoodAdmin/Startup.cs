@@ -31,11 +31,15 @@ namespace FoodAdmin
             
             services.AddDbContext<FoodDbContext>( ( provider, builder ) => { builder.UseSqlServer( provider.GetService<DbContextConfiguration>().ConnectionString ); } );
             services.AddEntityFrameworkSqlServer();
+
             services.AddScoped<IRepository<Sample>, GenericRepository<Sample>>();
             services.AddScoped<ISampleService, SampleService>();
             services.AddScoped<IRepository<User>, GenericRepository<User>>();
             services.AddScoped<IUsersService, UserService>();
             services.AddScoped<IUserEditService, UserEditService>();
+
+            services.AddScoped<IRepository<Dish>, GenericRepository<Dish>>();
+            services.AddScoped<IDishService, DishService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
