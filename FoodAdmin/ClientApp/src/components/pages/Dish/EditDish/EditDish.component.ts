@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { DishDataService } from '../../../../HttpServices/DishDataService';
 import { DishDto } from '../../../../dto/Dish/DishDto';
-import { DishCategory } from '../../../../enums/enum';
+import { DishCategory } from '../../../../dto/Dish/DishCategory';
 import { ActivatedRoute } from '@angular/router';
+import { IDishCategory } from '../IDishCategoryName';
+import { DishCategoryNameUtil } from '../DishCategoryNameUtil';
 
 @Component({
   templateUrl: './EditDish.Component.html',
@@ -12,11 +14,14 @@ import { ActivatedRoute } from '@angular/router';
 export class EditDishComponent {
   private readonly _dishDataService: DishDataService;
 
+  public categories: Array<IDishCategory>;
+
   public editingDishId: number;
   public dishToEdit: DishDto;
 
   public constructor(dishDataService: DishDataService, route: ActivatedRoute) {
     this._dishDataService = dishDataService;
+    this.categories = DishCategoryNameUtil.getCategories();
     route.params.subscribe(params => {
       const paramsDishId: number | undefined = params['dishId'] !== undefined
         ? Number(params['dishId'])
@@ -25,13 +30,6 @@ export class EditDishComponent {
       this.loadDish();
     });
   }
-
-  public dishCategories: Array<any> = [
-    { value: DishCategory.Salad, name: 'Салат' },
-    { value: DishCategory.Soup, name: 'Суп' },
-    { value: DishCategory.SecondDish, name: 'Второе блюдо' },
-    { value: DishCategory.Garnish, name: 'Гарнир' },
-  ]
 
   private loadDish(): void {
     this._dishDataService.getDish(this.editingDishId).subscribe(dish => {

@@ -1,4 +1,4 @@
-import { DishCategory } from '../../enums/enum';
+import { DishCategory } from '../../dto/Dish/DishCategory';
 
 export class DishDto {
   public dishId: number;

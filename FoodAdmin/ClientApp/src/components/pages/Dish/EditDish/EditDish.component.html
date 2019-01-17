@@ -4,16 +4,11 @@
     <h1>
       <span *ngIf="editingDishId !== 0">Редактирование </span>
       <span *ngIf="editingDishId === 0">Создание </span>
-      Dish <small *ngIf="dishToEdit">{{dishToEdit.name}} </small><small *ngIf="!dishToEdit">#{{editingDishId}}</small>
+      блюда
     </h1>
   </div>
 
-  <div class="card-header">
-    <h1 class="title">Добавить блюдо</h1>
-  </div>
-  <br>
-
-  <div class="card-bloc">
+  <div class="card-bloc" *ngIf="dishToEdit">
 
     <div class="row">
       <div class="col-sm-6">
@@ -39,7 +34,7 @@
     <div class="row">
       <div class="col-sm-6">
         <select class="form-control" required [(ngModel)]="dishToEdit.category">
-          <option *ngFor="let dishCategory of dishCategories" [ngValue]="dishCategory.value">{{dishCategory.name}}</option>
+          <option *ngFor="let dishCategory of categories" [ngValue]="dishCategory.value">{{dishCategory.name}}</option>
         </select>
       </div>
     </div>
