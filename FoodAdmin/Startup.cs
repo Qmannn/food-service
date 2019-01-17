@@ -35,6 +35,7 @@ namespace FoodAdmin
             services.AddScoped<ISampleService, SampleService>();
             services.AddScoped<IRepository<User>, GenericRepository<User>>();
             services.AddScoped<IUsersService, UserService>();
+            services.AddScoped<IUserEditService, UserEditService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

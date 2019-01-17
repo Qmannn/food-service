@@ -11,7 +11,7 @@ export class EditUserDataService {
     this._httpService = httpService;
   }
 
-  public addUser(user: EditUserDto): Observable<EditUserDto> {
+  public saveUser(user: EditUserDto): Observable<EditUserDto> {
     return this._httpService.post<EditUserDto, EditUserDto>('api/EditUser/User', user);
   }
 
