@@ -8,12 +8,19 @@ namespace FoodAdmin.Controllers
     [Route("api/[controller]")]
     public class SampleController : Controller
     {
+        private ISampleService _sampleService;
+
+        public SampleController(ISampleService sampleService)
+        {
+            _sampleService = sampleService;
+        }
+
         [HttpGet("samples")]
         public List<SampleDto> GetSamples()
         {
             var storedSamples = _sampleService.GetSamples();
 
-            if ( storedSamples.Count > 0 )
+            if (storedSamples.Count > 0)
             {
                 return storedSamples;
             }
@@ -34,17 +41,17 @@ namespace FoodAdmin.Controllers
                 },
             };
         }
-        
+
         [HttpGet("sample")]
         public SampleDto GetSample(int sampleId)
         {
-            return _sampleService.GetSample( sampleId );
+            return _sampleService.GetSample(sampleId);
         }
-        
+
         [HttpPost("sample")]
         public SavedSampleInfo SaveSample([FromBody] SampleDto sample)
         {
-            SampleDto savedSampleDto = _sampleService.SaveSample( sample );
+            SampleDto savedSampleDto = _sampleService.SaveSample(sample);
 
             return new SavedSampleInfo
             {

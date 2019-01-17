@@ -18,9 +18,9 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
   declarations: [
     AppComponent,
     NavMenuComponent,
-    FoodListComponent,
+
     MenuComponent,
-    SampleComponent
+    SampleComponent,
     DishListComponent,
     SampleComponent,
     UserListComponent,
