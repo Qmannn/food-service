@@ -8,17 +8,13 @@ import { DishCategory } from '../../../enums/enum';
   providers: [DishDataService]
 })
 
-export class DishCategoryNameUtil {
-
+export class DishComponent {
   public dishCategories: Array<any> = [
     { value: DishCategory.Salad, name: 'Салат' },
     { value: DishCategory.Soup, name: 'Суп' },
     { value: DishCategory.SecondDish, name: 'Второе блюдо' },
     { value: DishCategory.Garnish, name: 'Гарнир' },
   ]
-}
-
-export class DishComponent {
 
   private readonly _dishDataService: DishDataService;
   public dishes: DishDto[];

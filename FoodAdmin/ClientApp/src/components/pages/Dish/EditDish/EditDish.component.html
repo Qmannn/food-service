@@ -24,7 +24,7 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <textarea class="form-control" rows="5" placeholder="Описание" [(ngModel)]="dishToEdit.description" style="resize:vertical"></textarea>
+        <textarea class="form-control" rows="5" placeholder="Описание" [(ngModel)]="dishToEdit.description" style="resize:vertical">{{dishToEdit.description}}</textarea>
       </div>
     </div>
     <br>
@@ -39,7 +39,7 @@
     <div class="row">
       <div class="col-sm-6">
         <select class="form-control" required [(ngModel)]="dishToEdit.category">
-          <option *ngFor="let dishCategory of dishCategories" [ngValue]="dishCategory.value"></option>
+          <option *ngFor="let dishCategory of dishCategories" [ngValue]="dishCategory.value">{{dishCategory.name}}</option>
         </select>
       </div>
     </div>

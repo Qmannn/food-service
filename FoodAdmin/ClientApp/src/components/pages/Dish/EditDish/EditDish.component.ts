@@ -26,6 +26,13 @@ export class EditDishComponent {
     });
   }
 
+  public dishCategories: Array<any> = [
+    { value: DishCategory.Salad, name: 'Салат' },
+    { value: DishCategory.Soup, name: 'Суп' },
+    { value: DishCategory.SecondDish, name: 'Второе блюдо' },
+    { value: DishCategory.Garnish, name: 'Гарнир' },
+  ]
+
   private loadDish(): void {
     this._dishDataService.getDish(this.editingDishId).subscribe(dish => {
       this.dishToEdit = dish;
