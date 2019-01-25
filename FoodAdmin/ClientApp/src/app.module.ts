@@ -19,7 +19,6 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
   declarations: [
     AppComponent,
     NavMenuComponent,
-    DishComponent,
     MenuComponent,
     SampleComponent,
     DishListComponent,
@@ -52,4 +51,4 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
   providers: [HttpService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
