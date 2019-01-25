@@ -16,10 +16,29 @@ namespace FoodAdmin.Controllers
             _usersService = userService;
         }
 
-        [HttpGet("")]
+        [HttpGet("users")]
         public List<UserDto> GetUsers()
         {
             return _usersService.GetUsers();
+        }
+
+        [HttpGet("user")]
+        public UserDto GetUser(int userId)
+        {
+            return _usersService.GetUser(userId);
+        }
+
+        [HttpPost("user")]
+        public UserDto SaveUser([FromBody] UserDto newUser)
+        {
+            UserDto savedUserDto = _usersService.SaveUser(newUser);
+
+            return new UserDto
+            {
+                UserId = savedUserDto.UserId,
+                Name = savedUserDto.Name,
+                Role = savedUserDto.Role
+            };
         }
     }
 }
