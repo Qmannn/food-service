@@ -13,6 +13,6 @@ export class UsersDataService {
     }
     
     public getUsers(): Observable<UserDto[]> {
-        return this._httpService.get<UserDto[]>('api/Users');
+        return this._httpService.get<UserDto[]>('api/Users/users');
     }
 }
