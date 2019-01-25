@@ -16,12 +16,6 @@ export class DishesService {
     return this._httpService.get<DishDto[]>('api/DishesApi/dishes');
   }
 
-  public getDish(id: number): Observable<DishDto> {
-    const params: HttpParams = new HttpParams()
-      .set('id', id.toString());
-    return this._httpService.get<DishDto>('api/DishesApi/dish', params);
-  }
-
   public removeDish(id: number): Observable<void> {
     const params: HttpParams = new HttpParams()
       .set('id', id.toString());

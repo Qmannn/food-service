@@ -23,12 +23,6 @@ namespace FoodAdmin.Controllers
             return storedDishes;
         }
 
-        [HttpGet("dish")]
-        public DishDto GetDish(int Id)
-        {
-            return _dishesService.GetDish(Id);
-        }
-
         [HttpPost("remove")]
         public void RemoveDish(int Id)
         {

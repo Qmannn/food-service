@@ -23,18 +23,6 @@ namespace FoodAdmin.Service
             return dishes.ConvertAll(Convert);
         }
 
-        public DishDto GetDish(int Id)
-        {
-            Dish dish = _dishRepository.All.FirstOrDefault(item => item.Id == Id);
-            DishDto dishDto = null;
-            if (dish != null)
-            {
-                dishDto = Convert(dish);
-            }
-
-            return dishDto;
-        }
-
         public void RemoveDish(int Id)
         {
             _dishRepository.Delete(Id);

@@ -8,7 +8,6 @@ namespace FoodAdmin.Service
 {
     public interface IDishesService
     {
-        DishDto GetDish(int Id);
         List<DishDto> GetDishes();
         void RemoveDish(int Id);
     }
