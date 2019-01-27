@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EditUserDataService } from '../../../HttpServices/EditUserDataService';
-import { EditUserDto } from '../../../dto/EditUser/EditUserDto';
+import { UserDto } from '../../../dto/User/UserDto';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditUserComponent {
   private readonly _userDataService: EditUserDataService;
-  public newUser: EditUserDto;
+  public newUser: UserDto;
 
   public constructor(userDataService: EditUserDataService, route: ActivatedRoute) {
     this._userDataService = userDataService;
