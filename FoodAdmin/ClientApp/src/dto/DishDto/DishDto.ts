@@ -1,8 +1,10 @@
-import { DishType } from "./Enum/DishType";
+import { DishCategory } from "./Enum/DishCategory";
 
 export class DishDto {
-  public dishName: string;
-  public dishPrice: number;
-  public dishWeight: number;
-  public dishType: DishType;
+  public id: number;
+  public name: string;
+  public description: string;
+  public price: number;
+  public category: DishCategory;
+  public containerId: number;
 }

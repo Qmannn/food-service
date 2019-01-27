@@ -11,7 +11,7 @@ namespace FoodAdmin.Controllers
     {
         private readonly IDishService _dishService;
 
-        public DishController( IDishService dishService )
+        public DishController(IDishService dishService)
         {
             _dishService = dishService;
         }
@@ -50,13 +50,13 @@ namespace FoodAdmin.Controllers
         }
 
         [HttpGet("dish")]
-        public DishDto GetDish( int dishId )
+        public DishDto GetDish(int dishId)
         {
             return _dishService.GetDish(dishId);
         }
 
         [HttpPost("dish")]
-        public DishDto SaveDish( [FromBody] DishDto dish )
+        public DishDto SaveDish([FromBody] DishDto dish)
         {
             DishDto dishDto = _dishService.SaveDish(dish);
 
@@ -71,5 +71,5 @@ namespace FoodAdmin.Controllers
             };
         }
     }
-  
+
 }

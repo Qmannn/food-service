@@ -15,4 +15,10 @@ export class DishesService {
   public getDishes(): Observable<DishDto[]> {
     return this._httpService.get<DishDto[]>('api/DishesApi/dishes');
   }
+
+  public removeDish(id: number): Observable<void> {
+    const params: HttpParams = new HttpParams()
+      .set('id', id.toString());
+    return this._httpService.post('api/DishesApi/remove', params);
+  }
 }

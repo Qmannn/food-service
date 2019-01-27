@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DishesService } from '../../../HttpServices/DishesService/DishesService';
 import { DishDto } from '../../../dto/DishDto/DishDto';
-import { DishType } from '../../../dto/DishDto/Enum/DishType'
+import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory'
 
 @Component({
   // selector: 'app-food-list',
@@ -21,21 +21,33 @@ export class DishListComponent {
     });
   }
 
-  public getDishType(Type: DishType): string {
-    switch (Type) {
-      case DishType.Salad: {
+  public deleteDish(id: number): void {
+    this._dishesService.removeDish(id).subscribe(() => {
+      this.reloadDishes();
+    });
+  }
+
+  private reloadDishes(): void {
+    this._dishesService.getDishes().subscribe(values => {
+      this.dishes = values;
+    });
+  }
+
+  public getDishCategory(Category: DishCategory): string {
+    switch (Category) {
+      case DishCategory.Salad: {
         return 'Салат';
       }
 
-      case DishType.Soup: {
+      case DishCategory.FirstDish: {
         return 'Суп';
       }
 
-      case DishType.SecondDish: {
+      case DishCategory.SecondDish: {
         return 'Второе блюдо';
       }
 
-      case DishType.Garnish: {
+      case DishCategory.Garnish: {
         return 'Гарнир';
       }
 

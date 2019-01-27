@@ -3,20 +3,24 @@
 <table class="table">
   <thead>
     <tr>
+      <th scope="col">Id</th>
       <th scope="col">Название</th>
+      <th scope="col">Описание</th>
       <th scope="col">Стоимость</th>
       <th scope="col">Тип</th>
-      <th scope="col">Вес</th>
+      <th scope="col">Контейнер</th>
       <th scope="col">Изменить</th>
       <th scope="col">Удалить</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let dish of dishes">
-      <th>{{dish.dishName}}</th>
-      <td>{{dish.dishPrice}}</td>
-      <td>{{getDishType(dish.dishType)}}</td>
-      <td>{{dish.dishWeight}}</td>
+      <th>{{dish.id}}</th>
+      <th>{{dish.name}}</th>
+      <th>{{dish.description}}</th>
+      <td>{{dish.price}}</td>
+      <td>{{getDishCategory(dish.category)}}</td>
+      <td>{{dish.containerId}}</td>
       <td>
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-primary">Изменить</button>
@@ -24,7 +28,7 @@
       </td>
       <td>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-danger">Удалить</button>
+          <button type="button" class="btn btn-danger" (click)="deleteDish(dish.id)">Удалить</button>
         </div>
       </td>
     </tr>
