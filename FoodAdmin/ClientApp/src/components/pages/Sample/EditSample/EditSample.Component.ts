@@ -21,7 +21,8 @@ export class EditSampleComponent {
                 ? Number(params['sampleId'])
                 : 0;
             this.editingSampleId = paramsSampleId;
-            this.loadSample();
+            this.sampleToEdit = new SampleDto();
+            // this.loadSample();
         });
     }
 

@@ -1,4 +1,4 @@
-import { UserRole } from "./Enum/UserRole";
+import { UserRole } from './Enum/UserRole';
 
 export class EditUserDto {
   public userId: number;
