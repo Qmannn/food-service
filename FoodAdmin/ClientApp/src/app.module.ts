@@ -14,6 +14,7 @@ import { UserListComponent } from './components/pages/UserList/UserList.Componen
 import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
 import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSample.Component';
 import { CommandsComponent } from './components/pages/Commands/Commands.Component';
+import { EditSampleCardComponent } from './components/controls/sample/EditSampleCard/EditSampleCard.Component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CommandsComponent } from './components/pages/Commands/Commands.Componen
     EditSampleComponent,
     CommandsComponent,
     EditDishComponent,
+    EditSampleCardComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
