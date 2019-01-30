@@ -1,0 +1,12 @@
+.card {
+    margin: 10px 0;
+    box-shadow: 0px 0px 10px 1px #159bb3;
+    border-radius: 3px;
+    border: 1px solid #159bb3;
+    height: 100px;
+}
+
+.price {
+    font-weight: bold;
+    
+}
