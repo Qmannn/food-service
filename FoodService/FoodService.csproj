@@ -25,11 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Components\ColumnForDishes\ColumnForDishes.Component.ts" />
     <None Remove="FoodService.csproj.DotSettings" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Food.EntityFramework\Food.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\Components\ColumnForDishes\ColumnForDishes.Component.ts" />
   </ItemGroup>
 
   <ItemGroup>
