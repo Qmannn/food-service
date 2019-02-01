@@ -5,6 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './counter.component.html'
 })
 export class CounterComponent {
+  public dishes: string[];
+  public constructor() {
+    this.dishes = [
+
+      "salad",
+      "soup",
+      "firstDish"];
+  }
+
   public currentCount: number = 0;
 
   public incrementCounter(): void {

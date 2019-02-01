@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-column-dishes',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./ColumnForDishes.Component.css']
 })
 export class ColumnForDishesComponent {
-
+  @Input()
+  public dishes: string[];
 }
