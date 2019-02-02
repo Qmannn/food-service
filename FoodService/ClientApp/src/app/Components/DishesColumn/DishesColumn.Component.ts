@@ -2,10 +2,11 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-column-dishes',
-  templateUrl: './ColumnForDishes.Component.html',
-  styleUrls: ['./ColumnForDishes.Component.css']
+  templateUrl: './DishesColumn.Component.html',
+  styleUrls: ['./DishesColumn.Component.css']
 })
-export class ColumnForDishesComponent {
+
+export class DishesColumnComponent {
   @Input()
   public dishes: string[];
 }

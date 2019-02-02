@@ -9,7 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { ColumnForDishesComponent } from './Components/ColumnForDishes/ColumnForDishes.Component';
+import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { ColumnForDishesComponent } from './Components/ColumnForDishes/ColumnFor
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ColumnForDishesComponent
+    DishesColumnComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
