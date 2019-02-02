@@ -1,0 +1,10 @@
+.column {
+  width: 100px;
+  border: 5px solid rgb(178, 0, 255);
+}
+
+.row {
+  width: 80px;
+  border: 3px solid rgb(255, 106, 0);
+  margin: 5px;
+}

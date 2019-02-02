@@ -9,12 +9,12 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { ColumnForDishesComponent } from './Components/ColumnForDishes/ColumnForDishes.Component';
 import { DishSimpleComponent } from './Components/DishCard/DishSimple.Component';
 import { DishCardComponent } from './Components/DishCard/DishCard.Component';
 import { DishColumnSampleComponent } from './Components/DishColumns/DishColumnSample.Component';
 import { DishColumnsComponent } from './Components/DishColumns/DishColumns.Component';
 import { DishColumnsSapmleComponent } from './Components/DishColumns/DishColumnsSample.Component';
-import { ColumnForDishesComponent } from './Components/ColumnForDishes/ColumnForDishes.Component';
 
 @NgModule({
   declarations: [
@@ -23,13 +23,14 @@ import { ColumnForDishesComponent } from './Components/ColumnForDishes/ColumnFor
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
+    ColumnForDishesComponent,
     DishSimpleComponent,
     DishCardComponent,
     DishColumnSampleComponent,
     DishColumnsComponent,
     DishColumnsSapmleComponent
     FetchDataComponent,
-    ColumnForDishesComponent
+    DishesColumnComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
