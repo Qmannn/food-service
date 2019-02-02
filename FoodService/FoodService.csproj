@@ -26,6 +26,8 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\Components\ColumnForDishes\ColumnForDishes.Component.ts" />
+    <None Remove="ClientApp\src\dto\Dish\DishCategory.ts" />
+    <None Remove="ClientApp\src\dto\Dish\DishDto.ts" />
     <None Remove="FoodService.csproj.DotSettings" />
   </ItemGroup>
 
@@ -35,6 +37,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\Components\ColumnForDishes\ColumnForDishes.Component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\dto\Dish\DishCategory.ts" />
+    <TypeScriptCompile Include="ClientApp\src\dto\Dish\DishDto.ts" />
   </ItemGroup>
 
   <ItemGroup>
