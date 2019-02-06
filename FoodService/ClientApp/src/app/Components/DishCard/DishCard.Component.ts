@@ -1,6 +1,5 @@
-import { Component, Input } from "@angular/core";
-import { DishDto } from "../../../dto/Dish/DishDto";
-
+import { Component, Input } from '@angular/core';
+import { DishDto } from '../../../dto/Dish/DishDto';
 
 @Component({
     selector: 'app-dish-card',
@@ -12,4 +11,3 @@ export class DishCardComponent {
     @Input()
     public dish: DishDto;
 }
-
