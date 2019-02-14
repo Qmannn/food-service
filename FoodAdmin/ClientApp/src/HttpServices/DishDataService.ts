@@ -23,6 +23,12 @@ export class DishDataService {
   }
 
   public saveDish(dish: DishDto): Observable<DishDto> {
-    return this._httpService.post<DishDto, DishDto>('api/Dish/Dish', dish);
+    return this._httpService.post<DishDto, DishDto>('api/Dish/Save', dish);
+  }
+
+  public removeDish(dishId: number): Observable<void> {
+    const params: HttpParams = new HttpParams()
+      .set('dishId', dishId.toString());
+    return this._httpService.post('api/Dish/remove', params);
   }
 }

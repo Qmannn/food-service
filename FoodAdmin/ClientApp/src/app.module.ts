@@ -42,7 +42,7 @@ import { EditContainerComponent } from './components/pages/ContainerList/EditCon
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: DishListComponent, pathMatch: 'full' },
+      { path: 'dish-list', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
       { path: 'sample', component: SampleComponent },
       { path: 'menu', component: MenuComponent },

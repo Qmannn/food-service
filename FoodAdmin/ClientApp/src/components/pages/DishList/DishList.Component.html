@@ -1,5 +1,5 @@
 <h1>Список блюд:</h1>
-<button type="button" class="btn btn-primary">Добавить</button>
+<button type="button" class="btn btn-primary" routerLink="/dish/create">Добавить</button>
 <table class="table">
   <thead>
     <tr>
@@ -23,12 +23,12 @@
       <td>{{dish.containerId}}</td>
       <td>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary">Изменить</button>
+          <button type="button" class="btn btn-primary" routerLink="/dish/{{dish.dishId}}/edit">Изменить</button>
         </div>
       </td>
       <td>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-danger" (click)="deleteDish(dish.id)">Удалить</button>
+          <button type="button" class="btn btn-danger" (click)="deleteDish(dish.dishId)">Удалить</button>
         </div>
       </td>
     </tr>
