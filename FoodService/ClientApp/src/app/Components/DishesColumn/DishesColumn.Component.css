@@ -1,10 +1,10 @@
 .column {
-  width: 100px;
-  border: 5px solid rgb(178, 0, 255);
+  width: 150px;
+  border: 5px solid rgb(0, 235, 235);
 }
 
-.row {
-  width: 80px;
-  border: 3px solid rgb(255, 106, 0);
-  margin: 5px;
-}
+  .column .row {
+    width: 130px;
+    border: 3px solid rgb(0, 146, 255);
+    margin: 5px;
+  }
