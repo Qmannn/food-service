@@ -1,0 +1,13 @@
+.columns{
+    width: 1000px;
+    margin: auto;
+}
+
+.float-left
+{
+    float: left;
+}
+
+.clear{
+    clear: both;
+}
