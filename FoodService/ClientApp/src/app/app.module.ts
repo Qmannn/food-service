@@ -11,6 +11,9 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DishSimpleComponent } from './Components/DishCard/DishSimple.Component';
 import { DishCardComponent } from './Components/DishCard/DishCard.Component';
+import { DishColumnSampleComponent } from './Components/DishColumns/DishColumnSample.Component';
+import { DishColumnsComponent } from './Components/DishColumns/DishColumns.Component';
+import { DishColumnsSapmleComponent } from './Components/DishColumns/DishColumnsSample.Component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { DishCardComponent } from './Components/DishCard/DishCard.Component';
     FetchDataComponent,
     DishSimpleComponent,
     DishCardComponent,
+    DishColumnSampleComponent,
+    DishColumnsComponent,
+    DishColumnsSapmleComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +37,7 @@ import { DishCardComponent } from './Components/DishCard/DishCard.Component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'dish-card', component: DishSimpleComponent },
+      { path: 'dish-columns', component: DishColumnsSapmleComponent }
     ])
   ],
   providers: [],
