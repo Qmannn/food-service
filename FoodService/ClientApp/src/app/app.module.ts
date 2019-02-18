@@ -14,6 +14,7 @@ import { DishCardComponent } from './Components/DishCard/DishCard.Component';
 import { DishColumnSampleComponent } from './Components/DishColumns/DishColumnSample.Component';
 import { DishColumnsComponent } from './Components/DishColumns/DishColumns.Component';
 import { DishColumnsSapmleComponent } from './Components/DishColumns/DishColumnsSample.Component';
+import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { DishColumnsSapmleComponent } from './Components/DishColumns/DishColumns
     DishColumnSampleComponent,
     DishColumnsComponent,
     DishColumnsSapmleComponent,
-    FetchDataComponent
+    DishesColumnComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
