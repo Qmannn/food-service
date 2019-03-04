@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { DishDto } from '../../../dto/Dish/DishDto';
 
 @Component({

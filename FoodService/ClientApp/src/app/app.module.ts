@@ -9,9 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { DishSimpleComponent } from './Components/DishCard/DishSimple.Component';
 import { DishCardComponent } from './Components/DishCard/DishCard.Component';
-import { DishColumnSampleComponent } from './Components/DishColumns/DishColumnSample.Component';
 import { DishColumnsComponent } from './Components/DishColumns/DishColumns.Component';
 import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Component';
 
@@ -22,9 +20,7 @@ import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Co
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    DishSimpleComponent,
     DishCardComponent,
-    DishColumnSampleComponent,
     DishColumnsComponent,
     DishesColumnComponent
   ],
@@ -36,7 +32,6 @@ import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Co
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'dish-card', component: DishSimpleComponent }
     ])
   ],
   providers: [],
