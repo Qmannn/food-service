@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DishDto } from '../../../dto/Dish/DishDto';
 
 @Component({
@@ -10,4 +10,10 @@ import { DishDto } from '../../../dto/Dish/DishDto';
 export class DishCardComponent {
     @Input()
     public dish: DishDto;
+    @Output()
+    public dishSelected: EventEmitter<DishDto> = new EventEmitter<DishDto>();
+
+    protected selectDish(){
+        this.dishSelected.emit(this.dish);
+    }
 }
