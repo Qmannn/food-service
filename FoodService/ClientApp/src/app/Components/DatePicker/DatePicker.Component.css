@@ -1,0 +1,19 @@
+.date-body {
+  width: 100%;
+  border: 5px;
+  background-color: rgb(126, 162, 198);
+  border-radius: 5px;
+  float: left;
+}
+
+.date-card {
+  background-color: rgb(246, 250, 249);
+  border: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: auto;
+  height: 100px;
+  width: 16%;
+  float: left;
+}

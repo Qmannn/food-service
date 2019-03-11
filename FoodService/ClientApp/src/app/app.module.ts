@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DishCardComponent } from './Components/DishCard/DishCard.Component';
 import { DishColumnsComponent } from './Components/DishColumns/DishColumns.Component';
 import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Component';
+import { DatePickerComponent } from './Components/DatePicker/DatePicker.Component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Co
     FetchDataComponent,
     DishCardComponent,
     DishColumnsComponent,
-    DishesColumnComponent
+    DishesColumnComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,6 +34,8 @@ import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Co
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'dish-card', component: DishSimpleComponent },
+      { path: 'date-picker', component: DatePickerComponent }
     ])
   ],
   providers: [],
