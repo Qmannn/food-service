@@ -39,6 +39,10 @@ namespace FoodAdmin
             services.AddScoped<IRepository<User>, GenericRepository<User>>();
             services.AddScoped<IUsersService, UserService>();
 
+            services.AddScoped<IRepository<Command>, GenericRepository<Command>>();
+            services.AddScoped<ICommandsService, CommandsService>();
+
+
             services.AddScoped<IRepository<Dish>, GenericRepository<Dish>>();
             services.AddScoped<IDishService, DishService>();
 
