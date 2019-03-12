@@ -1,0 +1,51 @@
+<div>
+    <div class="page-header">
+      <h1>Редактирование меню:</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <input type="date" class="form-control" [(ngModel)]="selectedDate">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Название блюда</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr *ngFor="let dish of dishes">
+                            <th>{{dish.name}}</th>
+                            <td>
+                                <div class="btn-group" role="group" >
+                                    <button type="button" class="btn btn-primary" (click)="addDish(dish)">Добавить</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Название блюда</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let dish of selectedDishes">
+                            <th>{{dish.name}}</th>
+                            <td>
+                                <div class="btn-group" role="group" >
+                                    <button type="button" class="btn btn-danger" (click)="delDish(dish)">Удалить</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="saveMenu(dish)">Сохранить</button>
+  </div>
