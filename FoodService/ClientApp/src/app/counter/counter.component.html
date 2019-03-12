@@ -7,5 +7,6 @@
 <button (click)="incrementCounter()">Increment</button>
 
 <div>
-  <app-dish-columns [dishList]="dishes"></app-dish-columns>
+  <app-dish-columns [dishList]="selectDishes" (dishSelected)="deselectDish($event)" class="menuSelectedDishes"></app-dish-columns>
+  <app-dish-columns [dishList]="dishes" (dishSelected)="selectDish($event)"></app-dish-columns>
 </div>

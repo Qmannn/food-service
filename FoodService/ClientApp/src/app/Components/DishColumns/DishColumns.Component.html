@@ -1,15 +1,15 @@
 <div class="columns mx-5 row">
     <div class="float-left col-lg-3">
-        <app-column-dishes [dishes]="saladItems" (dishSelected)="selectSaladDish($event)"></app-column-dishes>
+        <app-column-dishes [dishes]="saladItems" (dishSelected)="selectDish($event)"></app-column-dishes>
     </div>
     <div class="float-left col-lg-3">
-        <app-column-dishes [dishes]="firstDishItems" (dishSelected)="selectFirstDish($event)"></app-column-dishes>
+        <app-column-dishes [dishes]="firstDishItems" (dishSelected)="selectDish($event)"></app-column-dishes>
     </div>
     <div class="float-left col-lg-3">
-        <app-column-dishes [dishes]="secondDishItems" (dishSelected)="selectSecondDish($event)"></app-column-dishes>
+        <app-column-dishes [dishes]="secondDishItems" (dishSelected)="selectDish($event)"></app-column-dishes>
     </div>
     <div class="float-left col-lg-3">
-        <app-column-dishes [dishes]="garnishItems" (dishSelected)="selectGarnishDish($event)"></app-column-dishes>
+        <app-column-dishes [dishes]="garnishItems" (dishSelected)="selectDish($event)"></app-column-dishes>
     </div>
     <div class="clear"></div>
 </div>

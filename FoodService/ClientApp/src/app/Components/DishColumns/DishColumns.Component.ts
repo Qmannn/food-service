@@ -16,29 +16,19 @@ export class DishColumnsComponent {
 
   private getDishList(category: DishCategory): DishDto[] {
     const result: DishDto[] = [];
-    for (let i = 0; i < this.dishList.length; i++) {
-      if (this.dishList[i].category === category) {
-        result.push(this.dishList[i]);
+    const length: number = this.dishList.length;
+    for (let i = 0; i < length; i++) {
+      const dishDto: DishDto = this.dishList[i];
+      if (dishDto.category === category) {
+        result.push(dishDto);
       }
     }
 
     return result;
   }
 
-  protected selectSaladDish(dish: DishDto):void {
-    alert("Salad: " + dish.name);
-  }
-
-  protected selectFirstDish(dish: DishDto):void {
-    alert("First: " + dish.name);
-  }
-
-  protected selectSecondDish(dish: DishDto):void {
-    alert("Second: " + dish.name);
-  }
-
-  protected selectGarnishDish(dish: DishDto):void {
-    alert("Garnish: " + dish.name);
+  protected selectDish(dish: DishDto):void {
+    this.dishSelected.emit(dish);
   }
 
   protected get saladItems(): DishDto[] {
