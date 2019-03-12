@@ -9,8 +9,6 @@ import { Component } from '@angular/core';
 export class DatePickerComponent {
   public selectDate: Date = new Date;
 
-  public day: number = this.selectDate.getDate();
-
   public month: number = this.selectDate.getMonth();
 
   public getMonth(month): string {
@@ -69,8 +67,6 @@ export class DatePickerComponent {
     }
   }
 
-  public weekDay: number = this.selectDate.getDay();
-
   public getWeekDay(weekDay): string {
     switch (weekDay) {
       case 0: {
@@ -116,7 +112,17 @@ export class DatePickerComponent {
     }
   }
 
-  public dates = [this.weekDay, this.weekDay + 1, this.weekDay + 2, this.weekDay + 3, this.weekDay + 4, this.weekDay + 5];
+  public count: number = 1;
+
+  public addDay(day: Date, counter: number): void {
+    day.setDate(day.getDate() + counter);
+  }
+
+  public dateNow: Date = this.addDay(this.selectDate, this.count);
+
+  public weekDay: number = this.dateNow.getDay();
+
+  public weekDays = [this.weekDay, this.weekDay + 1, this.weekDay + 2, this.weekDay + 3, this.weekDay + 4, this.weekDay + 5];
 
   //либо прокидывать дату, либо инкрементировать и прописать условие для дат в месяцах
 
