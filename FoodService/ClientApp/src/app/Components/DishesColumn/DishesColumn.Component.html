@@ -1,5 +1,5 @@
 <div class="column">
   <div *ngFor="let dish of dishes" class="row">
-    {{dish.name}}
+    <app-dish-card (dishSelected)="selectDish($event)" [dish]="dish"></app-dish-card>
   </div>
 </div>

@@ -4,10 +4,12 @@ import { DishCategory } from '../../dto/Dish/DishCategory';
 
 @Component({
   selector: 'app-counter-component',
-  templateUrl: './counter.component.html'
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.css']
 })
 
 export class CounterComponent {
+  public selectDishes: DishDto[] = [];
   public dishes: DishDto[] = this.getMock();
 
   private getMock(): DishDto[] {
@@ -70,6 +72,15 @@ export class CounterComponent {
     return [dishDto1, dishDto2, dishDto3, dishDto4, dishDto5, dishDto6, dishDto7];
   }
 
+  protected selectDish(dish: DishDto):void {
+    this.selectDishes.push(dish);
+  }
+
+  protected deselectDish(dish: DishDto):void {
+    const index: number = this.selectDishes.findIndex((item: DishDto) => item.dishId === dish.dishId);
+    this.selectDishes.splice(index, 1);
+  }
+ 
   public currentCount: number = 0;
 
   public incrementCounter(): void {

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { DishDto } from '../../../dto/Dish/DishDto';
 
 @Component({
@@ -10,4 +10,10 @@ import { DishDto } from '../../../dto/Dish/DishDto';
 export class DishesColumnComponent {
   @Input()
   public dishes: DishDto[];
+  @Output()
+  public dishSelected: EventEmitter<DishDto> = new EventEmitter<DishDto>();
+
+  protected selectDish(dish: DishDto):void {
+    this.dishSelected.emit(dish);
+  }
 }
