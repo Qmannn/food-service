@@ -1,8 +1,8 @@
 <div>
   <div class="date-body">
     <div *ngFor="let weekDay of weekDays" class="date-card" (click)="onClickDate(date)">
-      <p>{{getWeekDay(getWeekResultDay(weekDay))}}</p>
-      <p>{{dateNow}} {{getMonth(month)}}</p>
+      <p>{{weekDayString(getWeekDay(weekDay))}}</p>
+      <p>{{getNumDay(weekDay)}} {{getMonth(getMonthDay(weekDay))}}</p>
     </div>
   </div>
 </div>
