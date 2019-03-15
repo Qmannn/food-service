@@ -7,10 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class DatePickerComponent {
-  public selectDate: Date = new Date;
-
-  public month: number = this.selectDate.getMonth();
-
   public getMonth(month): string {
     switch (month) {
       case 0: {
@@ -67,8 +63,8 @@ export class DatePickerComponent {
     }
   }
 
-  public getWeekDay(weekDay): string {
-    switch (weekDay) {
+  public weekDayString(dayInWeek): string {
+    switch (dayInWeek) {
       case 0: {
         return 'Воскресенье';
       }
@@ -103,30 +99,34 @@ export class DatePickerComponent {
     }
   }
 
-  public getWeekResultDay(weekDay): number {
-    if (weekDay > 6) {
-      weekDay = weekDay - 7;
-      return weekDay;
-    } else {
-      return weekDay;
+  public getWeekDay(day: Date): number {
+    return day.getDay();
+  }
+
+  public getNumDay(day: Date): number {
+    return day.getDate();
+  }
+
+  public getMonthDay(day: Date): number {
+    return day.getMonth();
+  }
+
+  public addDay(day: Date, incrementDays: number): Date {
+    return new Date(day.getFullYear(), day.getMonth(), day.getDate() + incrementDays);
+  }
+
+  private fillWeekDays(): Date[] {
+    const result: Date[] = [];
+    const now: Date = new Date;
+    for (let i: number = 0; i < 6; i++) {
+      const weekDay: Date = this.addDay(now, i);
+      result.push(weekDay);
     }
+
+    return result;
   }
 
-  public count: number = 1;
-
-  public addDay(day: Date, counter: number): void {
-    day.setDate(day.getDate() + counter);
-  }
-
-  public dateNow: Date = this.addDay(this.selectDate, this.count);
-
-  public weekDay: number = this.dateNow.getDay();
-
-  public weekDays = [this.weekDay, this.weekDay + 1, this.weekDay + 2, this.weekDay + 3, this.weekDay + 4, this.weekDay + 5];
+  public weekDays: Date[] = this.fillWeekDays();
 
   //либо прокидывать дату, либо инкрементировать и прописать условие для дат в месяцах
-
-  public onClickDate(datePick: number) {
-    alert(this.getWeekDay(this.getWeekResultDay(datePick)));
-  };
 }
