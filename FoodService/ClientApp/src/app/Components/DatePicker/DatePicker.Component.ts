@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WorkDate } from './WorkDate';
 
 @Component({
   selector: 'app-date-picker',
@@ -7,96 +8,14 @@ import { Component } from '@angular/core';
 })
 
 export class DatePickerComponent {
-  public getMonth(month): string {
-    switch (month) {
-      case 0: {
-        return 'Января';
-      }
+  public workDate: WorkDate = new WorkDate();
 
-      case 1: {
-        return 'Февраля';
-      }
-
-      case 2: {
-        return 'Марта';
-      }
-
-      case 3: {
-        return 'Апреля';
-      }
-
-      case 4: {
-        return 'Мая';
-      }
-
-      case 5: {
-        return 'Июня';
-      }
-
-      case 6: {
-        return 'Июля';
-      }
-
-      case 7: {
-        return 'Августа';
-      }
-
-      case 8: {
-        return 'Сентября';
-      }
-
-      case 9: {
-        return 'Октября';
-      }
-
-      case 10: {
-        return 'Ноября';
-      }
-
-      case 11: {
-        return 'Декабря';
-      }
-
-      default: {
-        return '';
-      }
-    }
+  public monthString(numMonth: number): string {
+    return this.workDate.getMonthString(numMonth);
   }
 
-  public weekDayString(dayInWeek): string {
-    switch (dayInWeek) {
-      case 0: {
-        return 'Воскресенье';
-      }
-
-      case 1: {
-        return 'Понедельник';
-      }
-
-      case 2: {
-        return 'Вторник';
-      }
-
-      case 3: {
-        return 'Среда';
-      }
-
-      case 4: {
-        return 'Четверг';
-      }
-
-      case 5: {
-        return 'Пятница';
-      }
-
-      case 6: {
-        return 'Суббота';
-      }
-
-      default: {
-        return '';
-      }
-    }
+  public weekDayString(numWeekDay: number): string {
+    return this.workDate.weekDayString(numWeekDay);
   }
 
   public getWeekDay(day: Date): number {
@@ -111,22 +30,9 @@ export class DatePickerComponent {
     return day.getMonth();
   }
 
-  public addDay(day: Date, incrementDays: number): Date {
-    return new Date(day.getFullYear(), day.getMonth(), day.getDate() + incrementDays);
+  public weekDays: Date[] = this.workDate.fillWeekDays();
+
+  public onClickDate(day: Date): void {
+    alert(day.getDate() + ' ' + this.workDate.getMonthString(day.getMonth()) + ' ' + day.getFullYear());
   }
-
-  private fillWeekDays(): Date[] {
-    const result: Date[] = [];
-    const now: Date = new Date;
-    for (let i: number = 0; i < 6; i++) {
-      const weekDay: Date = this.addDay(now, i);
-      result.push(weekDay);
-    }
-
-    return result;
-  }
-
-  public weekDays: Date[] = this.fillWeekDays();
-
-  //либо прокидывать дату, либо инкрементировать и прописать условие для дат в месяцах
 }
