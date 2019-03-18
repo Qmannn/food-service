@@ -1,26 +1,13 @@
 import { Component } from '@angular/core';
 import { DishDto } from '../../../dto/DishDto/DishDto';
 import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory';
-import { DishesService } from '../../../HttpServices/DishesService/DishesService';
-
 
 @Component({
   selector: 'app-edit-menu',
   templateUrl: './EditMenu.Component.html'
 })
-
 export class EditMenuComponent {
-  private readonly _dishesService: DishesService;
-  public dishes: DishDto[];
-
-  public constructor(dishesService: DishesService) {
-    this._dishesService = dishesService;
-
-    this._dishesService.getDishes().subscribe(values => {
-      this.dishes = values;
-    });
-  }
-
+  public dishes: DishDto[] = this.getMock();
   public selectedDishes: DishDto[] = [];
   public selectedDate: Date = new Date;
 
@@ -102,9 +89,5 @@ export class EditMenuComponent {
         return 0;
       }
     }
-  }
-
-  public saveMenu() {
-
   }
 }

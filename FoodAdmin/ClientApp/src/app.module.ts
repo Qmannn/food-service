@@ -41,7 +41,7 @@ import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Componen
       { path: '', component: DishListComponent, pathMatch: 'full' },
       { path: 'sample', component: SampleComponent },
       { path: 'sample', component: SampleComponent },
-      { path: 'menu', component: MenuComponent, pathMatch: 'full' },
+      { path: 'menu', component: MenuComponent },
       { path: 'sample/:sampleId/edit', component: EditSampleComponent },
       { path: 'sample/create', component: EditSampleComponent },
       { path: 'edit-user', component: EditUserComponent },
