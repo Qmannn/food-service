@@ -4,7 +4,7 @@
     </div>
     <div class="row">
         <div class="col-lg-4">
-            <button type="button" class="btn btn-primary" (click)="addComand()">Добавить</button>
+          <button type="button" class="btn btn-primary" [routerLink]="['create']">Добавить</button>
         </div>
     </div>
     <div>
@@ -17,14 +17,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let commands of commands">
-                    <th scope="row">{{commands.commandId}}</th>
-                    <td>{{commands.name}}</td>
-                    <td>{{commands.description}}</td>
+                <tr *ngFor="let command of commands">
+                    <th scope="row">{{command.commandId}}</th>
+                    <td>{{command.name}}</td>
+                    <td>{{command.description}}</td>
                     <td>
                         <div class="btn-group" role="group" >
                             <button type="button" class="btn btn-primary">Изменить</button>
-                            <button type="button" class="btn btn-danger" (click)="deleteCommand(commands.commandId)">Удалить</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteCommand(command.commandId)">Удалить</button>
                         </div>
                     </td>
                 </tr>

@@ -12,12 +12,12 @@ export class CommandDataService {
     public constructor(httpService: HttpService) {
         this._httpService = httpService;
     }
-    
+
     public getCommands(): Observable<CommandDto[]> {
         return this._httpService.get<CommandDto[]>('api/Command');
     }
-   
-    public deleteCommand(command: CommandDto):Observable<DeletedCommandInfo> {        
-        return this._httpService.post<CommandDto, DeletedCommandInfo>('api/Command/delete-command', command);
-    }      
+
+    public deleteCommand(commandId: number):Observable<DeletedCommandInfo> {
+        return this._httpService.post<number, DeletedCommandInfo>('api/Command/delete-command', commandId);
+    }
 }

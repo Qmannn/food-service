@@ -4,14 +4,16 @@ using Food.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Food.EntityFramework.Migrations
 {
     [DbContext(typeof(FoodDbContext))]
-    partial class FoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190311151253_AddTableCommands")]
+    partial class AddTableCommands
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace Food.EntityFramework.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Food.EntityFramework.Entities.Command", b =>
+            modelBuilder.Entity("Food.EntityFramework.Entities.Commands", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,7 +34,7 @@ namespace Food.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Command");
+                    b.ToTable("Commands");
                 });
 
             modelBuilder.Entity("Food.EntityFramework.Entities.Container", b =>
