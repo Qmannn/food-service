@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { WorkDate } from './WorkDate';
 
 @Component({
@@ -9,6 +9,10 @@ import { WorkDate } from './WorkDate';
 
 export class DatePickerComponent {
   public workDate: WorkDate = new WorkDate();
+
+  @Output()
+  public dateSelected: EventEmitter<Date> = new EventEmitter<Date>();
+  protected selectedDate: Date;
 
   public monthString(numMonth: number): string {
     return this.workDate.getMonthString(numMonth);
@@ -33,6 +37,11 @@ export class DatePickerComponent {
   public weekDays: Date[] = this.workDate.fillWeekDays();
 
   public onClickDate(day: Date): void {
-    alert(day.getDate() + ' ' + this.workDate.getMonthString(day.getMonth()) + ' ' + day.getFullYear());
+    this.dateSelected.emit(day);
+    this.selectedDate = day;
+  }
+
+  protected getStyle(day: Date): string {
+    return day == this.selectedDate ? 'selected-date' : '';
   }
 }
