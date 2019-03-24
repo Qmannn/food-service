@@ -34,7 +34,7 @@ import { DatePickerComponent } from './Components/DatePicker/DatePicker.Componen
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'dish-card', component: DishSimpleComponent },
+      { path: 'dish-card', component: DishCardComponent },
       { path: 'date-picker', component: DatePickerComponent }
     ])
   ],

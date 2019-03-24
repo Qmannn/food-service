@@ -8,7 +8,9 @@ import { WorkDate } from './WorkDate';
 })
 
 export class DatePickerComponent {
-  public workDate: WorkDate = new WorkDate();
+  protected workDate: WorkDate = new WorkDate();
+
+  protected weekDays: Date[] = this.workDate.getWeekDays();
 
   @Output()
   public dateSelected: EventEmitter<Date> = new EventEmitter<Date>();
@@ -34,14 +36,12 @@ export class DatePickerComponent {
     return day.getMonth();
   }
 
-  public weekDays: Date[] = this.workDate.fillWeekDays();
-
   public onClickDate(day: Date): void {
     this.dateSelected.emit(day);
     this.selectedDate = day;
   }
 
   protected getStyle(day: Date): string {
-    return day == this.selectedDate ? 'selected-date' : '';
+    return day === this.selectedDate ? 'selected-date' : '';
   }
 }

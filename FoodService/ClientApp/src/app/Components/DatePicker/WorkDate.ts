@@ -1,12 +1,16 @@
+import { MonthNumber } from "./Enums/MonthNumber";
+import { WeekDayNumber } from "./Enums/WeekDayNumber";
+
 export class WorkDate {
   private addDay(day: Date, incrementDays: number): Date {
     return new Date(day.getFullYear(), day.getMonth(), day.getDate() + incrementDays);
   }
 
-  public fillWeekDays(): Date[] {
+  public getWeekDays(): Date[] {
     const result: Date[] = [];
     const now: Date = new Date;
-    for (let i: number = 0; i < 6; i++) {
+    const weekDaysCount: number = 6;
+    for (let i: number = 0; i < weekDaysCount; i++) {
       const weekDay: Date = this.addDay(now, i);
       result.push(weekDay);
     }
@@ -14,53 +18,53 @@ export class WorkDate {
     return result;
   }
 
-  public getMonthString(month): string {
+  public getMonthString(month: MonthNumber): string {
     switch (month) {
-      case 0: {
+      case MonthNumber.January: {
         return 'Января';
       }
 
-      case 1: {
+      case MonthNumber.February: {
         return 'Февраля';
       }
 
-      case 2: {
+      case MonthNumber.March: {
         return 'Марта';
       }
 
-      case 3: {
+      case MonthNumber.April: {
         return 'Апреля';
       }
 
-      case 4: {
+      case MonthNumber.May: {
         return 'Мая';
       }
 
-      case 5: {
+      case MonthNumber.June: {
         return 'Июня';
       }
 
-      case 6: {
+      case MonthNumber.July: {
         return 'Июля';
       }
 
-      case 7: {
+      case MonthNumber.August: {
         return 'Августа';
       }
 
-      case 8: {
+      case MonthNumber.September: {
         return 'Сентября';
       }
 
-      case 9: {
+      case MonthNumber.October: {
         return 'Октября';
       }
 
-      case 10: {
+      case MonthNumber.November: {
         return 'Ноября';
       }
 
-      case 11: {
+      case MonthNumber.December: {
         return 'Декабря';
       }
 
@@ -70,33 +74,33 @@ export class WorkDate {
     }
   }
 
-  public weekDayString(dayInWeek): string {
+  public weekDayString(dayInWeek: WeekDayNumber): string {
     switch (dayInWeek) {
-      case 0: {
+      case WeekDayNumber.Sunday: {
         return 'Воскресенье';
       }
 
-      case 1: {
+      case WeekDayNumber.Monday: {
         return 'Понедельник';
       }
 
-      case 2: {
+      case WeekDayNumber.Tuesday: {
         return 'Вторник';
       }
 
-      case 3: {
+      case WeekDayNumber.Wednesday: {
         return 'Среда';
       }
 
-      case 4: {
+      case WeekDayNumber.Thursday: {
         return 'Четверг';
       }
 
-      case 5: {
+      case WeekDayNumber.Friday: {
         return 'Пятница';
       }
 
-      case 6: {
+      case WeekDayNumber.Saturday: {
         return 'Суббота';
       }
 
