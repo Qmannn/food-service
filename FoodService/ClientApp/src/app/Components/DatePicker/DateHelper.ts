@@ -1,5 +1,5 @@
-import { MonthNumber } from "./MonthNumber";
-import { WeekDayNumber } from "./WeekDayNumber";
+import { MonthNumber } from './MonthNumber';
+import { WeekDayNumber } from './WeekDayNumber';
 
 export class DateHelper {
   private addDay(day: Date, incrementDays: number): Date {
@@ -14,12 +14,11 @@ export class DateHelper {
     const result: Date[] = [];
     const now: Date = new Date;
     const weekDaysCount: number = 6;
-    var differenceWeekDays: number = 0;
+    let differenceWeekDays: number;
 
     if (now.getDay() === WeekDayNumber.Sunday) {
       differenceWeekDays = -WeekDayNumber.Monday;
-    }
-    else {
+    } else {
       differenceWeekDays = now.getDay() - WeekDayNumber.Monday;
     }
 
