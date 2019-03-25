@@ -1,17 +1,30 @@
-import { MonthNumber } from "./Enums/MonthNumber";
-import { WeekDayNumber } from "./Enums/WeekDayNumber";
+import { MonthNumber } from "./MonthNumber";
+import { WeekDayNumber } from "./WeekDayNumber";
 
-export class WorkDate {
+export class DateHelper {
   private addDay(day: Date, incrementDays: number): Date {
     return new Date(day.getFullYear(), day.getMonth(), day.getDate() + incrementDays);
+  }
+
+  public isEqualsDate(date1: Date, date2: Date): boolean {
+    return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
   }
 
   public getWeekDays(): Date[] {
     const result: Date[] = [];
     const now: Date = new Date;
     const weekDaysCount: number = 6;
+    var differenceWeekDays: number = 0;
+
+    if (now.getDay() === WeekDayNumber.Sunday) {
+      differenceWeekDays = -WeekDayNumber.Monday;
+    }
+    else {
+      differenceWeekDays = now.getDay() - WeekDayNumber.Monday;
+    }
+
     for (let i: number = 0; i < weekDaysCount; i++) {
-      const weekDay: Date = this.addDay(now, i);
+      const weekDay: Date = this.addDay(now, i - differenceWeekDays);
       result.push(weekDay);
     }
 
