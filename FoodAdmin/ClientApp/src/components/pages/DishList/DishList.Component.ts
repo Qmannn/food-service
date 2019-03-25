@@ -12,7 +12,7 @@ import { DishTypeNameResolver } from '../../../services/DishTypeNameResolver';
 
 export class DishListComponent {
   private readonly _dishesService: DishesService;
-  private readonly _resolver: DishTypeNameResolver = new DishTypeNameResolver;
+  private readonly _resolver: DishTypeNameResolver = new DishTypeNameResolver();
   public dishes: DishDto[];
 
   public constructor(dishesService: DishesService) {
