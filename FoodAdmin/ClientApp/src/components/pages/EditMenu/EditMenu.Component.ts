@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { DishDto } from '../../../dto/DishDto/DishDto';
 import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory';
+import { DishTypeNameResolver } from '../../../services/DishTypeNameResolver';
 
 @Component({
   selector: 'app-edit-menu',
   templateUrl: './EditMenu.Component.html'
 })
 export class EditMenuComponent {
+  private readonly _resolver: DishTypeNameResolver = new DishTypeNameResolver();
+
   public dishes: DishDto[] = this.getMock();
   public selectedDishes: DishDto[] = [];
   public selectedDate: Date = new Date;
@@ -89,5 +92,9 @@ export class EditMenuComponent {
         return 0;
       }
     }
+  }
+
+  public getDishCategory(category: DishCategory) {
+    return this._resolver.getDishCategory(category);
   }
 }
