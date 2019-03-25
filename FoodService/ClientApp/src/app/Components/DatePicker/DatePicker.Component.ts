@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { WorkDate } from './WorkDate';
+import { DateHelper } from './DateHelper';
+import { MonthNumber } from './MonthNumber';
+import { WeekDayNumber } from './WeekDayNumber';
 
 @Component({
   selector: 'app-date-picker',
@@ -8,20 +10,22 @@ import { WorkDate } from './WorkDate';
 })
 
 export class DatePickerComponent {
-  protected workDate: WorkDate = new WorkDate();
+  protected dateHelper: DateHelper = new DateHelper();
 
-  protected weekDays: Date[] = this.workDate.getWeekDays();
+  protected weekDays: Date[] = this.dateHelper.getWeekDays();
+
+  private now: Date = new Date();
 
   @Output()
   public dateSelected: EventEmitter<Date> = new EventEmitter<Date>();
-  protected selectedDate: Date;
+  protected selectedDate: Date = this.now;
 
-  public monthString(numMonth: number): string {
-    return this.workDate.getMonthString(numMonth);
+  public monthString(numMonth: MonthNumber): string {
+    return this.dateHelper.getMonthString(numMonth);
   }
 
-  public weekDayString(numWeekDay: number): string {
-    return this.workDate.weekDayString(numWeekDay);
+  public weekDayString(numWeekDay: WeekDayNumber): string {
+    return this.dateHelper.weekDayString(numWeekDay);
   }
 
   public getWeekDay(day: Date): number {
@@ -42,6 +46,6 @@ export class DatePickerComponent {
   }
 
   protected getStyle(day: Date): string {
-    return day === this.selectedDate ? 'selected-date' : '';
+    return this.dateHelper.isEqualsDate(this.selectedDate, day) ? 'selected-date' : '';
   }
 }
