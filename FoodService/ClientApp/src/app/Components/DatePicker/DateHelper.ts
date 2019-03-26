@@ -10,20 +10,19 @@ export class DateHelper {
     return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
   }
 
-  public getWeekDays(): Date[] {
+  public getWeekDays(date: Date): Date[] {
     const result: Date[] = [];
-    const now: Date = new Date;
     const weekDaysCount: number = 6;
     let differenceWeekDays: number;
 
-    if (now.getDay() === WeekDayNumber.Sunday) {
+    if (date.getDay() === WeekDayNumber.Sunday) {
       differenceWeekDays = -WeekDayNumber.Monday;
     } else {
-      differenceWeekDays = now.getDay() - WeekDayNumber.Monday;
+      differenceWeekDays = date.getDay() - WeekDayNumber.Monday;
     }
 
     for (let i: number = 0; i < weekDaysCount; i++) {
-      const weekDay: Date = this.addDay(now, i - differenceWeekDays);
+      const weekDay: Date = this.addDay(date, i - differenceWeekDays);
       result.push(weekDay);
     }
 
