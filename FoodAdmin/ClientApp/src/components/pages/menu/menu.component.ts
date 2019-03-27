@@ -1,5 +1,5 @@
-import { NgModule,Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { NgModule, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MenuHttpService } from '../../../HttpServices/MenuHttpService';
 import { MenuDto } from '../../../dto/Menu/MenuDto';
 import { AppComponent } from '../../app/app.component';

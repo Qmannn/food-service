@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { DishesService } from '../../../HttpServices/DishesService/DishesService';
 import { DishDto } from '../../../dto/DishDto/DishDto';
-import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory'
+import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory';
+import { DishTypeNameResolver } from '../../../services/DishTypeNameResolver';
 
 @Component({
   // selector: 'app-food-list',
@@ -11,10 +12,11 @@ import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory'
 
 export class DishListComponent {
   private readonly _dishesService: DishesService;
+  private readonly _resolver: DishTypeNameResolver = new DishTypeNameResolver();
   public dishes: DishDto[];
 
-  public constructor(DishesService: DishesService) {
-    this._dishesService = DishesService;
+  public constructor(dishesService: DishesService) {
+    this._dishesService = dishesService;
 
     this._dishesService.getDishes().subscribe(values => {
       this.dishes = values;
@@ -33,27 +35,7 @@ export class DishListComponent {
     });
   }
 
-  public getDishCategory(Category: DishCategory): string {
-    switch (Category) {
-      case DishCategory.Salad: {
-        return 'Салат';
-      }
-
-      case DishCategory.FirstDish: {
-        return 'Суп';
-      }
-
-      case DishCategory.SecondDish: {
-        return 'Второе блюдо';
-      }
-
-      case DishCategory.Garnish: {
-        return 'Гарнир';
-      }
-
-      default: {
-        return '';
-      }
-    }
+  public getDishCategory(category: DishCategory) {
+    return this._resolver.getDishCategory(category);
   }
 }

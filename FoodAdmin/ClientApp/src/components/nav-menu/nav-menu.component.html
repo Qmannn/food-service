@@ -12,8 +12,8 @@
     <div class='clearfix'></div>
     <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
       <ul class='nav navbar-nav'>
-        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-          <a [routerLink]='["menu"]' (click)='collapse()'>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/menu"]' (click)='collapse()'>
             <span class='glyphicon glyphicon-cutlery'></span> Список меню
           </a>
         </li>
@@ -41,7 +41,7 @@
           <a [routerLink]='["/dish/create"]' (click)='collapse()'>
              <span class='glyphicon glyphicon-paperclip'></span> Добавить блюдо
           </a>
-         </li>
+        </li>
       </ul>
     </div>
   </div>
