@@ -10,14 +10,22 @@ import { WeekDayNumber } from './WeekDayNumber';
 })
 
 export class DatePickerComponent {
-  private now: Date = new Date();
+  protected selectedDate: Date;
+  protected dateHelper: DateHelper;
+  protected weekDays: Date[];
 
-  protected dateHelper: DateHelper = new DateHelper();
-  protected weekDays: Date[] = this.dateHelper.getWeekDays(this.now);
+  private now: Date;
+
+  public constructor() {
+      this.now = new Date();
+      this.selectedDate = this.now;
+      this.dateHelper = new DateHelper();
+      this.weekDays = this.dateHelper.getWeekDays(this.now);
+  }
 
   @Output()
   public dateSelected: EventEmitter<Date> = new EventEmitter<Date>();
-  protected selectedDate: Date = this.now;
+
 
   public monthString(numMonth: MonthNumber): string {
     return this.dateHelper.getMonthString(numMonth);
