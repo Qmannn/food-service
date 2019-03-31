@@ -16,6 +16,7 @@ import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSa
 import { CommandsComponent } from './components/pages/Commands/Commands.Component';
 import { EditSampleCardComponent } from './components/controls/sample/EditSampleCard/EditSampleCard.Component';
 import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Component';
+import { ContainerListComponent } from './components/pages/ContainerList/ContainerList.Component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Componen
     CommandsComponent,
     EditDishComponent,
     EditSampleCardComponent,
-    EditMenuComponent
+    EditMenuComponent,
+    ContainerListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,7 +53,9 @@ import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Componen
       { path: 'user-list', component: UserListComponent },
       { path: 'commands', component: CommandsComponent },
       { path: 'dish/:dishId/edit', component: EditDishComponent },
-      { path: 'dish/create', component: EditDishComponent }
+      { path: 'dish/create', component: EditDishComponent },
+      { path: 'menu/edit', component: EditMenuComponent },
+      { path: 'containers', component: ContainerListComponent}
     ])
   ],
   providers: [HttpService],

@@ -42,6 +42,11 @@
              <span class='glyphicon glyphicon-paperclip'></span> Добавить блюдо
           </a>
         </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/containers"]' (click)='collapse()'>
+             <span class='glyphicon glyphicon-th-list'></span> Список контейнеров
+          </a>
+        </li>
       </ul>
     </div>
   </div>
