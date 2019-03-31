@@ -72,18 +72,16 @@ export class CounterComponent {
     return [dishDto1, dishDto2, dishDto3, dishDto4, dishDto5, dishDto6, dishDto7];
   }
 
-  protected selectDish(dish: DishDto):void {
+  protected selectDish(dish: DishDto): void {
     this.selectDishes.push(dish);
   }
 
-  protected deselectDish(dish: DishDto):void {
+  protected deselectDish(dish: DishDto): void {
     const index: number = this.selectDishes.findIndex((item: DishDto) => item.dishId === dish.dishId);
     this.selectDishes.splice(index, 1);
   }
- 
-  public currentCount: number = 0;
 
-  public incrementCounter(): void {
-    this.currentCount++;
+  protected selectDate(date: Date): void {
+    alert(date);
   }
 }

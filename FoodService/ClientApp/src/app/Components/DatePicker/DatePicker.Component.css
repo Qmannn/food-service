@@ -1,0 +1,36 @@
+.date-body {
+  width: 100%;
+  float: left;
+  background: #fff;
+}
+
+.date-card {
+  padding: 5px;
+  margin: 5px;
+  width: auto;
+  height: 60px;
+  width: 15.8%;
+  float: left;
+  cursor: pointer;
+  background: #fff;
+}
+
+.date-card:hover {
+  background: #CBDCE8;
+}
+
+.selected-date {
+  background: #D3F1F4;
+}
+
+.week-day-title {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  color: rgb(89, 82, 169);
+}
+
+.week-date-title {
+  text-align: center;
+  color: rgb(109, 101, 200);
+}

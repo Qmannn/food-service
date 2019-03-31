@@ -1,11 +1,8 @@
 <h1>Counter</h1>
 
-<p>This is a simple example of an Angular component.</p>
-
-<p>Current count: <strong>{{ currentCount }}</strong></p>
-
-<button (click)="incrementCounter()">Increment</button>
-
+<div>
+  <app-date-picker (dateSelected)="selectDate($event)"></app-date-picker>
+</div>
 <div>
   <app-dish-columns [dishList]="selectDishes" (dishSelected)="deselectDish($event)" class="menuSelectedDishes"></app-dish-columns>
   <app-dish-columns [dishList]="dishes" (dishSelected)="selectDish($event)"></app-dish-columns>
