@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { HttpService } from '../HttpServices/HttpService';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DishCardComponent } from './Components/DishCard/DishCard.Component';
 import { DishColumnsComponent } from './Components/DishColumns/DishColumns.Component';
 import { DishesColumnComponent } from './Components/DishesColumn/DishesColumn.Component';
+import { OrderPageComponent} from './Components/Pages/OrderPage/OrderPage.Component';
 import { DatePickerComponent } from './Components/DatePicker/DatePicker.Component';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DatePickerComponent } from './Components/DatePicker/DatePicker.Componen
     DishCardComponent,
     DishColumnsComponent,
     DishesColumnComponent,
+    OrderPageComponent,
     DatePickerComponent
   ],
   imports: [
@@ -34,11 +36,11 @@ import { DatePickerComponent } from './Components/DatePicker/DatePicker.Componen
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'dish-card', component: DishCardComponent },
+      { path: 'order', component: OrderPageComponent},
       { path: 'date-picker', component: DatePickerComponent }
     ])
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

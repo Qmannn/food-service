@@ -26,5 +26,6 @@ export class NavMenuComponent {
   private initNavigation(): void {
     this.navItems.push(new NavigationItem('Home', '/', 'glyphicon-home' ));
     this.navItems.push(new NavigationItem('Counter', '/counter', 'glyphicon-plus' ));
+    this.navItems.push(new NavigationItem('Order', '/order', 'glyphicon-list-alt'));
   }
 }

@@ -1,0 +1,21 @@
+.menuSelectedDishes
+{
+    min-height: 150px;
+    display: block;
+    background-color: rgb(126,162,198);
+    border-radius: 5px;
+}
+
+.order-heder
+{
+    background: rgb(126,162,198);
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 5px; 
+}
+
+.user-choice
+{
+    padding-top: 7px; 
+    float: right;
+}
