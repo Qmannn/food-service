@@ -42,6 +42,8 @@ import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Componen
       { path: 'sample', component: SampleComponent },
       { path: 'sample', component: SampleComponent },
       { path: 'menu', component: MenuComponent },
+      { path: 'menu/:menuId/edit', component: EditMenuComponent },
+      { path: 'menu/create', component: EditMenuComponent },
       { path: 'sample/:sampleId/edit', component: EditSampleComponent },
       { path: 'sample/create', component: EditSampleComponent },
       { path: 'edit-user', component: EditUserComponent },
@@ -49,8 +51,7 @@ import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Componen
       { path: 'user-list', component: UserListComponent },
       { path: 'commands', component: CommandsComponent },
       { path: 'dish/:dishId/edit', component: EditDishComponent },
-      { path: 'dish/create', component: EditDishComponent },
-      { path: 'menu/edit', component: EditMenuComponent }
+      { path: 'dish/create', component: EditDishComponent }
     ])
   ],
   providers: [HttpService],
