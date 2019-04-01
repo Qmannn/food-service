@@ -1,4 +1,4 @@
-﻿namespace FoodAdmin.Dto.Menu
+﻿namespace Food.EntityFramework.Entities.Enums
 {
     public enum MenuStatus
     {

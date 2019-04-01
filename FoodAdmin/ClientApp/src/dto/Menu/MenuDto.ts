@@ -1,5 +1,7 @@
 export class MenuDto {
     public menuId: number;
-    public menuDate: Date;
+    public currentMenu: Date;
+    public startDate: Date;
+    public endDate;
     public menuStatus: MenuStatus;
 }

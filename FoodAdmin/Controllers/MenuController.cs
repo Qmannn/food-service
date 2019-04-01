@@ -1,31 +1,64 @@
+using System;
 using System.Collections.Generic;
-using FoodAdmin.Dto.Menu;
-using FoodAdmin.Dto.Dish;
 using Food.EntityFramework.Entities.Enums;
+using FoodAdmin.Dto.Dish;
+using FoodAdmin.Dto.Menu;
 using FoodAdmin.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodAdmin.Controllers
 {
     [Route("api/[controller]")]
-    public class MenusApiController : Controller
+    public class MenusController : Controller
     {
         private readonly IMenuService _menuService;
-        public MenusApiController(IMenuService menuService)
+
+        public MenusController( IMenuService menuService )
         {
             _menuService = menuService;
         }
 
+        //список меню
         [HttpGet("")]
         public List<MenuDto> GetMenus()
         {
             return _menuService.GetMenus();
         }
 
-        [HttpGet("dishes")]
-        public MenuDishDto GetDishes(int MenuId)
+        //получение меню по id
+        [HttpGet("menu")]
+        public MenuDto GetMenu( int menuId )
         {
-            List<DishDto> Dishes =  new List<DishDto>
+            return _menuService.GetMenu(menuId);
+        }
+
+        //сохранение меню
+        [HttpPost("save")]
+        public MenuDto SaveMenu( [FromBody] MenuDto newMenu )
+        {
+            MenuDto savedMenuDto = _menuService.SaveMenu(newMenu);
+
+            return new MenuDto
+            {
+                MenuId = savedMenuDto.MenuId,
+                CurrentDate = savedMenuDto.CurrentDate,
+                StartDate = savedMenuDto.StartDate,
+                EndDate = savedMenuDto.EndDate,
+                MenuStatus = savedMenuDto.MenuStatus
+            };
+        }
+
+        //удаление
+        [HttpPost("remove")]
+        public void RemoveMenu( int Id )
+        {
+            _menuService.RemoveMenu(Id);
+        }
+
+        [HttpGet("dishes")]
+        public MenuDishDto GetDishes( int MenuId )
+        {
+            List<DishDto> Dishes = new List<DishDto>
             {
                 new DishDto
                 {
@@ -115,4 +148,5 @@ namespace FoodAdmin.Controllers
             };
         }
     }
+
 }
