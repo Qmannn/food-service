@@ -1,4 +1,4 @@
-﻿namespace FoodAdmin.Dto.PageName
+﻿namespace FoodAdmin.Dto.Menu
 {
     public class MenuDto
     {

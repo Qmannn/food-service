@@ -1,8 +1,8 @@
 import { MenuDto } from '../dto/Menu/MenuDto';
-import { IPromise } from 'q';
 import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { DishDto } from '../dto/DishDto/DishDto';
 
 @Injectable()
 export class MenuHttpService {
@@ -13,6 +13,10 @@ export class MenuHttpService {
     }
 
     public getMenus(): Observable<MenuDto[]> {
-        return this._httpService.get<MenuDto[]>('api/MenusApi/menus');
+        return this._httpService.get<MenuDto[]>('api/MenusApi/');
+    }
+
+    public getDishes(): Observable<DishDto[]> {
+        return this._httpService.get<DishDto[]>('api/MenusApi/dishes');
     }
 }
