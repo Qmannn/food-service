@@ -1,0 +1,29 @@
+<h1>Список контейнеров:</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Название</th>
+      <th scope="col">Стоимость</th>
+      <th scope="col">Изменить</th>
+      <th scope="col">Удалить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let container of containers">
+      <th>{{container.id}}</th>
+      <th>{{container.name}}</th>
+      <td>{{container.price}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-primary">Изменить</button>
+        </div>
+      </td>
+      <td>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger" (click)="deleteContainer(container.id)">Удалить</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
