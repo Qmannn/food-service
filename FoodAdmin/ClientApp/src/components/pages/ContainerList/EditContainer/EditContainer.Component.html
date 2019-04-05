@@ -1,0 +1,29 @@
+<h1>
+  <span *ngIf="editingContainerId !== 0">Редактирование </span>
+  <span *ngIf="editingContainerId === 0">Создание </span>
+  контейнера <small *ngIf="!containerToEdit">#{{editingSampleId}}</small>
+</h1>
+
+<div class="card-bloc" *ngIf="containerToEdit">
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" placeholder="Название" [(ngModel)]="containerToEdit.name" />
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="number" min="0" class="form-control" placeholder="Цена" [(ngModel)]="containerToEdit.price" />
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <button type="button" class="btn btn-primary" (click)="saveContainer()">Сохранить</button>
+    </div>
+  </div>
+</div>
