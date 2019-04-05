@@ -37,5 +37,44 @@ namespace FoodAdmin.Service
         {
             _containerRepository.Delete(containerId);
         }
+
+        public ContainerDto GetContainer(int containerId)
+        {
+            if (containerId == 0)
+            {
+                return CreateContainer();
+            }
+
+            Container container = _containerRepository.All.FirstOrDefault(item => item.Id == containerId);
+            ContainerDto containerDto = null;
+
+            if (container != null)
+            {
+                return Convert(container);
+            }
+
+            return containerDto;
+        }
+
+        public ContainerDto CreateContainer()
+        {
+            return new ContainerDto
+            {
+                Id = 0,
+                Name = "Container",
+                Price = 0
+            };
+        }
+
+        public ContainerDto SaveContainer(ContainerDto containerDto)
+        {
+            Container container = _containerRepository.GetItem(containerDto.Id) ?? new Container();
+            container.Name = containerDto.Name;
+            container.Price = containerDto.Price;
+
+            container = _containerRepository.Save(container);
+
+            return Convert(container);
+        }
     }
 }
