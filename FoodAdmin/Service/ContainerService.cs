@@ -45,7 +45,7 @@ namespace FoodAdmin.Service
                 return CreateContainer();
             }
 
-            Container container = _containerRepository.All.FirstOrDefault(item => item.Id == containerId);
+            Container container = _containerRepository.GetItem(containerId);
             ContainerDto containerDto = null;
 
             if (container != null)
