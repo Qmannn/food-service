@@ -22,6 +22,25 @@ namespace FoodAdmin.Controllers
             return storedContainers;
         }
 
+        [HttpGet("container")]
+        public ContainerDto GetContainer(int containerId)
+        {
+            return _containerService.GetContainer(containerId);
+        }
+
+        [HttpPost("container")]
+        public ContainerDto SaveContainer([FromBody] ContainerDto container)
+        {
+            ContainerDto savedContainerDto = _containerService.SaveContainer(container);
+
+            return new ContainerDto
+            {
+                Id = savedContainerDto.Id,
+                Name = savedContainerDto.Name,
+                Price = savedContainerDto.Price,
+            };
+        }
+
         [HttpPost("remove")]
         public void RemoveContainers(int Id)
         {

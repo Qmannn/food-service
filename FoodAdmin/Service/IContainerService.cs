@@ -10,5 +10,7 @@ namespace FoodAdmin.Service
     {
         List<ContainerDto> GetContainers();
         void RemoveContainer(int containerId);
+        ContainerDto GetContainer(int containerId);
+        ContainerDto SaveContainer(ContainerDto containerDto);
     }
 }
