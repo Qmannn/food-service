@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { DateHelper } from './DateHelper';
 import { MonthNumber } from './MonthNumber';
 import { WeekDayNumber } from './WeekDayNumber';
@@ -9,12 +9,15 @@ import { WeekDayNumber } from './WeekDayNumber';
   styleUrls: ['./DatePicker.Component.css']
 })
 
-export class DatePickerComponent {
+export class DatePickerComponent implements AfterViewInit {
   protected selectedDate: Date;
   protected dateHelper: DateHelper;
   protected weekDays: Date[];
 
   private now: Date;
+
+  @Output()
+  public dateSelected: EventEmitter<Date> = new EventEmitter<Date>();
 
   public constructor() {
       this.now = new Date();
@@ -23,9 +26,9 @@ export class DatePickerComponent {
       this.weekDays = this.dateHelper.getWeekDays(this.now);
   }
 
-  @Output()
-  public dateSelected: EventEmitter<Date> = new EventEmitter<Date>();
-
+  public ngAfterViewInit(): void {
+    this.dateSelected.emit(this.selectedDate);
+  }
 
   public monthString(numMonth: MonthNumber): string {
     return this.dateHelper.getMonthString(numMonth);

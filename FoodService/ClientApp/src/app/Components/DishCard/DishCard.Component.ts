@@ -13,7 +13,7 @@ export class DishCardComponent {
     @Output()
     public dishSelected: EventEmitter<DishDto> = new EventEmitter<DishDto>();
 
-    protected selectDish(){
+    protected selectDish(): void {
         this.dishSelected.emit(this.dish);
     }
 }

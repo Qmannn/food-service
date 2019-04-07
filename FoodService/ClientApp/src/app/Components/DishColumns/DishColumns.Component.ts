@@ -27,7 +27,7 @@ export class DishColumnsComponent {
     return result;
   }
 
-  protected selectDish(dish: DishDto):void {
+  protected selectDish(dish: DishDto): void {
     this.dishSelected.emit(dish);
   }
 
@@ -36,7 +36,7 @@ export class DishColumnsComponent {
   }
 
   protected get firstDishItems(): DishDto[] {
-    return this.getDishList(DishCategory.Soup);
+    return this.getDishList(DishCategory.FirstDish);
   }
 
   protected get secondDishItems(): DishDto[] {

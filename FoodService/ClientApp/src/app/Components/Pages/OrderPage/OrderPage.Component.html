@@ -1,14 +1,16 @@
 <div>
-    <div class="order-heder">
+    <div class="order-heder row">
         <div class="col-lg-4 user-choice">
             <select class="form-control" [(ngModel)]="selectedUserId">
                 <option *ngFor="let user of users" [ngValue]="user.userId">{{user.name}}</option>
             </select>
         </div>
     </div>
-    <div>
-        <app-dish-columns [dishList]="selectDishes" (dishSelected)="deselectDish($event)" class="menuSelectedDishes">
-        </app-dish-columns>
-        <app-dish-columns [dishList]="dishes" (dishSelected)="selectDish($event)"></app-dish-columns>
+    <div class="row">
+        <app-date-picker (dateSelected)="selectDate($event)"></app-date-picker>
+    </div>
+    <div class="row" >
+        <app-dish-columns [dishList]="selectDishes" (dishSelected)="deselectDish($event)" class="menuSelectedDishes"></app-dish-columns>
+        <app-dish-columns *ngIf="dayMenu" [dishList]="dayMenu.menuDishes" (dishSelected)="selectDish($event)"></app-dish-columns>
     </div>
 </div>

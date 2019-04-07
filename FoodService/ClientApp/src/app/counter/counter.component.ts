@@ -17,7 +17,7 @@ export class CounterComponent {
   }
 
   protected deselectDish(dish: DishDto): void {
-    const index: number = this.selectDishes.findIndex((item: DishDto) => item.dishId === dish.dishId);
+    const index: number = this.selectDishes.findIndex((item: DishDto) => item.id === dish.id);
     this.selectDishes.splice(index, 1);
   }
 
