@@ -23,9 +23,9 @@ namespace FoodAdmin.Controllers
         }
 
         [HttpGet("dishes")]
-        public List<DishDto> GetDishes()
+        public MenuDishDto GetDishes(int MenuId)
         {
-            return new List<DishDto>
+            List<DishDto> Dishes =  new List<DishDto>
             {
                 new DishDto
                 {
@@ -99,6 +99,19 @@ namespace FoodAdmin.Controllers
                     Category = DishCategory.Garnish,
                     ContainerId = 1
                 }
+            };
+
+            List<int> SelectedDishesId = new List<int>();
+
+            if (MenuId != 0)
+            {
+                SelectedDishesId = new List<int> { 1, 2, 3 };
+            }
+
+            return new MenuDishDto
+            {
+                SelectedDishesId = SelectedDishesId,
+                Dishes = Dishes
             };
         }
     }

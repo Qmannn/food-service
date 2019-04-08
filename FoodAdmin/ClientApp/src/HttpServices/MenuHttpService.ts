@@ -2,7 +2,9 @@ import { MenuDto } from '../dto/Menu/MenuDto';
 import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { DishDto } from '../dto/DishDto/DishDto';
+import { MenuDishDto } from '../dto/Menu/MenuDishDto';
+import { HttpParams } from '@angular/common/http';
+
 
 @Injectable()
 export class MenuHttpService {
@@ -16,7 +18,9 @@ export class MenuHttpService {
         return this._httpService.get<MenuDto[]>('api/MenusApi/');
     }
 
-    public getDishes(): Observable<DishDto[]> {
-        return this._httpService.get<DishDto[]>('api/MenusApi/dishes');
+    public getDishes(menuId: number): Observable<MenuDishDto> {
+        const params: HttpParams = new HttpParams()
+            .set('menuId', menuId.toString());
+        return this._httpService.get<MenuDishDto>('api/MenusApi/dishes', params);
     }
 }

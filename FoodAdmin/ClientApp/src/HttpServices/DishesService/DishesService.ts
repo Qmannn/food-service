@@ -1,8 +1,8 @@
 import { HttpService } from '../HttpService';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { DishDto } from '../../dto/DishDto/DishDto';
 import { HttpParams } from '@angular/common/http';
+import { DishDto } from '../../dto/Dish/DishDto';
 
 @Injectable()
 export class DishesService {

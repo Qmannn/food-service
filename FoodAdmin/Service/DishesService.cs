@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using FoodAdmin.Dto.DishDto;
 using Food.EntityFramework.Entities;
 using Food.EntityFramework;
+using FoodAdmin.Dto;
+using FoodAdmin.Dto.Dish;
 
 namespace FoodAdmin.Service
 {
@@ -32,7 +32,7 @@ namespace FoodAdmin.Service
         {
             return new DishDto
             {
-                Id = dish.Id,
+                DishId = dish.Id,
                 Name = dish.Name,
                 Description = dish.Description,
                 Price = dish.Price,
