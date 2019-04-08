@@ -17,9 +17,9 @@
             <span class='glyphicon glyphicon-cutlery'></span> Список меню
           </a>
         </li>
-        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-          <a [routerLink]='["/dish-list"]' (click)='collapse()'>
-            <span class='glyphicon glyphicon-cutlery'></span> Список блюд
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]='["/dish"]' (click)='collapse()'>
+            <span class='glyphicon glyphicon-cutlery'></span> Блюда
           </a>
         </li>
         <li [routerLinkActive]='["link-active"]'>
@@ -27,19 +27,14 @@
             <span class='glyphicon glyphicon-paperclip'></span> Пример страницы
           </a>
         </li>
-        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+        <li [routerLinkActive]='["link-active"]'>
           <a [routerLink]='["/user-list"]' (click)='collapse()'>
-            <span class='glyphicon glyphicon-user'></span> Список пользователей
+            <span class='glyphicon glyphicon-user'></span> Пользователи
           </a>
         </li>
         <li [routerLinkActive]='["link-active"]'>
           <a [routerLink]='["/commands"]' (click)='collapse()'>
             <span class='glyphicon glyphicon-cog'></span> Управление командами
-          </a>
-        </li>
-        <li [routerLinkActive]='["link-active"]'>
-          <a [routerLink]='["/dish/create"]' (click)='collapse()'>
-             <span class='glyphicon glyphicon-paperclip'></span> Добавить блюдо
           </a>
         </li>
         <li [routerLinkActive]='["link-active"]'>

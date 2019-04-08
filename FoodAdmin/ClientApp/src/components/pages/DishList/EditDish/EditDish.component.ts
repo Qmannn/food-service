@@ -3,8 +3,8 @@ import { DishDataService } from '../../../../HttpServices/DishDataService';
 import { DishDto } from '../../../../dto/Dish/DishDto';
 import { DishCategory } from '../../../../dto/Dish/DishCategory';
 import { ActivatedRoute } from '@angular/router';
-import { IDishCategory } from '../IDishCategoryName';
-import { DishCategoryNameUtil } from '../DishCategoryNameUtil';
+import { IDishCategory } from '../DishCategory/IDishCategoryName';
+import { DishCategoryNameUtil } from '../DishCategory/DishCategoryNameUtil';
 
 @Component({
   templateUrl: './EditDish.Component.html',
