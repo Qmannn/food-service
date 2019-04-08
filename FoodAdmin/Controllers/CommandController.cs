@@ -34,5 +34,23 @@ namespace FoodAdmin.Controllers
             };
 
         }
+
+        [HttpGet("get-command")]
+        public CommandDto GetCommand(int commandId)
+        {
+            return _commandService.GetCommand(commandId);
+        }
+
+        [HttpPost("save-command")]
+        public SavedCommandInfo SaveSample([FromBody] CommandDto command)
+        {
+            CommandDto savedCommandDto = _commandService.SaveCommand(command);
+
+            return new SavedCommandInfo
+            {
+                SavedCommandId = savedCommandDto.CommandId,
+                SavedDescription = savedCommandDto.Description
+            };
+        }
     }
 }

@@ -1,0 +1,18 @@
+<div>
+    <div class="page-header">
+        <h1>
+            <span *ngIf="editingCommandId !== 0">Редактирование </span>
+            <span *ngIf="editingCommandId === 0">Создание </span>
+            Command <small *ngIf="commandToEdit">{{commandToEdit.name}} </small><small  *ngIf="!commandToEdit">#{{editingCommandId}}</small> </h1>
+    </div>
+    <div class="card-columns">
+        <div class="card" *ngIf="commandToEdit">
+            <app-edit-command-card [commandToEdit]="commandToEdit"></app-edit-command-card>
+            <div class="row">
+                <div class="col-lg-4">
+                    <button type="button" class="btn btn-primary" (click)="saveCommand()">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

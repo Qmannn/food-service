@@ -13,8 +13,10 @@ import { MenuComponent } from './components/pages/menu/menu.component';
 import { UserListComponent } from './components/pages/UserList/UserList.Component';
 import { EditUserComponent } from './components/pages/EditUser/EditUser.Component';
 import { EditSampleComponent } from './components/pages/Sample/EditSample/EditSample.Component';
+import { EditCommandComponent } from './components/pages/Commands/EditCommands/EditCommands.Component';
 import { CommandsComponent } from './components/pages/Commands/Commands.Component';
 import { EditSampleCardComponent } from './components/controls/sample/EditSampleCard/EditSampleCard.Component';
+import { EditCommandCardComponent } from './components/controls/command/EditCommandCard/EditCommandCard.Component';
 import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Component';
 import { ContainerListComponent } from './components/pages/ContainerList/ContainerList.Component';
 import { EditContainerComponent } from './components/pages/ContainerList/EditContainer/EditContainer.Component';
@@ -30,9 +32,11 @@ import { EditContainerComponent } from './components/pages/ContainerList/EditCon
     UserListComponent,
     EditUserComponent,
     EditSampleComponent,
+    EditCommandComponent,
     CommandsComponent,
     EditDishComponent,
     EditSampleCardComponent,
+    EditCommandCardComponent,
     EditMenuComponent,
     ContainerListComponent,
     EditContainerComponent
@@ -59,7 +63,9 @@ import { EditContainerComponent } from './components/pages/ContainerList/EditCon
       { path: 'menu/edit', component: EditMenuComponent },
       { path: 'containers', component: ContainerListComponent},
       { path: 'containers/create', component: EditContainerComponent},
-      { path: 'containers/:containerId/edit', component: EditContainerComponent}
+      { path: 'containers/:containerId/edit', component: EditContainerComponent},
+      { path: 'commands/create', component: EditCommandComponent},
+      { path: 'commands/:commandId/edit', component: EditCommandComponent},
     ])
   ],
   providers: [HttpService],

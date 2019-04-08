@@ -3,4 +3,3 @@ export class CommandDto {
     public name: string;
     public description: string;
   }
-  

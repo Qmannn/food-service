@@ -13,6 +13,7 @@ export class EditSampleCardComponent implements OnInit {
 
   constructor() { }
 
+  // tslint:disable-next-line:typedef
   ngOnInit() {
   }
 
