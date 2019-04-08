@@ -1,4 +1,4 @@
-import { DishCategory } from '../dto/DishDto/Enum/DishCategory';
+import { DishCategory } from '../dto/Dish/DishCategory';
 
 export class DishTypeNameResolver {
     public getDishCategory(Category: DishCategory): string {

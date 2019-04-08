@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { DishDto } from '../../../dto/Dish/DishDto';
-import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory';
 import { DishTypeNameResolver } from '../../../services/DishTypeNameResolver';
 import { MenuHttpService } from '../../../HttpServices/MenuHttpService';
 import { ActivatedRoute } from '@angular/router';
+import { DishCategory } from '../../../dto/Dish/DishCategory';
 
 @Component({
   selector: 'app-edit-menu',

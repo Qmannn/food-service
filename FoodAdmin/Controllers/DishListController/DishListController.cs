@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using FoodAdmin.Service;
-using Food.EntityFramework.Entities.Enums;
-using FoodAdmin.Dto.DishDto;
 using Microsoft.AspNetCore.Mvc;
+using FoodAdmin.Dto;
+using FoodAdmin.Dto.Dish;
 
 namespace FoodAdmin.Controllers
 {
