@@ -32,18 +32,19 @@ export class EditMenuComponent {
     this._menuHttpService.getDishes(this.editingMenuId).subscribe(values => {
       this.selectedDishesId = values.selectedDishesId;
       this.dishes = values.dishes;
+      this.sortSelectedDishes();
     });
+  }
 
-    setTimeout(() => {
-      for (let i = 0; i < this.dishes.length; i++) {
-        for (let j = 0; j < this.selectedDishesId.length; j++) {
-          if (this.dishes[i].dishId === this.selectedDishesId[j]) {
-            this.selectedDishes.push(this.dishes[i]);
-            this.dishes.splice(i, 1);
-          }
+  public sortSelectedDishes(): void {
+    for (let i = 0; i < this.dishes.length; i++) {
+      for (let j = 0; j < this.selectedDishesId.length; j++) {
+        if (this.dishes[i].dishId === this.selectedDishesId[j]) {
+          this.selectedDishes.push(this.dishes[i]);
+          this.dishes.splice(i, 1);
         }
       }
-    }, 1000);
+    }
   }
 
   public addDish(dish: DishDto): void {
