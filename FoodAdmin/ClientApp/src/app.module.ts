@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { DishListComponent } from './components/pages/DishList/DishList.Component/DishList.Component';
+import { DishListComponent } from './components/pages/DishList/DishList.Component';
 import { EditDishComponent } from './components/pages/DishList/EditDish/EditDish.Component';
 import { HttpService } from './HttpServices/HttpService';
 import { SampleComponent } from './components/pages/Sample/Sample.Component';

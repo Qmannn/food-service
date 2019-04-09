@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { DishTypeNameResolver } from '../../../../services/DishTypeNameResolver';
-import { DishCategory } from '../../../../dto/Dish/DishCategory';
-import { DishDto } from '../../../../dto/Dish/DishDto';
-import { DishDataService } from '../../../../HttpServices/DishDataService';
+import { DishTypeNameResolver } from '../../../services/DishTypeNameResolver';
+import { DishCategory } from '../../../dto/Dish/DishCategory';
+import { DishDto } from '../../../dto/Dish/DishDto';
+import { DishDataService } from '../../../HttpServices/DishDataService';
 
 @Component({
   selector: 'app-dish-list',
