@@ -21,7 +21,7 @@ namespace FoodAdmin.Controllers
         {
             var storedDishes = _dishService.GetDishes();
 
-            return storedDishes;
+            return _dishService.GetDishes(); ;
         }
 
         [HttpGet("dish")]
