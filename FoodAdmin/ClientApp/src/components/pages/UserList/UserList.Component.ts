@@ -14,7 +14,6 @@ export class UserListComponent {
 
   public constructor(usersDataService: UsersDataService) {
     this._usersDataService = usersDataService;
-
     this._usersDataService.getUsers().subscribe(values => {
       this.users = values;
     });

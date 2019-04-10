@@ -21,32 +21,7 @@ namespace FoodAdmin.Controllers
         {
             var storedDishes = _dishService.GetDishes();
 
-            if (storedDishes.Count > 0)
-            {
-                return storedDishes;
-            }
-
-            return new List<DishDto>
-            {
-                 new DishDto
-                {
-                    DishId = 1,
-                    Name = "Борщ",
-                    Description = "First description",
-                    Price = 170,
-                    Category = DishCategory.FirstDish,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    DishId = 2,
-                    Name = "Салат",
-                    Description = "Second description",
-                    Price = 100,
-                    Category = DishCategory.Salad,
-                    ContainerId = 2,
-                },
-            };
+            return _dishService.GetDishes(); ;
         }
 
         [HttpGet("dish")]
@@ -55,7 +30,13 @@ namespace FoodAdmin.Controllers
             return _dishService.GetDish(dishId);
         }
 
-        [HttpPost("dish")]
+        [HttpPost("remove")]
+        public void RemoveDish( int DishId )
+        {
+            _dishService.RemoveDish(DishId);
+        }
+
+        [HttpPost("save")]
         public DishDto SaveDish([FromBody] DishDto dish)
         {
             DishDto dishDto = _dishService.SaveDish(dish);

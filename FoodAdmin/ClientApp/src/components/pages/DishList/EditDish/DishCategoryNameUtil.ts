@@ -1,5 +1,5 @@
-import { DishCategory } from '../../../dto/Dish/DishCategory';
-import { IDishCategory } from './IDishCategoryName';
+import { DishCategory } from '../../../../dto/Dish/DishCategory';
+import { IDishCategory } from '../EditDish/IDishCategoryName';
 
 export class DishCategoryNameUtil {
   private static readonly _getCategories: Array<IDishCategory> = [

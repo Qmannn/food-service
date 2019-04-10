@@ -36,7 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\dto\DishDto\Enum\DishType.ts" />
     <None Remove="FoodAdmin.csproj.DotSettings" />
   </ItemGroup>
 

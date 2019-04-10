@@ -15,7 +15,7 @@ namespace FoodAdmin.Service
         {
             _dishRepository = dishRepository;
         }
-
+        
         public List<DishDto> GetDishes()
         {
             List<Dish> dishes = _dishRepository.All.ToList();
@@ -77,6 +77,24 @@ namespace FoodAdmin.Service
                 Category = DishCategory.FirstDish,
                 ContainerId = 1,
                 Price = 0
+            };
+        }
+        
+        public void RemoveDish( int DishId )
+        {
+            _dishRepository.Delete(DishId);
+        }
+
+        private DishDto Convert( Dish dish )
+        {
+            return new DishDto
+            {
+                DishId = dish.Id,
+                Name = dish.Name,
+                Description = dish.Description,
+                Price = dish.Price,
+                Category = dish.Category,
+                ContainerId = dish.ContainerId
             };
         }
     }

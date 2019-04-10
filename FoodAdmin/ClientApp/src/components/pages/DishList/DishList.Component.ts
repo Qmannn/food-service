@@ -1,36 +1,37 @@
 import { Component } from '@angular/core';
-import { DishesService } from '../../../HttpServices/DishesService/DishesService';
 import { DishTypeNameResolver } from '../../../services/DishTypeNameResolver';
 import { DishCategory } from '../../../dto/Dish/DishCategory';
 import { DishDto } from '../../../dto/Dish/DishDto';
+import { DishDataService } from '../../../HttpServices/DishDataService';
 
 @Component({
-  // selector: 'app-food-list',
+  selector: 'app-dish-list',
   templateUrl: './DishList.Component.html',
-  providers: [DishesService]
+  providers: [DishDataService]
 })
 
 export class DishListComponent {
-  private readonly _dishesService: DishesService;
+  private readonly _dishDataService: DishDataService;
   private readonly _resolver: DishTypeNameResolver = new DishTypeNameResolver();
   public dishes: DishDto[];
 
-  public constructor(dishesService: DishesService) {
-    this._dishesService = dishesService;
+  public constructor(dishesService: DishDataService) {
+    this._dishDataService = dishesService;
 
-    this._dishesService.getDishes().subscribe(values => {
+    this._dishDataService.getDishes().subscribe(values => {
       this.dishes = values;
     });
+    this.reloadDishes();
   }
 
   public deleteDish(id: number): void {
-    this._dishesService.removeDish(id).subscribe(() => {
+    this._dishDataService.removeDish(id).subscribe(() => {
       this.reloadDishes();
     });
   }
 
   private reloadDishes(): void {
-    this._dishesService.getDishes().subscribe(values => {
+    this._dishDataService.getDishes().subscribe(values => {
       this.dishes = values;
     });
   }
