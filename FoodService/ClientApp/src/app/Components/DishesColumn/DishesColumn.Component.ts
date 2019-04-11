@@ -13,7 +13,7 @@ export class DishesColumnComponent {
   @Output()
   public dishSelected: EventEmitter<DishDto> = new EventEmitter<DishDto>();
 
-  protected selectDish(dish: DishDto):void {
+  protected selectDish(dish: DishDto): void {
     this.dishSelected.emit(dish);
   }
 }

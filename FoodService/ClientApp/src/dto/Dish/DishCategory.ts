@@ -1,6 +1,6 @@
 export enum DishCategory {
     Salad,
-    Soup,
+    FirstDish,
     SecondDish,
     Garnish
 }
