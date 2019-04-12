@@ -3,6 +3,8 @@ import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CommandDto } from '../dto/Command/CommandDto';
 import { DeletedCommandInfo } from '../dto/Command/DeletedCommandInfo';
+import { SavedCommandInfo } from '../dto/Command/SavedCommandInfo';
+import { HttpParams } from '@angular/common/http';
 
 
 @Injectable()
@@ -17,7 +19,17 @@ export class CommandDataService {
         return this._httpService.get<CommandDto[]>('api/Command');
     }
 
-    public deleteCommand(commandId: number):Observable<DeletedCommandInfo> {
+    public deleteCommand(commandId: number): Observable<DeletedCommandInfo> {
         return this._httpService.post<number, DeletedCommandInfo>('api/Command/delete-command', commandId);
     }
+
+    public getCommand(commandId: number): Observable<CommandDto> {
+      const params: HttpParams = new HttpParams()
+          .set('commandId', commandId.toString());
+      return this._httpService.get<CommandDto>('api/Command/get-command', params);
+  }
+
+  public saveCommand(command: CommandDto): Observable<SavedCommandInfo> {
+      return this._httpService.post<CommandDto, SavedCommandInfo>('api/Command/save-command', command);
+  }
 }

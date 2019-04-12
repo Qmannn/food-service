@@ -23,7 +23,7 @@
                     <td>{{command.description}}</td>
                     <td>
                         <div class="btn-group" role="group" >
-                            <button type="button" class="btn btn-primary">Изменить</button>
+                            <button type="button" class="btn btn-primary" routerLink="{{command.commandId}}/edit">Изменить</button>
                             <button type="button" class="btn btn-danger" (click)="deleteCommand(command.commandId)">Удалить</button>
                         </div>
                     </td>

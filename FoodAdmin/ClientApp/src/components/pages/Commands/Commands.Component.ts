@@ -29,5 +29,18 @@ export class CommandsComponent {
       this.commands = commandsValues;
     });
   }
-};
 
+public editCommand(commandId: number): void {
+    this._commandDataService.getCommand(commandId).subscribe(value => {
+        this.commandToEdit = value;
+    });
+}
+
+public saveCommand(): void {
+    this._commandDataService.saveCommand(this.commandToEdit).subscribe(value => {
+        alert('Сохранен ' + value.savedCommandId + 'c описанием "' + value.savedDescription + '"');
+        this.reloadCommands();
+        this.commandToEdit = undefined;
+    });
+}
+}

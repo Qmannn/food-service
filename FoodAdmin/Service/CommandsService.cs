@@ -48,10 +48,15 @@ namespace FoodAdmin.Service
         {
             Command command = _commandRepository.GetItem(commandDto.CommandId);
 
+            if(command == null)
+            {
+                command = new Command();
+            }
+ 
             command.Name = commandDto.Name;
             command.Description = commandDto.Description;
 
-            command = _commandRepository.Save(command );
+            command = _commandRepository.Save(command);
 
             return Convert(command);
         }
