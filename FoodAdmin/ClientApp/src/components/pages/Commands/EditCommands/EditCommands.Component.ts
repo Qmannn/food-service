@@ -16,7 +16,6 @@ export class EditCommandComponent {
     public constructor(commandDataService: CommandDataService, route: ActivatedRoute) {
         this._commandDataService = commandDataService;
         route.params.subscribe(params => {
-            // Если в параметрах есть sampleId -то это редактирование, иначе это создание нового экземпляра
             const paramsCommandId: number | undefined = params['commandId'] !== undefined
                 ? Number(params['commandId'])
                 : 0;
