@@ -33,7 +33,6 @@ export class CommandsComponent {
 public editCommand(commandId: number): void {
     this._commandDataService.getCommand(commandId).subscribe(value => {
         this.commandToEdit = value;
-        alert(`Edit ${commandId}`);
     });
 }
 
