@@ -5,23 +5,33 @@ import { DishCategory } from '../../../../dto/Dish/DishCategory';
 import { ActivatedRoute } from '@angular/router';
 import { IDishCategory } from '../EditDish/IDishCategoryName';
 import { DishCategoryNameUtil } from '../EditDish/DishCategoryNameUtil';
+import { ContainerHttpService } from '../../../../HttpServices/ContainerHttpService';
+import { ContainerDto } from '../../../../dto/Container/ContainerDto';
 
 @Component({
   templateUrl: './EditDish.Component.html',
-  providers: [DishDataService]
+  providers: [DishDataService, ContainerHttpService]
 })
 
 export class EditDishComponent {
   private readonly _dishDataService: DishDataService;
+  private readonly _containerHttpService: ContainerHttpService;
 
   public categories: Array<IDishCategory>;
 
+  public containers: ContainerDto[];
   public editingDishId: number;
   public dishToEdit: DishDto;
 
-  public constructor(dishDataService: DishDataService, route: ActivatedRoute) {
+  public constructor(containerHttpService: ContainerHttpService, dishDataService: DishDataService, route: ActivatedRoute) {
     this._dishDataService = dishDataService;
     this.categories = DishCategoryNameUtil.getCategories();
+
+    this._containerHttpService = containerHttpService;
+    this._containerHttpService.getContainers().subscribe(values => {
+      this.containers = values;
+    });
+
     route.params.subscribe(params => {
       const paramsDishId: number | undefined = params['dishId'] !== undefined
         ? Number(params['dishId'])

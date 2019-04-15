@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-sm-6">
         <select class="form-control" [(ngModel)]="dishToEdit.containerId">
-          <option value="1">Контейнер 1</option>
+          <option *ngFor="let container of containers" [ngValue]="container.id">{{container.name}}</option>
         </select>
       </div>
     </div>
