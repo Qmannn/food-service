@@ -1,2 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+.preloader {
+    height: 250px;
+    width: 250px;
+    margin: auto;
+    background-image: url(img/pre-loader.gif);
+    background-repeat: no-repeat;
+}
+
+.error {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
