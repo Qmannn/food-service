@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
         templateUrl: './EditSample.Component.html',
+        styleUrls: ['./EditSample.Component.css'],
         providers: [SampleDataService]
     })
 export class EditSampleComponent {
@@ -22,7 +23,7 @@ export class EditSampleComponent {
                 : 0;
             this.editingSampleId = paramsSampleId;
             this.sampleToEdit = new SampleDto();
-            // this.loadSample();
+            this.loadSample();
         });
     }
 

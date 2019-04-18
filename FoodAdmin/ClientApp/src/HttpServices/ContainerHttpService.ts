@@ -1,8 +1,8 @@
 import { ContainerDto } from '../dto/Container/ContainerDto';
 import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ContainerHttpService {

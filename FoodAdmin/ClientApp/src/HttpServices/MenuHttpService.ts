@@ -1,9 +1,9 @@
 import { MenuDto } from '../dto/Menu/MenuDto';
 import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { MenuDishDto } from '../dto/Menu/MenuDishDto';
 import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable()

@@ -1,10 +1,10 @@
 import { HttpService } from './HttpService';
 import { Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { CommandDto } from '../dto/Command/CommandDto';
 import { DeletedCommandInfo } from '../dto/Command/DeletedCommandInfo';
 import { SavedCommandInfo } from '../dto/Command/SavedCommandInfo';
 import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable()

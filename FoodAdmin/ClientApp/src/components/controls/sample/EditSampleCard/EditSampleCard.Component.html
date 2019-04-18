@@ -1,13 +1,50 @@
-<div class="card-body">
-    <h4 class="card-title">Edit sample: {{sampleToEdit.name}}#{{sampleToEdit.sampleId}}</h4>
-    <div class="row">
-        <div class="col-lg-4">
-            <input type="text" class="form-control" placeholder="Название" [(ngModel)]="sampleToEdit.name" />
+<div class="row" *ngIf="sampleToEdit">
+    <div class="card-body">
+        <h4 class="card-title">Edit sample: {{sampleToEdit.name}}#{{sampleToEdit.sampleId}}</h4>
+        <div class="row">
+            <mat-form-field class="col-lg-4">
+                <input matInput placeholder="Название" [(ngModel)]="sampleToEdit.name">
+            </mat-form-field>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-4">
-            <input type="text" class="form-control" placeholder="Описание" [(ngModel)]="sampleToEdit.description" />
+    
+        <div class="row">
+            <mat-form-field class="col-lg-4">
+                <input matInput placeholder="Описание" [(ngModel)]="sampleToEdit.description">
+            </mat-form-field>
+        </div>
+    
+        <div class="row">
+            <mat-form-field class="col-lg-4">
+                <mat-select placeholder="Select">
+                    <mat-option *ngFor="let type of someTypes" value="{{type}}">{{type}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+      
+        <div class="row">
+          <mat-radio-group [(ngModel)]="labelPosition" >
+            <mat-radio-button class="col-lg-2" value="true">Активен</mat-radio-button>
+            <mat-radio-button class="col-lg-2" value="false">Неактивен</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="row">
+            <mat-checkbox class="col-lg-4" [(ngModel)]="checked">Выбран</mat-checkbox>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="col-lg-4">
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <button mat-raised-button color="primary"
+                matBadge="N" matBadgePosition="before" matBadgeColor="accent" (click)="showNotify()">Показать сообщение</button>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -20,6 +20,8 @@ import { EditCommandCardComponent } from './components/controls/command/EditComm
 import { EditMenuComponent } from './components/pages/EditMenu/EditMenu.Component';
 import { ContainerListComponent } from './components/pages/ContainerList/ContainerList.Component';
 import { EditContainerComponent } from './components/pages/ContainerList/EditContainer/EditContainer.Component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatFormFieldModule, MatSelectModule, MatCardModule, MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, MatButtonModule, MatBadgeModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -66,9 +68,22 @@ import { EditContainerComponent } from './components/pages/ContainerList/EditCon
       { path: 'containers/:containerId/edit', component: EditContainerComponent},
       { path: 'commands/create', component: EditCommandComponent},
       { path: 'commands/:commandId/edit', component: EditCommandComponent},
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatBadgeModule
   ],
   providers: [HttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

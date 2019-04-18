@@ -1,9 +1,9 @@
 import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { SampleDto } from '../dto/Sample/SampleDto';
 import { HttpParams } from '@angular/common/http';
 import { SavedSampleInfo } from '../dto/Sample/SavedSampleInfo';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class SampleDataService {

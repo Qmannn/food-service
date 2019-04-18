@@ -1,8 +1,7 @@
 import { HttpService } from './HttpService';
 import { Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { UserDto } from '../dto/User/UserDto';
-import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class UsersDataService {
@@ -11,7 +10,7 @@ export class UsersDataService {
     public constructor(httpService: HttpService) {
         this._httpService = httpService;
     }
-    
+
     public getUsers(): Observable<UserDto[]> {
         return this._httpService.get<UserDto[]>('api/Users/users');
     }

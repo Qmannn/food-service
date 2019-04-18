@@ -1,8 +1,8 @@
 import { HttpService } from './HttpService';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { UserDto } from '../dto/User/UserDto';
 import { HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class EditUserDataService {

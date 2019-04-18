@@ -7,10 +7,10 @@
     </div>
     <div class="card-columns">
         <div class="card" *ngIf="sampleToEdit">
-            <app-edit-sample-card [sampleToEdit]="sampleToEdit"></app-edit-sample-card>
+            <app-edit-sample-card class="row" [sampleToEdit]="sampleToEdit"></app-edit-sample-card>
             <div class="row">
                 <div class="col-lg-4">
-                    <button type="button" class="btn btn-primary" (click)="saveSample()">Сохранить</button>
+                    <button mat-raised-button color="primary"  (click)="saveSample()">Сохранить</button>
                 </div>
             </div>
         </div>
