@@ -1,4 +1,7 @@
-﻿namespace Food.EntityFramework.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace Food.EntityFramework.Entities
 {
     public class MenuDish
     {

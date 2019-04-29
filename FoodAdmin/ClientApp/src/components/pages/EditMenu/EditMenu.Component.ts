@@ -60,6 +60,7 @@ export class EditMenuComponent {
     this._menuDataService.getDishes(this.editingMenuId).subscribe(menu => {
       this.selectedDishesId = menu.selectedDishesId;
       this.dishes = menu.dishes;
+      this.menuToEdit = menu.menu;
       this.sortSelectedDishes();
     });
   }
@@ -87,9 +88,7 @@ export class EditMenuComponent {
   }
 
   public saveMenu(): void {
-    alert('Сохранение скоро будет реализовано');
     this._menuDataService.saveMenu(this.menuToEdit).subscribe(value => {
-      alert('Сохранен');
     });
   }
 

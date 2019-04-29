@@ -144,7 +144,8 @@ namespace FoodAdmin.Controllers
             return new MenuDishDto
             {
                 SelectedDishesId = SelectedDishesId,
-                Dishes = Dishes
+                Dishes = Dishes,
+                Menu = new MenuDto()
             };
         }
     }

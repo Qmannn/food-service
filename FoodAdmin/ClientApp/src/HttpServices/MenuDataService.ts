@@ -17,7 +17,7 @@ export class MenuDataService {
   public getDishes(menuId: number): Observable<MenuDishDto> {
     const params: HttpParams = new HttpParams()
         .set('menuId', menuId.toString());
-    return this._httpService.get<MenuDishDto>('api/MenusApi/dishes', params);
+    return this._httpService.get<MenuDishDto>('api/Menus/dishes', params);
 }
 
   public getMenu(menuId: number): Observable<MenuDto> {

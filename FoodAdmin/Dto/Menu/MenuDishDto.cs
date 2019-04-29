@@ -7,5 +7,6 @@ namespace FoodAdmin.Dto.Menu
     {
         public List<int> SelectedDishesId { get; set; }
         public List<DishDto> Dishes { get; set; }
+        public MenuDto Menu { get; set; }
     }
 }
