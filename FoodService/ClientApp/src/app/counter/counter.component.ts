@@ -22,6 +22,6 @@ export class CounterComponent {
   }
 
   protected selectDate(date: Date): void {
-    alert(date);
+    console.log(date);
   }
 }
