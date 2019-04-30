@@ -4,6 +4,7 @@ import { UserDto } from '../../../../dto/User/UserDto';
 import { DishDto } from '../../../../dto/Dish/DishDto';
 import { OrderDataService } from '../../../../HttpServices/OrderDataService';
 import { DayMenuDto } from '../../../../dto/DayMenu/DayMenuDto';
+import { OrderDto } from '../../../../dto/Order/OrderDto';
 
 @Component({
   selector: 'app-order-page-component',
@@ -13,15 +14,16 @@ import { DayMenuDto } from '../../../../dto/DayMenu/DayMenuDto';
 })
 
 export class OrderPageComponent {
-  private readonly _dishDataService: OrderDataService;
+  private readonly _orderDataService: OrderDataService;
   private readonly _usersDataService: UsersDataService;
   public users: UserDto[];
   public selectDishes: DishDto[] = [];
   public dayMenu: DayMenuDto;
+  public selectedUserId: number;
 
-  public constructor(usersDataService: UsersDataService, dishDataService: OrderDataService) {
+  public constructor(usersDataService: UsersDataService, orderDataService: OrderDataService) {
     this._usersDataService = usersDataService;
-    this._dishDataService = dishDataService;
+    this._orderDataService = orderDataService;
 
     this._usersDataService.getUsers().subscribe(values => {
       this.users = values;
@@ -29,7 +31,7 @@ export class OrderPageComponent {
   }
 
   protected getMenuDishes(dateTime: Date): void {
-    this._dishDataService.getDishes(dateTime).subscribe(values => {
+    this._orderDataService.getDishes(dateTime).subscribe(values => {
       this.dayMenu = values;
     });
   }
@@ -43,8 +45,18 @@ export class OrderPageComponent {
     this.selectDishes.splice(index, 1);
   }
 
+  protected makeOrder(): void {
+    const order: OrderDto = new OrderDto;
+    order.userId = this.selectedUserId;
+    order.menuId = this.dayMenu.menu.id;
+    order.orderDishes = this.selectDishes;
+    this._orderDataService.makeOrder(order).subscribe(value => {
+      alert('Заказ отправлен');
+    });
+  }
+
   protected selectDate(menuDate: Date): void {
-    this.getMenuDishes(menuDate);
     this.selectDishes = [];
+    this.getMenuDishes(menuDate);
   }
 }

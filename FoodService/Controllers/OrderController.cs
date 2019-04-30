@@ -6,6 +6,7 @@ using System;
 using FoodService.Dto.DayMenu;
 using FoodService.Dto.Menu;
 using FoodService.Dto.Dish;
+using FoodService.Dto.Order;
 
 namespace FoodService.Controllers
 {
@@ -102,9 +103,16 @@ namespace FoodService.Controllers
             };
             dayMenu.Menu = new MenuDto()
             {
+                Id = 10,
                 CurrentDate = menuDate
             };
             return dayMenu;
+        }
+
+        [HttpPost("make-order")]
+        public OrderDto MakeOrder([FromBody] OrderDto order)
+        {
+            return order;
         }
     }
 }

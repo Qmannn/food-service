@@ -2,7 +2,7 @@
     <div class="order-heder row">
         <div class="col-lg-4 user-choice">
             <select class="form-control" [(ngModel)]="selectedUserId">
-                <option *ngFor="let user of users" [ngValue]="user.userId">{{user.name}}</option>
+                <option *ngFor="let user of users" [ngValue]="user.id">{{user.name}}</option>
             </select>
         </div>
     </div>
@@ -11,6 +11,7 @@
     </div>
     <div class="row" >
         <app-dish-columns [dishList]="selectDishes" (dishSelected)="deselectDish($event)" class="menuSelectedDishes"></app-dish-columns>
+        <button type="button" class="btn" (click)="makeOrder()">Заказать</button>
         <app-dish-columns *ngIf="dayMenu" [dishList]="dayMenu.menuDishes" (dishSelected)="selectDish($event)"></app-dish-columns>
     </div>
 </div>
