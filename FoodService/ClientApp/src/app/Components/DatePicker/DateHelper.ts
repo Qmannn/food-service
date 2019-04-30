@@ -2,7 +2,6 @@ import { MonthNumber } from './MonthNumber';
 import { WeekDayNumber } from './WeekDayNumber';
 
 export class DateHelper {
-  private static readonly _weekLenth: number = 7;
   private addDay(day: Date, incrementDays: number): Date {
     return new Date(day.getFullYear(), day.getMonth(), day.getDate() + incrementDays);
   }
@@ -30,10 +29,13 @@ export class DateHelper {
     return result;
   }
 
-  public offsetWeek(day: Date, isBefore: boolean): Date {
-    const factor: number = isBefore ? -1 : 1;
+  public addWeek(date: Date, weeksCount: boolean): Date {
+    const addDaysInPrevWeek: number = -7;
+    const addDaysInNextWeek: number = 7;
 
-    return new Date(day.getFullYear(), day.getMonth(), day.getDate() + factor * DateHelper._weekLenth);
+    const days: number = weeksCount ? addDaysInPrevWeek : addDaysInNextWeek;
+
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + days);
   }
 
   public getMonthString(month: MonthNumber): string {

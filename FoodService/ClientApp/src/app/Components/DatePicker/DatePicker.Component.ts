@@ -57,8 +57,8 @@ export class DatePickerComponent implements AfterViewInit {
     this.selectedDate = day;
   }
 
-  public clickArrow(isBefore: boolean): void {
-    this.firstDate = this.dateHelper.offsetWeek(this.firstDate, isBefore);
+  public clickArrow(weeksCount: boolean): void {
+    this.firstDate = this.dateHelper.addWeek(this.firstDate, weeksCount);
     this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
   }
 
