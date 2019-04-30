@@ -57,7 +57,14 @@ export class DatePickerComponent implements AfterViewInit {
     this.selectedDate = day;
   }
 
-  public clickArrow(weeksCount: boolean): void {
+  public nextWeek(): void {
+    const weeksCount: number = 7;
+    this.firstDate = this.dateHelper.addWeek(this.firstDate, weeksCount);
+    this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
+  }
+
+  public prevWeek(): void {
+    const weeksCount: number = -7;
     this.firstDate = this.dateHelper.addWeek(this.firstDate, weeksCount);
     this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
   }

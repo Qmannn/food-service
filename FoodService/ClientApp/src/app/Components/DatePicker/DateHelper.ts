@@ -29,13 +29,8 @@ export class DateHelper {
     return result;
   }
 
-  public addWeek(date: Date, weeksCount: boolean): Date {
-    const addDaysInPrevWeek: number = -7;
-    const addDaysInNextWeek: number = 7;
-
-    const days: number = weeksCount ? addDaysInPrevWeek : addDaysInNextWeek;
-
-    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + days);
+  public addWeek(date: Date, weeksCount: number): Date {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + weeksCount);
   }
 
   public getMonthString(month: MonthNumber): string {
