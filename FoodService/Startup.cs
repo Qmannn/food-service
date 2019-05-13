@@ -10,6 +10,8 @@ using Food.EntityFramework;
 using Food.EntityFramework.Entities;
 using Microsoft.EntityFrameworkCore;
 using Food.EntityFramework.Configuration;
+using Food.EntityFramework.Repository;
+using FoodService.Domain.Services.Finders;
 
 namespace FoodService
 {
@@ -36,6 +38,9 @@ namespace FoodService
             services.AddScoped<IRepository<User>, GenericRepository<User>>();
             services.AddScoped<IUsersService, UserService>();
 
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IDailyOrderFinder, DailyOrderFinder>();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

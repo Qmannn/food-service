@@ -6,13 +6,29 @@ using System;
 using FoodService.Dto.DayMenu;
 using FoodService.Dto.Menu;
 using FoodService.Dto.Dish;
+using FoodService.Domain.Services.Finders;
 using FoodService.Dto.Order;
+using FoodService.Domain.Entities;
 
 namespace FoodService.Controllers
 {
     [Route("api/[controller]")]
     public class OrderController : Controller
     {
+        private readonly IDailyOrderFinder _dailyOrderFinder;
+
+        public OrderController(IDailyOrderFinder dailyOrderFinder)
+        {
+            _dailyOrderFinder = dailyOrderFinder;
+        }
+
+        [HttpGet("dailyOrder")]
+        public DailyOrder GetOrder()
+        {
+            DateTime date = new DateTime(2019, 05, 05);
+            return _dailyOrderFinder.GetDailyOrder(1, date);
+        }
+
         [HttpGet("menu-on-day")]
         public DayMenuDto GetMenuOnDay(DateTime menuDate)
         {
