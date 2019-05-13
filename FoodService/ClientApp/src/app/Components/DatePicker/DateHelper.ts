@@ -2,6 +2,8 @@ import { MonthNumber } from './MonthNumber';
 import { WeekDayNumber } from './WeekDayNumber';
 
 export class DateHelper {
+  private static readonly _weekLength: number = 7;
+
   private addDay(day: Date, incrementDays: number): Date {
     return new Date(day.getFullYear(), day.getMonth(), day.getDate() + incrementDays);
   }
@@ -30,7 +32,7 @@ export class DateHelper {
   }
 
   public addWeek(date: Date, weeksCount: number): Date {
-    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + weeksCount);
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + (weeksCount * DateHelper._weekLength));
   }
 
   public getMonthString(month: MonthNumber): string {

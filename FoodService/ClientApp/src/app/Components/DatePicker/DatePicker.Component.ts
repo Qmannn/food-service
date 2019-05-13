@@ -1,4 +1,4 @@
-import { AfterViewInit, ApplicationRef, ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, EventEmitter, Output } from '@angular/core';
 import { DateHelper } from './DateHelper';
 import { MonthNumber } from './MonthNumber';
 import { WeekDayNumber } from './WeekDayNumber';
@@ -58,13 +58,13 @@ export class DatePickerComponent implements AfterViewInit {
   }
 
   public nextWeek(): void {
-    const weeksCount: number = 7;
+    const weeksCount: number = 1;
     this.firstDate = this.dateHelper.addWeek(this.firstDate, weeksCount);
     this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
   }
 
   public prevWeek(): void {
-    const weeksCount: number = -7;
+    const weeksCount: number = -1;
     this.firstDate = this.dateHelper.addWeek(this.firstDate, weeksCount);
     this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
   }
