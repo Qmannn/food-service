@@ -1,4 +1,5 @@
-﻿using Food.EntityFramework.Entities.Enums;
+﻿using Food.EntityFramework.Entities;
+using Food.EntityFramework.Entities.Enums;
 
 namespace FoodService.Domain.Entities
 {
@@ -10,5 +11,19 @@ namespace FoodService.Domain.Entities
         public decimal Price { get; set; }
         public DishCategory Category { get; set; }
         public int ContainerId { get; set; }
+
+        public DailyOrderDish()
+        {
+        }
+
+        public DailyOrderDish( OrderDish orderDish )
+        {
+            Id = orderDish.Id;
+            Name = orderDish.DishName;
+            Description = orderDish.DishDescription;
+            Price = orderDish.DishPrice;
+            Category = orderDish.DishCategory;
+            ContainerId = orderDish.DishContainerId;
+        }
     }
 }
