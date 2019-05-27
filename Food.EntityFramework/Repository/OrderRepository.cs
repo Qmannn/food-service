@@ -12,6 +12,11 @@ namespace Food.EntityFramework.Repository
 
         }
 
+        public Order GetOrder(int userId, DateTime deliveryDate)
+        {
+            return All.FirstOrDefault(item => item.UserId == userId && item.DeliveryDate == deliveryDate);
+        }
+
         public Order GetOrderWithDishes(int userId, DateTime deliveryDate)
         {
             return All.Include(item => item.OrderDishes).FirstOrDefault(item => item.UserId == userId && item.DeliveryDate == deliveryDate);

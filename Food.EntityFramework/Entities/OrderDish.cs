@@ -11,6 +11,7 @@ namespace Food.EntityFramework.Entities
         public decimal DishPrice { get; set; }
         public DishCategory DishCategory { get; set; }
         public int DishContainerId { get; set; }
+        public int DishId { get; set; }
 
         public virtual Order Order { get; set; }
     }
