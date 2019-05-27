@@ -1,8 +1,14 @@
-<div>
+<div class="date">
   <div class="date-body">
+    <div class="arrow" (click)="prevWeek()"> 
+      <p class="arrow-text"> < </p>
+    </div>
     <div *ngFor="let weekDay of weekDays" class="date-card" (click)="onClickDate(weekDay)" [ngClass]=" getStyle(weekDay) ">
       <p class="week-day-title">{{weekDayString(getWeekDay(weekDay))}}</p>
       <p class="week-date-title">{{getNumDay(weekDay)}} {{monthString(getMonthDay(weekDay))}}</p>
+    </div>  
+    <div class="arrow" (click)="nextWeek()"> 
+        <p class="arrow-text"> > </p>
     </div>
   </div>
 </div>

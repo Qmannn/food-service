@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, AfterViewInit } from '@angular/core';
+import { AfterViewInit, ApplicationRef, Component, EventEmitter, Output } from '@angular/core';
 import { DateHelper } from './DateHelper';
 import { MonthNumber } from './MonthNumber';
 import { WeekDayNumber } from './WeekDayNumber';
@@ -10,6 +10,7 @@ import { WeekDayNumber } from './WeekDayNumber';
 })
 
 export class DatePickerComponent implements AfterViewInit {
+  private firstDate: Date;
   protected selectedDate: Date;
   protected dateHelper: DateHelper;
   protected weekDays: Date[];
@@ -21,9 +22,10 @@ export class DatePickerComponent implements AfterViewInit {
 
   public constructor() {
       this.now = new Date();
+      this.firstDate = this.now;
       this.selectedDate = this.now;
       this.dateHelper = new DateHelper();
-      this.weekDays = this.dateHelper.getWeekDays(this.now);
+      this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
   }
 
   public ngAfterViewInit(): void {
@@ -53,6 +55,18 @@ export class DatePickerComponent implements AfterViewInit {
   public onClickDate(day: Date): void {
     this.dateSelected.emit(day);
     this.selectedDate = day;
+  }
+
+  public nextWeek(): void {
+    const weeksCount: number = 1;
+    this.firstDate = this.dateHelper.addWeek(this.firstDate, weeksCount);
+    this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
+  }
+
+  public prevWeek(): void {
+    const weeksCount: number = -1;
+    this.firstDate = this.dateHelper.addWeek(this.firstDate, weeksCount);
+    this.weekDays = this.dateHelper.getWeekDays(this.firstDate);
   }
 
   protected getStyle(day: Date): string {
