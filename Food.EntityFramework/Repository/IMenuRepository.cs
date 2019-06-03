@@ -8,6 +8,7 @@ namespace Food.EntityFramework.Repository
     public interface IMenuRepository : IRepository<Menu>
     {
         Menu GetMenu(int menuId);
+        Menu GetMenu(DateTime menuDate);
         Menu GetByMenuId(int menuId);
     }
 }
