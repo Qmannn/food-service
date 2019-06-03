@@ -1,5 +1,6 @@
 ﻿using Food.EntityFramework.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Food.EntityFramework
@@ -38,6 +39,19 @@ namespace Food.EntityFramework
                 Table.Remove(entity);
                 _foodDbContext.SaveChanges();
             }
+        }
+
+        public void Delete(IEnumerable<TEntity> items)
+        {
+            foreach( TEntity item in items)
+            {
+                var entity = Table.Find(item);
+                if (entity != null)
+                {
+                    Table.Remove(entity);
+                }
+            }
+            _foodDbContext.SaveChanges();
         }
 
         public void Delete(int id)

@@ -8,22 +8,26 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Дата</th>
+            <th>CurrentDate</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
             <th>Статус</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let menu of menus">
             <th scope="row">{{menu.menuId}}</th>
-            <td>{{menu.menuDate}}</td>
+            <td>{{getDate(menu.currentDate)}}</td>
+            <td>{{getDate(menu.startDate)}}</td>
+            <td>{{getDate(menu.endDate)}}</td>
             <td [ngSwitch]="menu.menuStatus">
-            <span *ngSwitchCase="0">Active</span>
-            <span *ngSwitchCase="1">Closed</span>
-            </td>        
+              <span *ngSwitchCase="0">Active</span>
+              <span *ngSwitchCase="1">Closed</span>
+            </td>
             <td>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary" routerLink="./{{menu.menuId}}/edit">Изменить</button>
-                <button type="button" class="btn btn-danger" (click)="deleteSample(sample.sampleId)">Удалить</button>
+                <button type="button" class="btn btn-danger" (click)="deleteMenu(menu.menuId)">Удалить</button>
               </div>
             </td>
           </tr>

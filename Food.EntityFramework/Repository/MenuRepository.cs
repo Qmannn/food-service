@@ -17,5 +17,12 @@ namespace Food.EntityFramework.Repository
         {
             return All.Where(item => item.Id == menuId).Include(item => item.MenuDishes).FirstOrDefault();
         }
+
+        public Menu GetByMenuId( int menuId )
+        {
+            return All.Where(item => item.Id == menuId)
+                .Include(item => item.MenuDishes)
+                .FirstOrDefault();
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Food.EntityFramework;
 using Food.EntityFramework.Configuration;
 using Food.EntityFramework.Entities;
+using Food.EntityFramework.Repository;
 using FoodAdmin.Config;
 using FoodAdmin.Service;
 using Microsoft.AspNetCore.Builder;
@@ -34,11 +35,16 @@ namespace FoodAdmin
 
             services.AddScoped<IRepository<Sample>, GenericRepository<Sample>>();
             services.AddScoped<ISampleService, SampleService>();
+
             services.AddScoped<IRepository<Dish>, GenericRepository<Dish>>();
+
             services.AddScoped<IRepository<User>, GenericRepository<User>>();
             services.AddScoped<IUsersService, UserService>();
-            services.AddScoped<IRepository<Menu>, GenericRepository<Menu>>();
+
+            services.AddScoped<IMenuRepository, MenuRepository>();
             services.AddScoped<IMenuService, MenuService>();
+
+            services.AddScoped<IRepository<MenuDish>, GenericRepository<MenuDish>>();
 
             services.AddScoped<IRepository<Command>, GenericRepository<Command>>();
             services.AddScoped<ICommandsService, CommandsService>();
