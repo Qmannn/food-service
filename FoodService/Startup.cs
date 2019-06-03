@@ -45,7 +45,6 @@ namespace FoodService
 
             services.AddScoped<IRepository<Menu>, GenericRepository<Menu>>();
             services.AddScoped<IMenuRepository, MenuRepository>();
-            services.AddScoped<IMenuService, MenuService>();
 
             services.AddScoped<IDailyOrderConverter, DailyOrderConverter>();
             services.AddScoped<IOrderBuilder, OrderBuilder>();
