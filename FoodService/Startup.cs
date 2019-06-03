@@ -14,6 +14,7 @@ using FoodService.Domain.Services.Converters;
 using Food.EntityFramework.Repository;
 using FoodService.Domain.Services.Builders;
 using FoodService.Domain.Services.Finders;
+using FoodService.Domain.Services.Savers;
 
 namespace FoodService
 {
@@ -48,6 +49,9 @@ namespace FoodService
 
             services.AddScoped<IDailyOrderConverter, DailyOrderConverter>();
             services.AddScoped<IOrderBuilder, OrderBuilder>();
+
+            services.AddScoped<IRepository<Order>, GenericRepository<Order>>();
+            services.AddScoped<IDailyOrderSaver, DailyOrderSaver>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
