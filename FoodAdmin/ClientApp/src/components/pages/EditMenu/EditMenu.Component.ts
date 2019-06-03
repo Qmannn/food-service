@@ -1,70 +1,66 @@
 import { Component } from '@angular/core';
-import { DishDto } from '../../../dto/DishDto/DishDto';
 import { MenuDto } from '../../../dto/Menu/MenuDto';
-import { DishCategory } from '../../../dto/DishDto/Enum/DishCategory';
 import { DishTypeNameResolver } from '../../../services/DishTypeNameResolver';
 import { MenuHttpService } from '../../../HttpServices/MenuHttpService';
 import { ActivatedRoute } from '@angular/router';
-import { forEach } from '@angular/router/src/utils/collection';
+import { DishDto } from '../../../dto/Dish/DishDto';
+import { DishDataService } from '../../../HttpServices/DishDataService';
+import { DishCategory } from '../../../dto/Dish/DishCategory';
 
 @Component({
   selector: 'app-edit-menu',
   templateUrl: './EditMenu.Component.html',
-  providers: [MenuHttpService]
+  providers: [MenuHttpService, DishDataService]
 })
 export class EditMenuComponent {
   private readonly _resolver: DishTypeNameResolver = new DishTypeNameResolver();
-  private _menuHttpService: MenuHttpService;
+  private readonly _menuHttpService: MenuHttpService;
+  private readonly _dishDataService: DishDataService;
+
   private editingMenuId: number;
   public menuToEdit: MenuDto;
 
   public dishes: DishDto[] = [];
   public selectedDishes: DishDto[] = [];
-  public selectedDishesId: number[] = [];
   public selectedDate: Date = new Date;
 
-  public constructor(menuHttpService: MenuHttpService, route: ActivatedRoute) {
+  public constructor(menuHttpService: MenuHttpService, route: ActivatedRoute, dishDataService: DishDataService) {
+    this._dishDataService = dishDataService;
     this._menuHttpService = menuHttpService;
     route.params.subscribe(params => {
-        const paramsMenuId: number | undefined = params['menuId'] !== undefined
-            ? Number(params['menuId'])
-            : 0;
+      const paramsMenuId: number | undefined = params['menuId'] !== undefined
+        ? Number(params['menuId'])
+        : 0;
       this.editingMenuId = paramsMenuId;
-    });
 
-    if (this.editingMenuId === 0) {
-      this._dishesDataService.getDishes().subscribe(values => {
-        this.dishes = values;
-      });
-    } else {
       this.loadMenu();
+      this.loadDishes();
+    });
+  }
 
-      this._menuHttpService.getDishes().subscribe(values => {
-        this.dishes = values;
-        this._menuHttpService.getMenusDishes(this.editingMenuId).subscribe(values => {
-          this.selectedDishes = values;
-          const tempDishes: DishDto[] = [];
-          for (let i = 0; i < this.dishes.length; i++) {
-            let inDishes = false;
-            for (let j = 0; j < this.selectedDishes.length; j++) {
-              if (this.dishes[i].dishId == this.selectedDishes[j].dishId) {
-                inDishes = true;
-                break;
-              }
+  private loadDishes(): void {
+    this._dishDataService.getDishes().subscribe(values => {
+      this.dishes = values;
+      this._menuHttpService.getMenusDishes(this.editingMenuId).subscribe(dishes => {
+        this.selectedDishes = dishes;
+        const tempDishes: DishDto[] = [];
 
-              //  //this.inDishes = true;
-              //if ((j == this.selectedDishes.length - 1) && (this.inDishes == false))
-              //  this.tempDishes.push(this.dishes[i]);
-            }
-
-            if (!inDishes) {
-              tempDishes.push(this.dishes[i])
+        for (let i = 0; i < this.dishes.length; i++) {
+          let inDishes = false;
+          for (let j = 0; j < this.selectedDishes.length; j++) {
+            if (this.dishes[i].dishId === this.selectedDishes[j].dishId) {
+              inDishes = true;
+              break;
             }
           }
-          this.dishes = tempDishes;
-        });
+
+          if (!inDishes) {
+            tempDishes.push(this.dishes[i])
+          }
+        }
+        this.dishes = tempDishes;
       });
-    }
+    });
   }
 
   private loadMenu(): void {
@@ -73,7 +69,7 @@ export class EditMenuComponent {
     });
   }
 
-  public getDate(date: Date) {
+  public getDate(date: Date): string {
     return new Date(date).toLocaleDateString();
   }
 
@@ -83,7 +79,6 @@ export class EditMenuComponent {
       if (this.dishes[i].dishId === dish.dishId) {
         this.dishes.splice(i, 1);
         this.selectedDishes.push(dish);
-        this.selectedDishesId.push(dish.dishId);
         return;
       }
     }
@@ -93,11 +88,9 @@ export class EditMenuComponent {
     for (let i = 0; i < this.selectedDishes.length; i++) {
       if (this.selectedDishes[i].dishId === dish.dishId) {
         this.selectedDishes.splice(i, 1);
-        this.selectedDishesId.splice(i, 1);
         this.dishes.push(dish);
       }
     }
-    
   }
 
   public saveMenu(): void {

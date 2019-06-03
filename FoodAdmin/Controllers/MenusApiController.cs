@@ -35,40 +35,6 @@ namespace FoodAdmin.Controllers
         public List<DishDto> GetMenusDishes(int menuId)
         {
             return _menuService.GetMenuDishes(menuId);
-
-            List<int> SelectedDishesId = new List<int>();
-
-            if (MenuId != 0)
-            {
-                SelectedDishesId = new List<int> { 1, 2, 3 };
-            }
-
-            return new MenuDishDto
-            {
-                SelectedDishesId = SelectedDishesId,
-                Dishes = Dishes
-            };
-        }
-
-        ////добавление блюда в меню
-        //[HttpPost("addmenudish")]
-        //public MenuDishDto AddMenuDish([FromBody] MenuDishDto menuDish)
-        //{
-        //    MenuDishDto menuDishDto = _menuService.SaveMenu(menuDish);
-
-        //    return new MenuDishDto
-        //    {
-        //        MenuDishId = menuDishDto.MenuDishId,
-        //        DishId = menuDishDto.DishId,
-        //        MenuId = menuDishDto.MenuId
-        //    };
-        //}
-
-        //удаление блюда из меню
-        [HttpPost("removemenudish")]
-        public void RemoveMenuDish(int menuDishId)
-        {
-            _menuService.RemoveMenuDish(menuDishId);
         }
 
         [HttpPost("remove")]
@@ -81,8 +47,6 @@ namespace FoodAdmin.Controllers
         public void SaveMenu( [FromBody] MenuDto newMenu )
         {
             _menuService.SaveMenu(newMenu);
-
-            
         }
     }
 }

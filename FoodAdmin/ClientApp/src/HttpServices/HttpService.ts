@@ -22,7 +22,11 @@ export class HttpService {
     }
 
     private removeDiv(element: HTMLDivElement): void {
-        this.bodyElement.removeChild(element);
+        try{
+            this.bodyElement.removeChild(element);
+        } catch {
+            // ignore
+        }
     }
 
     public get<T>(url: string, params?: HttpParams): Observable<T> {

@@ -6,8 +6,6 @@ using Food.EntityFramework.Entities;
 using Food.EntityFramework.Repository;
 using FoodAdmin.Dto.Dish;
 using FoodAdmin.Dto.Menu;
-using FoodAdmin.Dto.MenuDish;
-using Microsoft.EntityFrameworkCore;
 
 namespace FoodAdmin.Service
 {
@@ -57,8 +55,13 @@ namespace FoodAdmin.Service
         public List<DishDto> GetMenuDishes(int menuId)
         {
             List<DishDto> menuDishes = new List<DishDto>();
-            List<Dish> allDishes = _dishRepository.All.ToList();
             Menu menu = _menuRepository.GetByMenuId(menuId);
+            if(menu == null)
+            {
+                return menuDishes;
+            }
+
+            List<Dish> allDishes = _dishRepository.All.ToList();
 
             foreach (MenuDish menuDish in menu.MenuDishes)
             {
@@ -71,7 +74,10 @@ namespace FoodAdmin.Service
 
         public void SaveMenu( MenuDto menuDto )
         {
-            Menu menu = _menuRepository.GetByMenuId(menuDto.MenuId) ?? new Menu();
+            Menu menu = _menuRepository.GetByMenuId(menuDto.MenuId) ?? new Menu
+            {
+                MenuDishes = new List<MenuDish>()
+            };
             menu.CurrentDate = menuDto.CurrentDate;
             menu.StartDate = menuDto.StartDate;
             menu.EndDate = menuDto.EndDate;
