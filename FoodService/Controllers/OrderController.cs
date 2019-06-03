@@ -6,10 +6,11 @@ using FoodService.Dto.DayMenu;
 using FoodService.Dto.Menu;
 using FoodService.Dto.Dish;
 using FoodService.Dto.Order;
-using FoodService.Domain.Services.Builders;
 using FoodService.Domain.Entities;
 using FoodService.Domain.Services.Finders;
 using FoodService.Domain.Services.Savers;
+using FoodService.Domain.Services.Builders;
+
 namespace FoodService.Controllers
 {
     [Route("api/[controller]")]
@@ -80,6 +81,14 @@ namespace FoodService.Controllers
         {
             return _dailyOrderSaver.SaveDailyOrder(dailyOrder);
         }
+
+        [HttpGet("dailyOrder")]
+        public DailyOrder GetOrder()
+        {
+            DateTime date = new DateTime(2019, 05, 05);
+            return _dailyOrderFinder.GetDailyOrder(1, date);
+        }
+
         [HttpGet("menu-on-day")]
         public DayMenuDto GetMenuOnDay(DateTime menuDate)
         {
