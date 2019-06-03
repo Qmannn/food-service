@@ -3,6 +3,7 @@ using Food.EntityFramework.Repository;
 using FoodService.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace FoodService.Domain.Services.Savers
 {
@@ -17,12 +18,9 @@ namespace FoodService.Domain.Services.Savers
 
         public DailyOrder SaveDailyOrder(DailyOrder dailyOrder)
         {
-            Order order = ConvertDailyOrderToOrder(dailyOrder);
-            Order oldOrder = _orderRepository.GetOrder(dailyOrder.UserId, dailyOrder.Date);
-            if (oldOrder != null)
-            {
-                order.Id = oldOrder.Id;
-            }
+            Order oldOrder = _orderRepository.GetOrderWithDishes(dailyOrder.UserId, dailyOrder.Date) ?? new Order();
+
+            Order order = ConvertDailyOrderToOrder(oldOrder, dailyOrder);
 
             /*
              * The instance of entity type 'Order' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
@@ -33,28 +31,62 @@ namespace FoodService.Domain.Services.Savers
             return ConvertOrderToDailyOrder(order);
         }
 
-        private Order ConvertDailyOrderToOrder(DailyOrder dailyOrder)
-        {
-            Order order = new Order();
-            
+        private Order ConvertDailyOrderToOrder(Order order, DailyOrder dailyOrder)
+        {            
             order.OrderDate = DateTime.Now;
             order.DeliveryDate = dailyOrder.Date;
             order.MenuId = dailyOrder.MenuId;
             order.UserId = dailyOrder.UserId;
-            order.OrderDishes = new List<OrderDish>();
 
-            decimal TotalSum = 0; 
+            List<OrderDish> oldOrderDishes = new List<OrderDish>(order.OrderDishes);
+            decimal totalSum = 0;
 
-            if (dailyOrder.Dishes != null)
+            foreach (var orderDish in oldOrderDishes)
             {
+                bool dishFound = false;
+
                 foreach (var dailyOrderDish in dailyOrder.Dishes)
                 {
-                    TotalSum += dailyOrderDish.Price;
+                    if (!dishFound && orderDish.DishId == dailyOrderDish.Id)
+                    {
+                        dishFound = true;
+                        break;
+                    }
+                }
+
+                if (!dishFound)
+                {
+                    order.OrderDishes.Remove(orderDish);
+                }
+            }
+
+            foreach (var dailyOrderDish in dailyOrder.Dishes) 
+            {
+                bool dishFound = false;
+
+                foreach (var orderDish in order.OrderDishes)
+                {
+                    if (!dishFound && orderDish.DishId == dailyOrderDish.Id)
+                    {
+                        dishFound = true;
+                    }
+                }
+
+                if (!dishFound)
+                {
                     order.OrderDishes.Add(ConvertDailyOrderDishToOrderDish(dailyOrderDish, dailyOrder.OrderId));
                 }
             }
 
-            order.TotalSum = TotalSum;
+            if (order.OrderDishes != null)
+            {
+                foreach (var orderDish in order.OrderDishes)
+                {
+                    totalSum += orderDish.DishPrice;
+                }
+            }
+
+            order.TotalSum = totalSum;
 
             return order;
         }

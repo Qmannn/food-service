@@ -48,6 +48,22 @@ namespace FoodService.Controllers
                     Price = 100,
                     Category = DishCategory.SecondDish,
                     ContainerId = 1
+                },
+                new DailyOrderDish {
+                    Id = 7,
+                    Name = "second dish 2",
+                    Description = "second dish",
+                    Price = 100,
+                    Category = DishCategory.SecondDish,
+                    ContainerId = 1
+                },
+                new DailyOrderDish {
+                    Id = 8,
+                    Name = "salad 1",
+                    Description = "salad",
+                    Price = 100,
+                    Category = DishCategory.Salad,
+                    ContainerId = 1
                 }
             }
         };
