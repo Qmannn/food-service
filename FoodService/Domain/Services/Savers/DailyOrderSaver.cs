@@ -22,10 +22,6 @@ namespace FoodService.Domain.Services.Savers
 
             Order order = ConvertDailyOrderToOrder(oldOrder, dailyOrder);
 
-            /*
-             * The instance of entity type 'Order' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
-            */
-
             order = _orderRepository.Save(order);
 
             return ConvertOrderToDailyOrder(order);
