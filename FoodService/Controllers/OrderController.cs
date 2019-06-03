@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using FoodService.Service;
 using Microsoft.AspNetCore.Mvc;
 using Food.EntityFramework.Entities.Enums;
 using System;
@@ -8,6 +7,7 @@ using FoodService.Dto.Menu;
 using FoodService.Dto.Dish;
 using FoodService.Domain.Services.Finders;
 using FoodService.Dto.Order;
+using FoodService.Domain.Services.Builders;
 using FoodService.Domain.Entities;
 
 namespace FoodService.Controllers
@@ -16,10 +16,12 @@ namespace FoodService.Controllers
     public class OrderController : Controller
     {
         private readonly IDailyOrderFinder _dailyOrderFinder;
+        private readonly IOrderBuilder _orderBuilder;
 
-        public OrderController(IDailyOrderFinder dailyOrderFinder)
+        public OrderController(IDailyOrderFinder dailyOrderFinder, IOrderBuilder orderBuilder)
         {
             _dailyOrderFinder = dailyOrderFinder;
+            _orderBuilder = orderBuilder;
         }
 
         [HttpGet("dailyOrder")]
@@ -119,7 +121,7 @@ namespace FoodService.Controllers
             };
             dayMenu.Menu = new MenuDto()
             {
-                Id = 10,
+                Id = 1,
                 CurrentDate = menuDate
             };
             return dayMenu;
@@ -128,6 +130,7 @@ namespace FoodService.Controllers
         [HttpPost("make-order")]
         public OrderDto MakeOrder([FromBody] OrderDto order)
         {
+            _orderBuilder.BuildDailyOrder(order);
             return order;
         }
     }

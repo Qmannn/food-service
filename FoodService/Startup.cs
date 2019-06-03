@@ -10,7 +10,9 @@ using Food.EntityFramework;
 using Food.EntityFramework.Entities;
 using Microsoft.EntityFrameworkCore;
 using Food.EntityFramework.Configuration;
+using FoodService.Domain.Services.Converters;
 using Food.EntityFramework.Repository;
+using FoodService.Domain.Services.Builders;
 using FoodService.Domain.Services.Finders;
 
 namespace FoodService
@@ -40,7 +42,13 @@ namespace FoodService
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IDailyOrderFinder, DailyOrderFinder>();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+            services.AddScoped<IRepository<Menu>, GenericRepository<Menu>>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
+
+            services.AddScoped<IDailyOrderConverter, DailyOrderConverter>();
+            services.AddScoped<IOrderBuilder, OrderBuilder>();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

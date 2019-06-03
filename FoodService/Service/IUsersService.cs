@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Food.EntityFramework.Entities;
 using FoodService.Dto.User;
 
 namespace FoodService.Service
