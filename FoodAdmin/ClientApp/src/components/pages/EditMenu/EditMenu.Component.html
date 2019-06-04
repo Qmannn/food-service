@@ -1,60 +1,73 @@
-<div>
-    <div class="page-header">
-        <h1 *ngIf="editingMenuId === 0;else unset">Создание меню:</h1>
-        <ng-template #unset>
-            <h1>Редактирование меню:</h1>
-        </ng-template>
+<div class="page-header">
+  <h1 *ngIf="editingMenuId === 0;else unset">Создание меню:</h1>
+  <ng-template #unset>
+    <h1>Редактирование меню:</h1>
+  </ng-template>
+</div>
+<div *ngIf="menuToEdit">
+  <div class="row">
+    <div class="col-md-3">
+      <label>CurrentDate: {{getDate(menuToEdit.currentDate)}}</label>
+      <input type="date" class="form-control" [(ngModel)]="menuToEdit.currentDate">
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <input type="date" class="form-control" [(ngModel)]="selectedDate">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Название блюда</th>
-                        <th>Тип блюда</th>
-                        <th>Действие</th>
-                    </tr>
-                </thead>
-                    <tbody>
-                        <tr *ngFor="let dish of dishes">
-                            <th>{{dish.name}}</th>
-                            <th>{{getDishCategory(dish.category)}}</th>
-                            <td>
-                                <div class="btn-group" role="group" >
-                                    <button type="button" class="btn btn-primary" (click)="addDish(dish)">Добавить</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-            </table>
-        </div>
-        <div class="col-md-6">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Название блюда</th>
-                        <th>Тип блюда</th>
-                        <th>Действие</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr *ngFor="let dish of selectedDishes">
-                            <th>{{dish.name}}</th>
-                            <th>{{getDishCategory(dish.category)}}</th>
-                            <td>
-                                <div class="btn-group" role="group" >
-                                    <button type="button" class="btn btn-danger" (click)="delDish(dish)">Удалить</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-            </table>
-        </div>
-    </div>
-    <button type="button" class="btn btn-primary" (click)="saveMenu()">Сохранить</button>
   </div>
+  <div class="row">
+    <div class="col-md-3">
+      <label>Start Date: {{getDate(menuToEdit.startDate)}}</label>
+      <input type="date" class="form-control" [(ngModel)]="menuToEdit.startDate">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <label>End Date: {{getDate(menuToEdit.endDate)}}</label>
+      <input type="date" class="form-control" [(ngModel)]="menuToEdit.endDate">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Название блюда</th>
+            <th>Тип блюда</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dish of dishes">
+            <th>{{dish.name}}</th>
+            <th>{{getDishCategory(dish.category)}}</th>
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" (click)="addDish(dish)">Добавить</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Название блюда</th>
+            <th>Тип блюда</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dish of selectedDishes">
+            <th>{{dish.name}}</th>
+            <th>{{getDishCategory(dish.category)}}</th>
+            <td>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-danger" (click)="delDish(dish)">Удалить</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="saveMenu()">Сохранить</button>
+</div>

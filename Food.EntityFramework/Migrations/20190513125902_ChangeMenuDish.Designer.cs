@@ -4,14 +4,16 @@ using Food.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Food.EntityFramework.Migrations
 {
     [DbContext(typeof(FoodDbContext))]
-    partial class FoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190513125902_ChangeMenuDish")]
+    partial class ChangeMenuDish
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,8 +89,6 @@ namespace Food.EntityFramework.Migrations
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<int>("MenuStatus");
-
                     b.Property<DateTime>("StartDate");
 
                     b.HasKey("Id");
@@ -152,7 +152,7 @@ namespace Food.EntityFramework.Migrations
 
                     b.Property<string>("DishDescription");
 
-                    b.Property<int>("DishId");
+                    b.Property<int?>("DishId");
 
                     b.Property<string>("DishName")
                         .IsRequired()
@@ -244,8 +244,7 @@ namespace Food.EntityFramework.Migrations
                 {
                     b.HasOne("Food.EntityFramework.Entities.Dish")
                         .WithMany("OrderDishes")
-                        .HasForeignKey("DishId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("DishId");
 
                     b.HasOne("Food.EntityFramework.Entities.Order", "Order")
                         .WithMany("OrderDishes")

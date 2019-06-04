@@ -7,7 +7,7 @@ namespace Food.EntityFramework.Entities.Configurations
     {
         public void Configure( EntityTypeBuilder<MenuDish> builder )
         {
-            builder.HasKey(menuDish => new { menuDish.MenuId, menuDish.DishId });
+            builder.HasKey(menuDish => menuDish.Id);
         }
     }
 }

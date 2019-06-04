@@ -22,4 +22,20 @@ export class MenuComponent {
       this.menus = values;
     });
   }
+
+  public getDate(date: Date) {
+    return new Date(date).toLocaleDateString();
+  }
+
+  public deleteMenu(menuId: number): void {
+    this._menuDataService.deleteMenu(menuId).subscribe(() => {
+      this.reloadMenus();
+    });
+  }
+
+  private reloadMenus(): void {
+    this._menuDataService.getMenus().subscribe(values => {
+      this.menus = values;
+    });
+  }
 }

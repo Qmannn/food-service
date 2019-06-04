@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Food.EntityFramework.Entities;
 
 namespace Food.EntityFramework
@@ -9,6 +10,7 @@ namespace Food.EntityFramework
         TEntity GetItem(int id);
         TEntity Save(TEntity item);
         void Delete(TEntity item);
+        void Delete(IEnumerable<TEntity> item);
         void Delete(int id);
     }
 }

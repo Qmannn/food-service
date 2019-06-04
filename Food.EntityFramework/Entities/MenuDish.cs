@@ -1,7 +1,9 @@
 ﻿namespace Food.EntityFramework.Entities
 {
-    public class MenuDish
+    public class MenuDish : IEntity
     {
+        public int Id { get; set; }
+
         public int DishId { get; set; }
         public int MenuId { get; set; }
 

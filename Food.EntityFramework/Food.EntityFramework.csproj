@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190513125447_ChangeMenuDish.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Food.EntityFramework.csproj.DotSettings" />
   </ItemGroup>
 
