@@ -19,6 +19,7 @@ namespace FoodService.Controllers
         private readonly IDailyOrderFinder _dailyOrderFinder;
         private readonly IDailyOrderSaver _dailyOrderSaver;
         private readonly IOrderBuilder _orderBuilder;
+        private readonly IDailyMenuFinder _dailyMenuFinder;
 
         private DailyOrder dailyOrder = new DailyOrder {
             Date = new DateTime(),
@@ -69,11 +70,12 @@ namespace FoodService.Controllers
             }
         };
 
-        public OrderController(IDailyOrderFinder dailyOrderFinder, IDailyOrderSaver dailyOrderSaver, IOrderBuilder orderBuilder)
+        public OrderController(IDailyOrderFinder dailyOrderFinder, IDailyOrderSaver dailyOrderSaver, IOrderBuilder orderBuilder, IDailyMenuFinder dailyMenuFinder)
         {
             _dailyOrderFinder = dailyOrderFinder;
             _dailyOrderSaver = dailyOrderSaver;
             _orderBuilder = orderBuilder;
+            _dailyMenuFinder = dailyMenuFinder;
         }
 
         [HttpGet("saveDailyOrder")]
@@ -92,103 +94,14 @@ namespace FoodService.Controllers
         [HttpGet("menu-on-day")]
         public DayMenuDto GetMenuOnDay(DateTime menuDate)
         {
-            DayMenuDto dayMenu = new DayMenuDto();
-            dayMenu.MenuDishes = new List<DishDto>
-            {
-                new DishDto
-                {
-                    Id = 0,
-                    Name = "First dish 1",
-                    Description = "dish description",
-                    Price = 100,
-                    Category = DishCategory.FirstDish,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 1,
-                    Name = "Second dish 1",
-                    Description = "dish description",
-                    Price = 100,
-                    Category = DishCategory.SecondDish,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 2,
-                    Name = "Garnish 1",
-                    Description = "dish description",
-                    Price = 100,
-                    Category = DishCategory.Garnish,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 3,
-                    Name = "Salad 1",
-                    Description = "dish description",
-                    Price = 100,
-                    Category = DishCategory.Salad,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 4,
-                    Name = "First dish 2",
-                    Description = "dish description",
-                    Price = 100,
-                    Category = DishCategory.FirstDish,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 5,
-                    Name = "Salad 2",
-                    Description = "dish description",
-                    Price = 100,
-                    Category = DishCategory.Salad,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 6,
-                    Name = "Garnish 2",
-                    Description = "dish description",
-                    Price = 100,
-                    Category = DishCategory.Garnish,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 7,
-                    Name = "Борщ",
-                    Description = "First description",
-                    Price = 170,
-                    Category = DishCategory.FirstDish,
-                    ContainerId = 1,
-                },
-                new DishDto
-                {
-                    Id = 8,
-                    Name = "Салат",
-                    Description = "Second description",
-                    Price = 100,
-                    Category = DishCategory.Salad,
-                    ContainerId = 2,
-                },
-            };
-            dayMenu.Menu = new MenuDto()
-            {
-                Id = 1,
-                CurrentDate = menuDate
-            };
-            return dayMenu;
+            return _dailyMenuFinder.GetMenuFromDate(menuDate);
         }
 
         [HttpPost("make-order")]
         public OrderDto MakeOrder([FromBody] OrderDto order)
         {
-            _orderBuilder.BuildDailyOrder(order);
+            var dailyOrder = _orderBuilder.BuildDailyOrder(order);
+            _dailyOrderSaver.SaveDailyOrder(dailyOrder);
             return order;
         }
     }

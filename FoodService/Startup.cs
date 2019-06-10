@@ -53,6 +53,10 @@ namespace FoodService
             services.AddScoped<IRepository<Order>, GenericRepository<Order>>();
             services.AddScoped<IDailyOrderSaver, DailyOrderSaver>();
 
+            services.AddScoped<IDishRepository, DishRepository>();
+
+            services.AddScoped<IDailyMenuFinder, DailyMenuFinder>();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
