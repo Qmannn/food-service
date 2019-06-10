@@ -18,7 +18,9 @@ namespace FoodService.Domain.Services.Savers
 
         public DailyOrder SaveDailyOrder(DailyOrder dailyOrder)
         {
-            Order oldOrder = _orderRepository.GetOrderWithDishes(dailyOrder.UserId, dailyOrder.Date) ?? new Order();
+            Order oldOrder = _orderRepository.GetOrderWithDishes(dailyOrder.UserId, dailyOrder.Date) ?? new Order {
+                OrderDishes = new List<OrderDish>()
+            };
 
             Order order = ConvertDailyOrderToOrder(oldOrder, dailyOrder);
 

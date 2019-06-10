@@ -100,7 +100,8 @@ namespace FoodService.Controllers
         [HttpPost("make-order")]
         public OrderDto MakeOrder([FromBody] OrderDto order)
         {
-            _orderBuilder.BuildDailyOrder(order);
+            var dailyOrder = _orderBuilder.BuildDailyOrder(order);
+            _dailyOrderSaver.SaveDailyOrder(dailyOrder);
             return order;
         }
     }
